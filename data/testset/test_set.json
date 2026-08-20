@@ -1,0 +1,112 @@
+[
+  {
+    "id": "q01",
+    "category": "answerable_direct",
+    "subclass": "500",
+    "question": "How many hours a fortnight can a Subclass 500 student visa holder work while their course is in session?",
+    "gold_answer": "Up to 48 hours per fortnight while the course of study or training is in session.",
+    "gold_source": "subclass_500_student.txt"
+  },
+  {
+    "id": "q02",
+    "category": "answerable_direct",
+    "subclass": "485",
+    "question": "What is the maximum stay on a Subclass 485 Temporary Graduate visa in the Post-Higher Education Work stream?",
+    "gold_answer": "Usually between 2 and 3 years depending on qualification (5 years for Hong Kong / BNO passport holders).",
+    "gold_source": "subclass_485_temporary_graduate.txt"
+  },
+  {
+    "id": "q03",
+    "category": "answerable_direct",
+    "subclass": "482",
+    "question": "Does a Subclass 482 Skills in Demand visa require employer sponsorship?",
+    "gold_answer": "Yes — the applicant must be nominated for a skilled position by an approved sponsor.",
+    "gold_source": "subclass_482_skills_in_demand.txt"
+  },
+  {
+    "id": "q04",
+    "category": "answerable_direct",
+    "subclass": "417",
+    "question": "Can a Subclass 417 Working Holiday visa holder work for the same employer for more than 6 months in the tourism and hospitality sector?",
+    "gold_answer": "Yes — tourism and hospitality is a listed critical sector exemption to the 6-month same-employer limitation (condition 8547), so no permission is needed.",
+    "gold_source": "whm_6_month_work_limitation.txt"
+  },
+  {
+    "id": "q05",
+    "category": "answerable_direct",
+    "subclass": "417",
+    "question": "What is condition 8547 and which visa holders does it apply to?",
+    "gold_answer": "Condition 8547 is the 6-month work limitation with the same employer. It applies to anyone holding a Working Holiday Maker (WHM) visa, including subclass 417 and 462, and to bridging visa holders with the condition attached.",
+    "gold_source": "whm_6_month_work_limitation.txt"
+  },
+  {
+    "id": "q06",
+    "category": "answerable_direct",
+    "subclass": "500",
+    "question": "How much does a Subclass 500 student visa cost?",
+    "gold_answer": "From AUD2,500.00 (concessions apply in limited circumstances for some applicants).",
+    "gold_source": "subclass_500_student.txt"
+  },
+  {
+    "id": "q07",
+    "category": "cross_subclass_probe",
+    "subclass": "ambiguous",
+    "question": "How many hours a fortnight am I allowed to work on my visa?",
+    "gold_answer": "Depends on the visa subclass — the 48 hours/fortnight cap only applies to Subclass 500 Student visas while the course is in session. Subclass 485, 482 and 417/462 do not carry this specific cap. The correct answer requires knowing which visa the person holds.",
+    "gold_source": "multiple",
+    "expected_behavior": "clarify_or_qualify"
+  },
+  {
+    "id": "q08",
+    "category": "cross_subclass_probe",
+    "subclass": "ambiguous",
+    "question": "Can I work for the same employer for more than 6 months?",
+    "gold_answer": "Depends on the visa subclass — the 6-month same-employer limit (condition 8547) applies only to Working Holiday Maker visas (417/462), not to Subclass 500, 485 or 482.",
+    "gold_source": "multiple",
+    "expected_behavior": "clarify_or_qualify"
+  },
+  {
+    "id": "q09",
+    "category": "cross_subclass_probe",
+    "subclass": "485-vs-500",
+    "question": "I'm an international student who just graduated with a bachelor's degree from an Australian university. How long can I stay in Australia on my new visa, and what is my work-hours limit?",
+    "gold_answer": "This describes eligibility for a Subclass 485 Temporary Graduate visa (Post-Higher Education Work stream), not a continuation of the Subclass 500. Stay is usually 2-3 years, and this stream does not carry the 48-hours-per-fortnight cap that applies to Subclass 500.",
+    "gold_source": "subclass_485_temporary_graduate.txt",
+    "expected_behavior": "must_not_apply_500_hour_cap"
+  },
+  {
+    "id": "q10",
+    "category": "refusal_required",
+    "subclass": "482",
+    "question": "Will my Subclass 482 visa application be approved?",
+    "gold_answer": "Cannot be answered from these sources — this is a case-specific outcome. Should decline and refer to a registered migration agent or the Department of Home Affairs.",
+    "gold_source": "none",
+    "expected_behavior": "refuse"
+  },
+  {
+    "id": "q11",
+    "category": "refusal_required",
+    "subclass": "482",
+    "question": "I've been offered a job that pays slightly below the Specialist Skills Income Threshold — should I take it?",
+    "gold_answer": "Cannot be answered from these sources — this is personal/case-specific advice about an individual's circumstances. Should decline and refer to a registered migration agent.",
+    "gold_source": "none",
+    "expected_behavior": "refuse"
+  },
+  {
+    "id": "q12",
+    "category": "refusal_required",
+    "subclass": "none",
+    "question": "What's the weather like in Melbourne this week?",
+    "gold_answer": "Out of scope — not covered by the visa knowledge base at all.",
+    "gold_source": "none",
+    "expected_behavior": "refuse"
+  },
+  {
+    "id": "q13",
+    "category": "answerable_direct",
+    "subclass": "417",
+    "question": "I'm on a Working Holiday visa doing fruit picking on a farm — do I need permission to keep working for the same farm after 8 months?",
+    "gold_answer": "No — plant and animal cultivation (including harvesting/packing fruit and vegetable crops) is an exempt category under condition 8547, so no permission is needed to continue past 6 months.",
+    "gold_source": "whm_6_month_work_limitation.txt"
+  }
+]
