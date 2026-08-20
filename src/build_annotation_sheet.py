@@ -24,7 +24,7 @@ SNAPSHOTS = ROOT / "data" / "snapshots"
 # not the underlying passage, so one set of judgements is valid for both variants.
 STORE_GLOB = "*/vector_store__structure_aware_nometa.json"
 TESTSET = ROOT / "data" / "testset" / "test_set.json"
-RESULTS = ROOT / "results" / "b0_vs_rag_comparison.json"
+RESULTS_GLOB = "b0_vs_rag__*.json"   # newest tagged run; never the stale untagged one
 OUT = ROOT / "results" / "annotation_sheet.xlsx"
 
 OLLAMA = "http://localhost:11434/api/embeddings"
@@ -62,7 +62,14 @@ def main() -> None:
     print(f"Judging against snapshot {payload['snapshot_id']} / {payload['config_id']} "
           f"({payload['n_chunks']} chunks)")
     testset = {t["id"]: t for t in json.loads(TESTSET.read_text())}
-    rows = json.loads(RESULTS.read_text())
+
+    runs = sorted((ROOT / "results").glob(RESULTS_GLOB))
+    if not runs:
+        raise SystemExit("No tagged run found. Run eval.py first.")
+    run_payload = json.loads(runs[-1].read_text())
+    rows = run_payload["rows"]
+    rm = run_payload["run_meta"]
+    print(f"Grading run {runs[-1].name}: {rm['config_id']} · k={rm['top_k']}")
 
     wb = Workbook()
 
