@@ -9,3 +9,6 @@ __pycache__/
 # Scratch
 scratch/
 *.tmp
+
+# shareable packets, rebuilt on demand
+dist/
