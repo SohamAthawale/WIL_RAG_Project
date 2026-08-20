@@ -76,32 +76,50 @@ The knowledge base is deliberately small — a handful of documents, not thousan
 | B2 | Dense retrieval + LLM (Walert DPR) | Implemented |
 | B3 | Hybrid + reranking | Not started |
 
-## Setup
+## Requirements
 
-Requires [Ollama](https://ollama.com) running locally. Zero-cost: no paid API is used.
+Runs entirely locally and free — no API keys, no cloud services.
+
+| | |
+|---|---|
+| Python | 3.10+ |
+| [Ollama](https://ollama.com) | 0.32+ |
+| RAM | 8 GB minimum, 16 GB comfortable |
+| Disk | ~6 GB (5 GB models) |
+| GPU | not required |
 
 ```bash
-ollama pull nomic-embed-text
-ollama pull qwen2.5:7b-instruct
+ollama pull nomic-embed-text        # 274 MB — embeddings
+ollama pull qwen2.5:7b-instruct     # 4.7 GB — generation
 
 python3 -m venv .venv
 source .venv/bin/activate
-pip install numpy requests
+pip install -r requirements.txt
 ```
 
-Build the vector store (embeds the corpus — run once, or after changing chunking):
+Full instructions, verification steps and troubleshooting: [`docs/setup.md`](docs/setup.md).
+
+## Running it
+
+Build the vector store (only needed after changing chunking):
 
 ```bash
-cd src && python ingest.py
+cd src && python ingest.py --strategy structure_aware --prepend-metadata
 ```
 
-Run the B0-vs-RAG comparison over the test set:
+Run the test set through the bare-LLM baseline and the RAG system:
 
 ```bash
-cd src && python eval.py
+cd src && python eval.py --config structure_aware_meta --k 3
 ```
 
-Outputs land in `results/` as both CSV (for hand annotation) and JSON.
+Compare retrieval configurations (fast — no generation):
+
+```bash
+cd src && python eval_configs.py
+```
+
+Outputs land in `results/`, tagged with the snapshot and config that produced them.
 
 ## Repository layout
 
