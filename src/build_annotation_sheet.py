@@ -19,7 +19,10 @@ from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.datavalidation import DataValidation
 
 ROOT = Path(__file__).resolve().parent.parent
-STORE = ROOT / "data" / "vector_store.json"
+SNAPSHOTS = ROOT / "data" / "snapshots"
+# Judge against the no-metadata store: the D9 prefix changes the embedded text but
+# not the underlying passage, so one set of judgements is valid for both variants.
+STORE_GLOB = "*/vector_store__structure_aware_nometa.json"
 TESTSET = ROOT / "data" / "testset" / "test_set.json"
 RESULTS = ROOT / "results" / "b0_vs_rag_comparison.json"
 OUT = ROOT / "results" / "annotation_sheet.xlsx"
@@ -53,7 +56,11 @@ def style_header(ws, widths: list[int], freeze: str) -> None:
 
 
 def main() -> None:
-    store = json.loads(STORE.read_text())
+    store_path = sorted(SNAPSHOTS.glob(STORE_GLOB))[-1]
+    payload = json.loads(store_path.read_text())
+    store = payload["chunks"]
+    print(f"Judging against snapshot {payload['snapshot_id']} / {payload['config_id']} "
+          f"({payload['n_chunks']} chunks)")
     testset = {t["id"]: t for t in json.loads(TESTSET.read_text())}
     rows = json.loads(RESULTS.read_text())
 
