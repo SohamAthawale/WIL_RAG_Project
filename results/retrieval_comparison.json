@@ -1,0 +1,81 @@
+{
+  "n_questions": 8,
+  "summary": {
+    "dense": {
+      "recall@1": 0.625,
+      "recall@3": 0.875,
+      "recall@5": 1.0,
+      "mrr": 0.775
+    },
+    "bm25": {
+      "recall@1": 0.875,
+      "recall@3": 0.875,
+      "recall@5": 1.0,
+      "mrr": 0.906
+    },
+    "hybrid_rrf": {
+      "recall@1": 0.625,
+      "recall@3": 0.875,
+      "recall@5": 1.0,
+      "mrr": 0.781
+    }
+  },
+  "per_question": [
+    {
+      "id": "q01",
+      "gold_source": "subclass_500_student.txt",
+      "dense_first_rank": 5,
+      "bm25_first_rank": 4,
+      "hybrid_rrf_first_rank": 4
+    },
+    {
+      "id": "q02",
+      "gold_source": "subclass_485_temporary_graduate.txt",
+      "dense_first_rank": 1,
+      "bm25_first_rank": 1,
+      "hybrid_rrf_first_rank": 2
+    },
+    {
+      "id": "q03",
+      "gold_source": "subclass_482_skills_in_demand.txt",
+      "dense_first_rank": 1,
+      "bm25_first_rank": 1,
+      "hybrid_rrf_first_rank": 1
+    },
+    {
+      "id": "q04",
+      "gold_source": "whm_6_month_work_limitation.txt",
+      "dense_first_rank": 2,
+      "bm25_first_rank": 1,
+      "hybrid_rrf_first_rank": 2
+    },
+    {
+      "id": "q05",
+      "gold_source": "whm_6_month_work_limitation.txt",
+      "dense_first_rank": 1,
+      "bm25_first_rank": 1,
+      "hybrid_rrf_first_rank": 1
+    },
+    {
+      "id": "q06",
+      "gold_source": "subclass_500_student.txt",
+      "dense_first_rank": 1,
+      "bm25_first_rank": 1,
+      "hybrid_rrf_first_rank": 1
+    },
+    {
+      "id": "q09",
+      "gold_source": "subclass_485_temporary_graduate.txt",
+      "dense_first_rank": 2,
+      "bm25_first_rank": 1,
+      "hybrid_rrf_first_rank": 1
+    },
+    {
+      "id": "q13",
+      "gold_source": "whm_6_month_work_limitation.txt",
+      "dense_first_rank": 1,
+      "bm25_first_rank": 1,
+      "hybrid_rrf_first_rank": 1
+    }
+  ]
+}
