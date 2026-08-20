@@ -105,3 +105,62 @@ Hand-annotate `results/annotation_worksheet.csv` — fill `b0_correct_manual` an
 independently, then reconciling, gives an inter-annotator agreement figure worth reporting.
 
 Until that is done, **no accuracy number for this run exists** and none should be quoted.
+
+---
+
+# Re-run after the pipeline fix (2026-08-20)
+
+**Config:** snapshot `2d8e935b8999`, `structure_aware_meta`, 26 chunks, k=3.
+The earlier run used paragraph chunking with no subclass prefix; the generation path
+had not been migrated to the snapshot stores, so those results and the retrieval
+results described different systems.
+
+## Case 1 — q01 is fixed, including the attribution failure
+
+`subclass_500_student.txt` now retrieves at **rank 1 (0.829)** and rank 3, where it
+previously did not appear in the top-3 at all. The answer is correct and the citation
+names a document that was genuinely in context.
+
+Both failures recorded earlier for q01 — the retrieval miss and the ungrounded citation
+— are resolved by D6 + D9 together.
+
+## Case 2 — q02: cross-subclass confusion fixed, a second failure exposed underneath
+
+All three retrieved chunks are now from `subclass_485_temporary_graduate.txt`, so
+**cross-subclass confusion for this question is zero.** The answer is still wrong.
+
+| | Answer | Correct? |
+|---|---|---|
+| Before | "up to four years" — the **Subclass 482** figure | Wrong, cross-subclass |
+| After | "between 1 and 2 years" — the **Second Post-Higher Education Work** stream | Wrong, cross-stream |
+| Gold | "Usually between 2 and 3 years" — Post-Higher Education Work stream | — |
+
+Cause, traceable in the snapshot:
+
+- `subclass_485_temporary_graduate::3` — Post-Higher Education Work stream, `Stay: Usually
+  between 2 and 3 years`. The correct chunk.
+- `subclass_485_temporary_graduate::4` — **Second** Post-Higher Education Work stream,
+  `Stay: Between 1 and 2 years`. Its heading contains the literal string "Post-Higher
+  Education Work", so it matches the query strongly.
+
+The model took the figure from `::4`.
+
+## Why this matters for the framework
+
+The headline metric would score q02 as a **success** after the fix, because no wrong
+subclass was involved. The answer would still send a graduate a figure that is wrong by
+a year or more.
+
+Three consequences for the evaluation:
+
+1. **Cross-subclass confusion alone is insufficient** as a correctness measure. It is a
+   necessary condition, not a sufficient one. This is direct evidence for the D13
+   decision to implement all four definitions rather than commit to one early.
+2. **Dimensions 2 (faithfulness) and 3 (attribution correctness) are load-bearing**, not
+   optional extras. Both are currently unimplemented, and both would catch this.
+3. **The confusion hierarchy has at least two levels** — between subclasses, and between
+   streams within a subclass. Whether the chunk prefix should carry the stream as well as
+   the subclass is a design decision the team has not yet taken, and it should be run as
+   a controlled experiment like D9 rather than applied silently.
+
+No accuracy figures are stated here. The manual grading for this run has not been done.

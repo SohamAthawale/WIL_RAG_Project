@@ -8,7 +8,11 @@ import numpy as np
 import requests
 
 ROOT = Path(__file__).resolve().parent.parent
-STORE_PATH = ROOT / "data" / "vector_store.json"
+SNAPSHOTS = ROOT / "data" / "snapshots"
+
+# The generation path reads the same snapshot stores as the retrieval experiments.
+# Anything else silently compares systems built on different chunkings.
+DEFAULT_CONFIG = "structure_aware_meta"
 
 OLLAMA_EMBED_URL = "http://localhost:11434/api/embeddings"
 OLLAMA_CHAT_URL = "http://localhost:11434/api/chat"
@@ -33,8 +37,33 @@ RAG_SYSTEM_PROMPT = (
 B0_SYSTEM_PROMPT = "You are a helpful assistant. Answer the user's question as best you can."
 
 
-def load_store() -> list[dict]:
-    return json.loads(STORE_PATH.read_text())
+def resolve_store(config: str = DEFAULT_CONFIG) -> Path:
+    matches = sorted(SNAPSHOTS.glob(f"*/vector_store__{config}.json"))
+    if not matches:
+        raise FileNotFoundError(
+            f"No snapshot for config {config!r} under {SNAPSHOTS}. "
+            f"Run: python ingest.py --strategy structure_aware --prepend-metadata"
+        )
+    return matches[-1]
+
+
+def load_store(config: str = DEFAULT_CONFIG) -> list[dict]:
+    return json.loads(resolve_store(config).read_text())["chunks"]
+
+
+def store_meta(config: str = DEFAULT_CONFIG) -> dict:
+    """Provenance for the results file - which snapshot and config produced a run."""
+    p = json.loads(resolve_store(config).read_text())
+    return {
+        "snapshot_id": p["snapshot_id"],
+        "config_id": p["config_id"],
+        "strategy": p["strategy"],
+        "prepend_metadata": p["prepend_metadata"],
+        "n_chunks": p["n_chunks"],
+        "embed_model": p["embed_model"],
+        "gen_model": GEN_MODEL,
+        "top_k": TOP_K,
+    }
 
 
 def embed(text: str) -> np.ndarray:
@@ -72,8 +101,8 @@ def chat(system_prompt: str, user_prompt: str) -> str:
     return resp.json()["message"]["content"]
 
 
-def answer_rag(question: str, store: list[dict]) -> dict:
-    hits = retrieve(question, store)
+def answer_rag(question: str, store: list[dict], k: int = TOP_K) -> dict:
+    hits = retrieve(question, store, k)
     context = "\n\n---\n\n".join(f"[Source: {h['source']}]\n{h['text']}" for h in hits)
     prompt = f"CONTEXT:\n{context}\n\nQUESTION: {question}"
     answer = chat(RAG_SYSTEM_PROMPT, prompt)
@@ -87,6 +116,7 @@ def answer_b0(question: str) -> dict:
 
 if __name__ == "__main__":
     store = load_store()
+    print("store:", store_meta())
     q = "How many hours a fortnight can I work on my visa?"
     print("=== B0 (no retrieval) ===")
     print(answer_b0(q)["answer"])

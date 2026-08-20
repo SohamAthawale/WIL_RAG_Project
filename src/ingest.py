@@ -24,7 +24,6 @@ from chunking import STRATEGIES, chunk_document
 ROOT = Path(__file__).resolve().parent.parent
 DOCS_DIR = ROOT / "data" / "documents"
 SNAPSHOTS = ROOT / "data" / "snapshots"
-LEGACY_OUT = ROOT / "data" / "vector_store.json"
 
 OLLAMA_URL = "http://localhost:11434/api/embeddings"
 EMBED_MODEL = "nomic-embed-text"
@@ -61,8 +60,6 @@ def main() -> None:
     ap.add_argument("--overlap", type=float)
     ap.add_argument("--max-chars", type=int)
     ap.add_argument("--min-chars", type=int)
-    ap.add_argument("--also-write-legacy", action="store_true",
-                    help="also overwrite data/vector_store.json for older scripts")
     args = ap.parse_args()
 
     params = {k: v for k, v in {
@@ -99,10 +96,6 @@ def main() -> None:
     }
     out_path.write_text(json.dumps(payload, indent=2))
     print(f"\nWrote {len(records)} chunks -> {out_path.relative_to(ROOT)}")
-
-    if args.also_write_legacy:
-        LEGACY_OUT.write_text(json.dumps(records, indent=2))
-        print(f"Also wrote legacy flat store -> {LEGACY_OUT.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":
