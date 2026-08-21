@@ -24,7 +24,11 @@ SNAPSHOTS = ROOT / "data" / "snapshots"
 # not the underlying passage, so one set of judgements is valid for both variants.
 STORE_GLOB = "*/vector_store__structure_aware_nometa.json"
 TESTSET = ROOT / "data" / "testset" / "test_set.json"
-RESULTS_GLOB = "b0_vs_rag__*.json"   # newest tagged run; never the stale untagged one
+# Grade the run at the pipeline default (TOP_K in rag.py), not whichever filename
+# happens to sort last. k=5 sorts after k=3, so "newest by name" silently picked a
+# non-default configuration - the grading has to describe the system as configured.
+from rag import DEFAULT_CONFIG, TOP_K
+RESULTS_GLOB = f"b0_vs_rag__{DEFAULT_CONFIG}_k{TOP_K}.json"
 OUT = ROOT / "results" / "annotation_sheet.xlsx"
 
 OLLAMA = "http://localhost:11434/api/embeddings"
@@ -65,7 +69,9 @@ def main() -> None:
 
     runs = sorted((ROOT / "results").glob(RESULTS_GLOB))
     if not runs:
-        raise SystemExit("No tagged run found. Run eval.py first.")
+        raise SystemExit(
+            f"No run matching {RESULTS_GLOB}.\n"
+            f"Generate it: python eval.py --config {DEFAULT_CONFIG} --k {TOP_K}")
     run_payload = json.loads(runs[-1].read_text())
     rows = run_payload["rows"]
     rm = run_payload["run_meta"]
