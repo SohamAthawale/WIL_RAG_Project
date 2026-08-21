@@ -15,3 +15,12 @@ dist/
 
 # sweep snapshots - large, rebuildable from chunking_sweep.csv params
 data/sweeps/
+
+# team coordination lives outside this repo
+tasks/
+docs/workplan.md
+docs/decision-sheet.md
+docs/sprint-1-tasks.md
+docs/branching.md
+MASTER_PROMPT.md
+*.zip
