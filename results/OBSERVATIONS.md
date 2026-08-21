@@ -375,3 +375,54 @@ which sit inside the noise floor.
 `structure_aware`, `max_chars=600`, subclass prefix on, BM25: R@1 0.875 · MRR 0.938 ·
 wrong-subclass@1 0.200. Per T09 Finding 2, not distinguishable from several others — carry it as
 the working default, not a proven optimum.
+
+---
+
+# T04 — Text-similarity measures, and where they disagree with correctness (2026-08-21)
+
+ROUGE-1 and a labelled embedding-cosine proxy, over all runs. `results/generation_metrics.csv`.
+
+The proxy is **not BERTScore** and is labelled `cosine_proxy (NOT BERTScore)` in the CSV header.
+BERTScore does greedy token-level matching over contextual embeddings and reports P/R/F1; this is
+a single cosine over whole-text embeddings from the retrieval model already installed. It is a
+defensible stand-in for semantic similarity and an indefensible substitute for the named metric.
+
+## Retrieval helps, on both measures
+
+| System | Mean ROUGE-1 F1 | Mean cosine proxy |
+|---|---|---|
+| B0 (no retrieval) | 0.117 | 0.668 |
+| RAG | 0.300 | 0.765 |
+
+n=13 questions.
+
+## The measures do not track correctness
+
+This is the point of the task, and there is a clean demonstration in the k=3 run.
+
+| Question | Correct? | ROUGE-1 F1 |
+|---|---|---|
+| **q03** | **Yes** — "a Subclass 482 visa requires employer sponsorship", matching the gold answer | **0.154** |
+| **q02** | **No** — gives the Second Post-Higher Education Work stream figure for a question about the Post-Higher Education Work stream | **0.185** |
+
+**The wrong answer scores higher than the correct one.**
+
+q03 is correct but phrased more directly than the gold answer, so it shares few words with it.
+q02 is wrong by more than a year on the only figure that matters, but its sentence structure
+closely mirrors the reference.
+
+This is not a flaw in the implementation. It is what these measures are: they compare an answer
+to a reference **as text**, and text similarity is not truth. Reporting them without saying so
+would let a reader infer a quality ranking the numbers cannot support.
+
+It is also the concrete argument for the project's domain-specific measures — cross-subclass
+confusion, the answerability split, attribution correctness. Those catch what ROUGE cannot.
+
+## A second observation: q13 hedges and answers
+
+q13 opens with the configured refusal string and then answers anyway, correctly, from the
+exemption list. A string-matching refusal detector will classify it as a refusal; it is a hedged
+answer. Any refusal metric has to distinguish those, or the answerability split will be wrong in
+both directions at once.
+
+Recorded here because it is a known fixture for that work, not a defect found in passing.
