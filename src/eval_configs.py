@@ -11,6 +11,7 @@ Document-level: uses gold_source from the test set. Chunk-level NDCG needs the
 qrels and is not computed here.
 """
 
+import argparse
 import json
 import re
 import sys
@@ -104,10 +105,27 @@ def evaluate(store_path: Path, testset: list[dict]) -> dict:
 
 
 def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--all-snapshots", action="store_true",
+                    help="also score stores built from superseded corpus versions")
+    args = ap.parse_args()
+
     testset = json.loads(TESTSET.read_text())
-    stores = sorted(SNAPSHOTS.glob("*/vector_store__*.json"))
+    manifest = json.loads((ROOT / "data" / "documents" / "MANIFEST.json").read_text())
+    current = manifest["snapshot_id"]
+
+    if args.all_snapshots:
+        stores = sorted(SNAPSHOTS.glob("*/vector_store__*.json"))
+        print(f"Scoring ALL snapshots. Corpus on disk is {current}; rows from other\n"
+              f"snapshots describe a different corpus and are not comparable.\n")
+    else:
+        stores = sorted((SNAPSHOTS / current).glob("vector_store__*.json"))
+        other = {p.parent.name for p in SNAPSHOTS.glob("*/vector_store__*.json")} - {current}
+        if other:
+            print(f"Scoring snapshot {current}. Skipping superseded: {', '.join(sorted(other))}\n"
+                  f"Use --all-snapshots to include them.\n")
     if not stores:
-        sys.exit("No snapshots found. Run ingest.py first.")
+        sys.exit(f"No stores for snapshot {current}. Run ingest.py first.")
 
     results = [evaluate(p, testset) for p in stores]
 

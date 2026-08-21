@@ -37,14 +37,41 @@ RAG_SYSTEM_PROMPT = (
 B0_SYSTEM_PROMPT = "You are a helpful assistant. Answer the user's question as best you can."
 
 
-def resolve_store(config: str = DEFAULT_CONFIG) -> Path:
-    matches = sorted(SNAPSHOTS.glob(f"*/vector_store__{config}.json"))
-    if not matches:
+MANIFEST = ROOT / "data" / "documents" / "MANIFEST.json"
+
+
+def current_snapshot_id() -> str:
+    """The snapshot id of the corpus as it stands on disk.
+
+    Read from the manifest rather than inferred from directory names. Picking the
+    alphabetically last directory happens to work until a corpus correction
+    produces an id that sorts earlier, at which point the pipeline silently reads
+    a superseded corpus and nothing says so.
+    """
+    if not MANIFEST.exists():
         raise FileNotFoundError(
-            f"No snapshot for config {config!r} under {SNAPSHOTS}. "
-            f"Run: python ingest.py --strategy structure_aware --prepend-metadata"
+            f"No manifest at {MANIFEST}. Run: python manifest.py\n"
+            "The manifest is what identifies which corpus version is current."
         )
-    return matches[-1]
+    return json.loads(MANIFEST.read_text())["snapshot_id"]
+
+
+def resolve_store(config: str = DEFAULT_CONFIG) -> Path:
+    snapshot = current_snapshot_id()
+    path = SNAPSHOTS / snapshot / f"vector_store__{config}.json"
+    if path.exists():
+        return path
+
+    stale = sorted(SNAPSHOTS.glob(f"*/vector_store__{config}.json"))
+    hint = ""
+    if stale:
+        hint = ("\n\nStores for this config exist under other snapshots:\n  "
+                + "\n  ".join(str(p.parent.name) for p in stale)
+                + f"\nThose were built from a different corpus. The corpus on disk is {snapshot}.")
+    raise FileNotFoundError(
+        f"No store for config {config!r} at snapshot {snapshot}.\n"
+        f"Rebuild it: python ingest.py --strategy structure_aware --prepend-metadata{hint}"
+    )
 
 
 def load_store(config: str = DEFAULT_CONFIG) -> list[dict]:
@@ -61,6 +88,7 @@ def store_meta(config: str = DEFAULT_CONFIG) -> dict:
         "prepend_metadata": p["prepend_metadata"],
         "n_chunks": p["n_chunks"],
         "embed_model": p["embed_model"],
+        "corpus_current": p["snapshot_id"] == current_snapshot_id(),
         "gen_model": GEN_MODEL,
         "top_k": TOP_K,
     }
