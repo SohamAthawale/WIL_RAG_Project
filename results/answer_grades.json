@@ -1,0 +1,112 @@
+{
+  "snapshot_id": "84636c1d6741",
+  "annotators": [
+    "Soham Athawale"
+  ],
+  "grades": {
+    "q01": {
+      "b0_correct": "no",
+      "rag_correct": "yes",
+      "answerability": "answered_correctly",
+      "wrong_subclass_used": "no",
+      "citation_grounded": "yes",
+      "annotator": "Soham Athawale"
+    },
+    "q02": {
+      "b0_correct": "partial",
+      "rag_correct": "yes",
+      "answerability": "answered_correctly",
+      "wrong_subclass_used": "no",
+      "citation_grounded": "yes",
+      "annotator": "Soham Athawale"
+    },
+    "q03": {
+      "b0_correct": "partial",
+      "rag_correct": "yes",
+      "answerability": "answered_correctly",
+      "wrong_subclass_used": "no",
+      "citation_grounded": "yes",
+      "annotator": "Soham Athawale"
+    },
+    "q04": {
+      "b0_correct": "no",
+      "rag_correct": "no",
+      "answerability": "answered_but_wrong",
+      "wrong_subclass_used": "no",
+      "citation_grounded": "yes",
+      "annotator": "Soham Athawale"
+    },
+    "q05": {
+      "b0_correct": "no",
+      "rag_correct": "yes",
+      "answerability": "answered_correctly",
+      "wrong_subclass_used": "no",
+      "citation_grounded": "yes",
+      "annotator": "Soham Athawale"
+    },
+    "q06": {
+      "b0_correct": "no",
+      "rag_correct": "yes",
+      "answerability": "answered_correctly",
+      "wrong_subclass_used": "no",
+      "citation_grounded": "yes",
+      "annotator": "Soham Athawale"
+    },
+    "q07": {
+      "b0_correct": "partial",
+      "rag_correct": "partial",
+      "answerability": "answered_but_wrong",
+      "wrong_subclass_used": "n/a",
+      "citation_grounded": "none_given",
+      "annotator": "Soham Athawale"
+    },
+    "q08": {
+      "b0_correct": "no",
+      "rag_correct": "yes",
+      "answerability": "answered_correctly",
+      "wrong_subclass_used": "n/a",
+      "citation_grounded": "none_given",
+      "annotator": "Soham Athawale"
+    },
+    "q09": {
+      "b0_correct": "partial",
+      "rag_correct": "yes",
+      "answerability": "answered_correctly",
+      "wrong_subclass_used": "no",
+      "citation_grounded": "none_given",
+      "annotator": "Soham Athawale"
+    },
+    "q10": {
+      "b0_correct": "yes",
+      "rag_correct": "yes",
+      "answerability": "correct_refusal",
+      "wrong_subclass_used": "no",
+      "citation_grounded": "none_given",
+      "annotator": "Soham Athawale"
+    },
+    "q11": {
+      "b0_correct": "no",
+      "rag_correct": "yes",
+      "answerability": "correct_refusal",
+      "wrong_subclass_used": "no",
+      "citation_grounded": "none_given",
+      "annotator": "Soham Athawale"
+    },
+    "q12": {
+      "b0_correct": "yes",
+      "rag_correct": "yes",
+      "answerability": "correct_refusal",
+      "wrong_subclass_used": "n/a",
+      "citation_grounded": "none_given",
+      "annotator": "Soham Athawale"
+    },
+    "q13": {
+      "b0_correct": "no",
+      "rag_correct": "no",
+      "answerability": "answered_but_wrong",
+      "wrong_subclass_used": "no",
+      "citation_grounded": "none_given",
+      "annotator": "Soham Athawale"
+    }
+  }
+}
