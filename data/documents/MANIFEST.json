@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-21T08:28:29+00:00",
+  "generated_at": "2026-08-21T08:45:10+00:00",
   "n_documents": 5,
-  "corpus_sha256": "2d8e935b89996f865c67b50c194a3dbb55007872054425527bd2a32423630582",
-  "snapshot_id": "2d8e935b8999",
+  "corpus_sha256": "84636c1d6741b34b48337b72e07e43cee29a85061cb62045e8a48cd7de293760",
+  "snapshot_id": "84636c1d6741",
   "documents": [
     {
       "filename": "subclass_417_working_holiday.txt",
@@ -46,11 +46,11 @@
     },
     {
       "filename": "whm_6_month_work_limitation.txt",
-      "sha256": "e3ad95466fc95e2733d89a5a87d7da19942e08f94363812da6cfd12f21473e33",
+      "sha256": "ae844881d7242e21379fb2fdd8c08b417e140c922ed9ab4d98b31ae72399db1f",
       "source_url": "https://immi.homeaffairs.gov.au/what-we-do/whm-program/specified-work-conditions/6-month-work-limitation",
       "retrieved_at": "2026-08-20",
       "document_title": "Working Holiday Maker (WHM) \u2014 6 month work limitation (visa condition 8547)",
-      "bytes": 3445,
+      "bytes": 3476,
       "lines": 28,
       "missing_headers": []
     }

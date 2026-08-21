@@ -5,7 +5,7 @@
 Every document compared against its live Home Affairs source. The site returns 403 to scripted
 requests, so this was done in a browser.
 
-**Corpus snapshot id:** `2d8e935b8999` — recorded in `data/documents/MANIFEST.json` and computed
+**Corpus snapshot id:** `84636c1d6741` (was `2d8e935b8999` before the correction below) — recorded in `data/documents/MANIFEST.json` and computed
 the same way as `corpus_snapshot_id()` in `ingest.py`, so it matches the directory name under
 `data/snapshots/`. If they ever diverge, a vector store was built from a different corpus version.
 
@@ -43,11 +43,34 @@ A second, subtler difference: the live page says "critical sectors, **including*
 open list. Ours presents a closed one. Answering "is X a critical sector?" for anything outside
 the five we list would be wrong in the same direction.
 
-**Recommendation:** correct this before anyone judges relevance. No judgements exist yet (0 of
-338), so this is the cheapest moment it will ever be to fix. Once T02 is under way, changing the
-document changes the hash and invalidates every judgement made against it.
+**Status: CORRECTED** on 2026-08-21, before any judging began.
 
-**This is a team decision, not mine to make** — it alters the corpus and therefore the snapshot id.
+The line now reads *"critical sectors anywhere in Australia, including: agriculture, food
+processing, health, aged and disability care and childcare, tourism and hospitality"* — restoring
+the missing category and the open-list wording.
+
+Fixed now because zero judgements existed. Once T02 is under way the same fix would invalidate
+338 rows of human work.
+
+**⚠ Consequence — the corpus snapshot id changed from `2d8e935b8999` to `84636c1d6741`.**
+
+The vector store snapshots under `data/snapshots/2d8e935b8999/` were built from the old corpus and
+are now stale. These results were produced against them and **need re-running before they are
+quoted anywhere**:
+
+| Result file | Produced by |
+|---|---|
+| `results/config_comparison.json` | Soham |
+| `results/chunking_sweep.csv` | Soham |
+| `results/generation_metrics.csv` | Soham |
+| `results/b0_vs_rag__structure_aware_meta_k{1,3,5}.json` | Soham |
+
+Roughly an hour of compute: re-run `ingest.py`, then `eval_configs.py`, `sweep_chunking.py` and
+the three `eval.py --k` runs.
+
+Only the WHM document changed, so results not touching condition 8547 will barely move — but the
+snapshot id on every output would still be wrong, and that tagging exists precisely so results
+cannot be silently mixed across corpus versions.
 
 ## Finding 2 — 485 document is missing a stream
 
