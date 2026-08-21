@@ -479,3 +479,52 @@ here for the same reason it hurt there.
 That is a hypothesis the corpus structure supports, not a finding. It would be tested by rerunning
 the sweep once the test set is large enough to separate the categories: if extra context helps
 `cross_subclass_probe` questions more than `answerable_direct` ones, the explanation holds.
+
+---
+
+# Re-run after the corpus correction (2026-08-21)
+
+The condition 8547 exemption list was corrected — `food processing` had been omitted and the list
+was presented as closed where the source says "including". Corpus snapshot id changed from
+`2d8e935b8999` to `84636c1d6741`, so every prior result had to be re-run before being quoted.
+
+## Defect found while re-running
+
+`eval_configs.py` recorded `config_id` but **not** `snapshot_id`. Two snapshots sharing a config
+id — which is exactly what a corpus correction produces — gave indistinguishable rows. A result
+from a superseded corpus could sit in the same table as a current one with nothing to separate
+them.
+
+This is the same class of failure as the earlier divergence between the generation and retrieval
+paths: provenance recorded in the filename but not in the data. Fixed; `snapshot_id` is now the
+first field in every row and the first column in the printed table.
+
+## Every conclusion held
+
+| Finding | Old corpus | Corrected corpus |
+|---|---|---|
+| 8547 rule split from exemptions | 18 of 34 configs | **18 of 34** |
+| Which strategies split it | all and only `fixed_size` | **all and only `fixed_size`** |
+| Configs with zero wrong-subclass@1 | structure_aware + meta + hybrid | **same, 3 of them** |
+| Best measured config | structure_aware + meta | **same** |
+| hybrid RRF + metadata MRR | 0.906 | 0.938 |
+| bm25 + metadata MRR | 0.917 | 0.938 |
+
+Nothing reversed. The findings were not artefacts of the corpus error, which is worth stating in
+the report — a correction of this size is exactly the kind of thing that could have invalidated
+them, and it did not.
+
+**Caveat on the MRR movement:** the old snapshot predates the rule/exemption binding fix, so the
+old-versus-new comparison mixes two changes. The improvement should not be attributed to the
+corpus correction alone.
+
+## Why the fix mattered anyway
+
+The corrected chunk now carries the rule, the full exemption list and `food processing` together
+in `whm_6_month_work_limitation::1`. Before the correction, a question about food processing was
+unanswerable from our corpus in a way that produced a confident wrong answer rather than a
+refusal — the worst combination available.
+
+That the retrieval numbers barely moved is the point: **a corpus error of real consequence was
+invisible to every metric in the framework.** Only a human comparison against the live source
+found it. Worth saying plainly in the report, next to the metrics.

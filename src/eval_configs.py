@@ -91,6 +91,9 @@ def evaluate(store_path: Path, testset: list[dict]) -> dict:
                     1.0 if top1_sc is not None and top1_sc != gold_sc else 0.0)
 
     return {
+        # snapshot_id first: two snapshots can share a config_id, and without this
+        # a row from a superseded corpus is indistinguishable from a current one.
+        "snapshot_id": payload["snapshot_id"],
         "config_id": payload["config_id"],
         "strategy": payload["strategy"],
         "prepend_metadata": payload["prepend_metadata"],
@@ -108,14 +111,15 @@ def main() -> None:
 
     results = [evaluate(p, testset) for p in stores]
 
-    hdr = f"{'config':<34}{'chunks':>7}  {'retriever':<12}" + "".join(f"{'R@'+str(k):>7}" for k in KS) + f"{'MRR':>7}{'wrong-sc@1':>12}"
+    hdr = f"{'snapshot':<14}{'config':<34}{'chunks':>7}  {'retriever':<12}" + "".join(f"{'R@'+str(k):>7}" for k in KS) + f"{'MRR':>7}{'wrong-sc@1':>12}"
     print(hdr)
     print("-" * len(hdr))
     for r in results:
         for i, (name, m) in enumerate(r["systems"].items()):
+            snap = r["snapshot_id"] if i == 0 else ""
             cfg = r["config_id"] if i == 0 else ""
             nch = str(r["n_chunks"]) if i == 0 else ""
-            print(f"{cfg:<34}{nch:>7}  {name:<12}"
+            print(f"{snap:<14}{cfg:<34}{nch:>7}  {name:<12}"
                   + "".join(f"{m['recall@'+str(k)]:7.3f}" for k in KS)
                   + f"{m['mrr']:7.3f}{m['wrong_subclass@1']:12.3f}")
         print()
