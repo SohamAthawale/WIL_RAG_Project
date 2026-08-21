@@ -571,3 +571,83 @@ constraint is the test set, not the pipeline or the metrics.
 
 Report it as a quantified argument for expansion — the instrument resolves differences of roughly
 0.04 in mean ROUGE-1 F1, and three separate findings sit under that threshold.
+
+---
+
+## T06 — Cross-subclass confusion, five counters
+
+`src/confusion.py`, `results/confusion_counters.json`, controls in `tests/test_confusion.py`.
+
+Five defensible ways to count "answered using the wrong visa's rules", computed side by side so
+the headline definition is chosen after seeing the numbers.
+
+| | definition | pre-fix, k=3 | k=1 | k=3 | k=5 |
+|---|---|---|---|---|---|
+| (a) | cites a wrong-subclass document | 0 | 0 | 0 | 0 |
+| (b) | states a fact found only in a wrong-subclass chunk | n/a | 0 | 0 | 0 |
+| (c) | rank-1 chunk is wrong-subclass | **2** | 1 | 1 | 1 |
+| (d) | cites a document never in its context | **1** | 0 | 0 | 0 |
+| (e) | fact from the wrong stream of the right subclass | n/a | 0 | 0 | 0 |
+
+Counts are questions out of 13.
+
+**The direction matches what the observations record.** The subclass-identifier fix removed q01
+from both (c) and (d). The one remaining (c) is q09, a `cross_subclass_probe` — a question written
+to be adversarial, where retrieval puts a Subclass 500 chunk at rank 1 for a 485 question. The
+counter firing there is the counter working.
+
+**Confusion does not change with k.** All five counters are flat across k=1, 3 and 5. The
+plausible worry that a larger context window admits more cross-subclass contamination is not
+supported: the extra chunks are retrieved but not drawn from. Nobody had looked before.
+
+**(b) and (e) cannot be computed on the pre-fix run.** That run's corpus was the superseded
+snapshot, which was deleted when the corpus was corrected. Chunk ids are recovered by replaying
+retrieval and accepting it only when the source-and-score sequence reproduces exactly; against a
+corpus that no longer exists it never does, so those 13 questions are recorded as unresolvable
+rather than scored against the wrong chunks. (a), (c) and (d) need no chunk ids and are unaffected.
+
+### Every counter reads zero, and that took work to make meaningful
+
+A detector that cannot fire produces exactly the same table as a system that never errs. Each
+counter therefore has a positive control built from the real corpus that must trip it, and the
+real answer that must not. Writing them found three defects that had all been reporting clean:
+
+1. **(e) could not fire at all.** The target stream was read from `gold_chunk_ids`, which is every
+   chunk graded 1 or above. For q02 the annotator graded all five 485 chunks — including the
+   Second Post-Higher Education Work stream, the very chunk (e) exists to catch. Reading the
+   target from the *top-graded* chunk instead fixes it. **This is the concrete case for graded
+   judgements over binary ones**: the binary gold set destroys the distinction, the graded one
+   preserves it.
+2. **The subclass number counted as a fact.** `[Subclass 485 …]` in the metadata prefix meant every
+   485 chunk looked like the source of every 485 answer.
+3. **Ranges lost one endpoint and money lost its thousands.** "between 2 and 3 years" yielded only
+   the 2 — and the 3 is exactly what separates the correct stream from the wrong one. `AUD5,750.00`
+   parsed as 750.
+
+### Unrelated finding: the citation format is not obeyed
+
+Counting (a) and (d) meant parsing citations, which exposed that the model largely ignores the
+instructed `[Source: filename]` format:
+
+| form | k=1 | k=3 | k=5 |
+|---|---|---|---|
+| `[Source: f]` as instructed | 1 | 2 | 1 |
+| `Source: [f]` | 1 | 2 | 2 |
+| freeform or absent | 11 | 9 | 10 |
+
+Observed freeform variants include `sourced from [f]`, `in the source document f`, and
+`refer to the source document "f"`. **At most 4 of 13 answers cite in a machine-readable form.**
+Any attribution measure built on the documented format alone would silently score most of the set
+as uncited — the first version of this counter did exactly that. Citations here are instead matched
+against the closed set of corpus filenames, which is format-independent.
+
+This belongs to attribution correctness (T07) and should be picked up there.
+
+### What this does to T10
+
+T10 exists to fix q02, which took the Second-stream figure while retrieving only correct-subclass
+chunks. **On the corrected corpus q02 answers correctly** — "between 2 and 3 years … up to 5 years
+for Hong Kong and British National Overseas passport holders" — so the motivating failure no longer
+reproduces. The distractor chunk is still retrieved at rank 2; the system now orders past it.
+T10 needs re-scoping as a robustness test or parking, and (e) is retained as the regression guard
+either way.

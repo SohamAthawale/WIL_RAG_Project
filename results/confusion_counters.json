@@ -1,0 +1,898 @@
+{
+  "runs": [
+    {
+      "run": "b0_vs_rag__structure_aware_meta_k1.json",
+      "snapshot_id": "84636c1d6741",
+      "config_id": "structure_aware_meta",
+      "top_k": 1,
+      "corpus_current": true,
+      "n_questions": 13,
+      "n_unresolvable": 0,
+      "counts": {
+        "a_cites_wrong_subclass": 0,
+        "b_fact_from_wrong_subclass": 0,
+        "c_wrong_subclass_at_1": 1,
+        "d_cites_absent_source": 0,
+        "e_fact_from_wrong_stream": 0
+      },
+      "citation_styles": {
+        "bracketed_source": 1,
+        "freeform_or_absent": 11,
+        "source_bracketed": 1
+      },
+      "rates": {
+        "a_cites_wrong_subclass": 0.0,
+        "b_fact_from_wrong_subclass": 0.0,
+        "c_wrong_subclass_at_1": 0.077,
+        "d_cites_absent_source": 0.0,
+        "e_fact_from_wrong_stream": 0.0
+      },
+      "per_question": [
+        {
+          "id": "q01",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [
+            "subclass_500_student.txt"
+          ],
+          "citation_style": "bracketed_source",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q02",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [
+            "subclass_485_temporary_graduate.txt"
+          ],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q03",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [
+            "subclass_482_skills_in_demand.txt"
+          ],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q04",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q05",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [
+            "whm_6_month_work_limitation.txt"
+          ],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q06",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [
+            "subclass_500_student.txt"
+          ],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q07",
+          "category": "cross_subclass_probe",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q08",
+          "category": "cross_subclass_probe",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q09",
+          "category": "cross_subclass_probe",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": true,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q10",
+          "category": "refusal_required",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q11",
+          "category": "refusal_required",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q12",
+          "category": "refusal_required",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q13",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "source_bracketed",
+          "chunks_resolvable": true
+        }
+      ]
+    },
+    {
+      "run": "b0_vs_rag__structure_aware_meta_k3.json",
+      "snapshot_id": "84636c1d6741",
+      "config_id": "structure_aware_meta",
+      "top_k": 3,
+      "corpus_current": true,
+      "n_questions": 13,
+      "n_unresolvable": 0,
+      "counts": {
+        "a_cites_wrong_subclass": 0,
+        "b_fact_from_wrong_subclass": 0,
+        "c_wrong_subclass_at_1": 1,
+        "d_cites_absent_source": 0,
+        "e_fact_from_wrong_stream": 0
+      },
+      "citation_styles": {
+        "bracketed_source": 2,
+        "freeform_or_absent": 9,
+        "source_bracketed": 2
+      },
+      "rates": {
+        "a_cites_wrong_subclass": 0.0,
+        "b_fact_from_wrong_subclass": 0.0,
+        "c_wrong_subclass_at_1": 0.077,
+        "d_cites_absent_source": 0.0,
+        "e_fact_from_wrong_stream": 0.0
+      },
+      "per_question": [
+        {
+          "id": "q01",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [
+            "subclass_500_student.txt"
+          ],
+          "citation_style": "bracketed_source",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q02",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [
+            "subclass_485_temporary_graduate.txt"
+          ],
+          "citation_style": "source_bracketed",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q03",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [
+            "subclass_482_skills_in_demand.txt"
+          ],
+          "citation_style": "bracketed_source",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q04",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [
+            "subclass_417_working_holiday.txt"
+          ],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q05",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [
+            "whm_6_month_work_limitation.txt"
+          ],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q06",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [
+            "subclass_500_student.txt"
+          ],
+          "citation_style": "source_bracketed",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q07",
+          "category": "cross_subclass_probe",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q08",
+          "category": "cross_subclass_probe",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q09",
+          "category": "cross_subclass_probe",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": true,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q10",
+          "category": "refusal_required",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q11",
+          "category": "refusal_required",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q12",
+          "category": "refusal_required",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q13",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        }
+      ]
+    },
+    {
+      "run": "b0_vs_rag__structure_aware_meta_k5.json",
+      "snapshot_id": "84636c1d6741",
+      "config_id": "structure_aware_meta",
+      "top_k": 5,
+      "corpus_current": true,
+      "n_questions": 13,
+      "n_unresolvable": 0,
+      "counts": {
+        "a_cites_wrong_subclass": 0,
+        "b_fact_from_wrong_subclass": 0,
+        "c_wrong_subclass_at_1": 1,
+        "d_cites_absent_source": 0,
+        "e_fact_from_wrong_stream": 0
+      },
+      "citation_styles": {
+        "bracketed_source": 1,
+        "freeform_or_absent": 10,
+        "source_bracketed": 2
+      },
+      "rates": {
+        "a_cites_wrong_subclass": 0.0,
+        "b_fact_from_wrong_subclass": 0.0,
+        "c_wrong_subclass_at_1": 0.077,
+        "d_cites_absent_source": 0.0,
+        "e_fact_from_wrong_stream": 0.0
+      },
+      "per_question": [
+        {
+          "id": "q01",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [
+            "subclass_500_student.txt"
+          ],
+          "citation_style": "bracketed_source",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q02",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [
+            "subclass_485_temporary_graduate.txt"
+          ],
+          "citation_style": "source_bracketed",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q03",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q04",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [
+            "subclass_417_working_holiday.txt",
+            "whm_6_month_work_limitation.txt"
+          ],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q05",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [
+            "whm_6_month_work_limitation.txt"
+          ],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q06",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [
+            "subclass_500_student.txt"
+          ],
+          "citation_style": "source_bracketed",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q07",
+          "category": "cross_subclass_probe",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q08",
+          "category": "cross_subclass_probe",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q09",
+          "category": "cross_subclass_probe",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": true,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q10",
+          "category": "refusal_required",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q11",
+          "category": "refusal_required",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q12",
+          "category": "refusal_required",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        },
+        {
+          "id": "q13",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": true
+        }
+      ]
+    },
+    {
+      "run": "b0_vs_rag_comparison.json",
+      "snapshot_id": "84636c1d6741",
+      "config_id": "structure_aware_meta",
+      "top_k": 3,
+      "corpus_current": null,
+      "n_questions": 13,
+      "n_unresolvable": 13,
+      "counts": {
+        "a_cites_wrong_subclass": 0,
+        "b_fact_from_wrong_subclass": 0,
+        "c_wrong_subclass_at_1": 2,
+        "d_cites_absent_source": 1,
+        "e_fact_from_wrong_stream": 0
+      },
+      "citation_styles": {
+        "bracketed_source": 2,
+        "freeform_or_absent": 11
+      },
+      "rates": {
+        "a_cites_wrong_subclass": 0.0,
+        "b_fact_from_wrong_subclass": 0.0,
+        "c_wrong_subclass_at_1": 0.154,
+        "d_cites_absent_source": 0.077,
+        "e_fact_from_wrong_stream": 0.0
+      },
+      "per_question": [
+        {
+          "id": "q01",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": true,
+          "d_cites_absent_source": true,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [
+            "subclass_500_student.txt"
+          ],
+          "citation_style": "bracketed_source",
+          "chunks_resolvable": false
+        },
+        {
+          "id": "q02",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": false
+        },
+        {
+          "id": "q03",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": false
+        },
+        {
+          "id": "q04",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [
+            "subclass_417_working_holiday.txt"
+          ],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": false
+        },
+        {
+          "id": "q05",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [
+            "subclass_417_working_holiday.txt",
+            "whm_6_month_work_limitation.txt"
+          ],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": false
+        },
+        {
+          "id": "q06",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": false
+        },
+        {
+          "id": "q07",
+          "category": "cross_subclass_probe",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [
+            "subclass_417_working_holiday.txt",
+            "subclass_485_temporary_graduate.txt"
+          ],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": false
+        },
+        {
+          "id": "q08",
+          "category": "cross_subclass_probe",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [
+            "whm_6_month_work_limitation.txt"
+          ],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": false
+        },
+        {
+          "id": "q09",
+          "category": "cross_subclass_probe",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": true,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": false
+        },
+        {
+          "id": "q10",
+          "category": "refusal_required",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": false
+        },
+        {
+          "id": "q11",
+          "category": "refusal_required",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": false
+        },
+        {
+          "id": "q12",
+          "category": "refusal_required",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [],
+          "citation_style": "freeform_or_absent",
+          "chunks_resolvable": false
+        },
+        {
+          "id": "q13",
+          "category": "answerable_direct",
+          "a_cites_wrong_subclass": false,
+          "b_fact_from_wrong_subclass": false,
+          "c_wrong_subclass_at_1": false,
+          "d_cites_absent_source": false,
+          "e_fact_from_wrong_stream": false,
+          "b_evidence": [],
+          "e_evidence": [],
+          "cited": [
+            "whm_6_month_work_limitation.txt"
+          ],
+          "citation_style": "bracketed_source",
+          "chunks_resolvable": false
+        }
+      ]
+    }
+  ]
+}
