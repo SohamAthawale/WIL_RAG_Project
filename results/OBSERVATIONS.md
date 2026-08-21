@@ -717,3 +717,77 @@ replaces.
 
 It also quantifies why T13 mattered. The test-set expansion did not merely make future numbers
 more trustworthy — it invalidated an existing one, at no judging cost, on the day it landed.
+
+---
+
+# T08 re-run at n=85 — the top-k effect resolves, and changes shape (2026-08-22)
+
+The top-k sweep was re-run on the expanded test set: 100 questions, of which **85 carry a gold
+answer** (the 15 `refusal_required` questions have none to score against). Three runs at k=1, 3
+and 5, same corpus `84636c1d6741`, same config `structure_aware_meta`. B0 was generated once and
+reused, since it does not depend on k.
+
+## Means, against the n=13 result
+
+| k | n=13 | **n=85** | median | sd | SE |
+|---|---|---|---|---|---|
+| 1 | 0.290 | **0.377** | 0.361 | 0.156 | 0.017 |
+| 3 | 0.310 | **0.424** | 0.419 | 0.146 | 0.016 |
+| 5 | 0.346 | **0.424** | 0.420 | 0.137 | 0.015 |
+
+**The resolution limit fell from ~0.038 to ~0.016.** That is what makes the rest of this section
+possible: at n=13 the entire spread across k was 0.037, smaller than one question's influence, and
+the finding had to be reported as unresolvable.
+
+## Paired comparison, 85 questions
+
+Every run scores the same questions, so the comparison is paired rather than between-groups —
+substantially more powerful, because per-question difficulty cancels.
+
+| comparison | mean difference | SE | t | better | worse | tied |
+|---|---|---|---|---|---|---|
+| k=1 → k=3 | **+0.0473** | 0.0154 | **3.08** | 45 | 31 | 9 |
+| k=3 → k=5 | −0.0007 | 0.0087 | −0.09 | 41 | 33 | 11 |
+| k=1 → k=5 | **+0.0466** | 0.0167 | **2.79** | 49 | 29 | 7 |
+
+## What this establishes
+
+**Quality rises from k=1 to k=3, then stops.** The k=1→k=3 gain is three standard errors and sits
+well clear of the resolution limit. The k=3→k=5 difference is −0.0007 against an SE of 0.0087 —
+indistinguishable from zero, and the win/loss split (41/33/11) is what a coin flip looks like.
+
+**The published finding is now contradicted, not merely unreplicated.** Earlier this was stated as
+a failure to replicate, because the effect was smaller than the instrument could resolve. It is
+now resolvable and points the other way: more context helps up to k=3.
+
+**But the earlier description was also wrong.** At n=13 the pattern read as monotonic — 0.290,
+0.310, 0.346 — and was reported that way. It is not monotonic. It rises and then plateaus, and the
+n=13 ordering put k=5 highest when k=3 and k=5 are in fact tied. **Both the published claim and
+our own characterisation of our own data failed at higher power.**
+
+## Retrieval's benefit is larger than the small sample showed
+
+At k=3: B0 mean 0.139, RAG mean 0.424 — a gap of 0.285, roughly eighteen standard errors. At n=13
+the same gap was 0.193. Whatever else moved, this did not weaken.
+
+## What follows
+
+**k=3 is confirmed as the default**, now on evidence rather than convention. k=5 retrieves 67%
+more context, costs proportionally more generation time, and returns nothing measurable. That is a
+concrete, defensible configuration decision.
+
+**Formal significance testing is T16 and has not been done.** The t values above are effect sizes
+divided by their standard errors, reported to show what the instrument can now resolve. They carry
+no multiple-comparison correction, and three of the comparisons here are not independent. T16 owns
+that analysis; do not quote these as p-values.
+
+## The pattern across today
+
+Three findings were re-examined at larger n. **Two changed.** The dense-versus-BM25 ordering
+reversed, and the top-k relationship changed shape. The subclass-prefix effect, the RRF fusion
+result, and retrieval-beats-no-retrieval all held and strengthened.
+
+Every one of the findings that moved had been published with an explicit sample-size caveat
+attached. The caveats were not defensive boilerplate — they marked exactly the claims that could
+not survive, and all of them did fail. That is the evaluation framework working as designed, and
+it is a more valuable thing to report than any individual number in it.
