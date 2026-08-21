@@ -89,9 +89,51 @@ def _merge_short(chunks: list[str], min_chars: int) -> list[str]:
     return out
 
 
+def _has_bullets(text: str) -> bool:
+    return any(line.lstrip().startswith(("-", "•", "*")) for line in text.splitlines())
+
+
+def _bind_units(section: str) -> list[str]:
+    """Group paragraphs into atomic units that must not be split across chunks.
+
+    Two binding rules, both aimed at the same failure: a chunk that states a rule
+    without the exemptions that qualify it. That is not merely incomplete - acting
+    on it could cause a visa breach.
+
+    Forward:  a paragraph ending in ':' binds to the block it introduces.
+    Backward: a block containing bullets binds to the paragraph that follows it,
+              because that paragraph usually states the rule the list qualifies.
+
+    The backward rule is what keeps the condition 8547 exemption list attached to
+    "If work does not fall within an exemption, you can only work ... 6 months".
+    Without it, that sentence is orphaned as a 134-character chunk - measured
+    across 30 of 34 sweep configurations before this rule existed.
+
+    A unit is never split, even if it exceeds max_chars. Correctness beats size.
+    """
+    paras = [p.strip() for p in re.split(r"\n\s*\n", section) if p.strip()]
+    units: list[str] = []
+    i = 0
+    while i < len(paras):
+        buf = [paras[i]]
+        while buf[-1].rstrip().endswith(":") and i + 1 < len(paras):
+            i += 1
+            buf.append(paras[i])
+        if _has_bullets(buf[-1]) and i + 1 < len(paras):
+            i += 1
+            buf.append(paras[i])
+        units.append("\n\n".join(buf))
+        i += 1
+    return units
+
+
 def paragraph(text: str, min_chars: int = 200, **_) -> list[str]:
-    """Original behaviour: split on blank lines, merging short paragraphs forward."""
-    parts = [p.strip() for p in re.split(r"\n\s*\n", text) if p.strip()]
+    """Split on blank lines, merging short paragraphs forward.
+
+    Accumulates over bound *units* rather than raw paragraphs, so a rule never
+    gets separated from the exemption list that qualifies it. See _bind_units.
+    """
+    parts = _bind_units(text)
     chunks: list[str] = []
     buf = ""
     for part in parts:
@@ -122,27 +164,6 @@ def fixed_size(text: str, chunk_size: int = 600, overlap: float = 0.1, **_) -> l
             chunks.append(piece)
         i += step
     return chunks
-
-
-def _bind_units(section: str) -> list[str]:
-    """Paragraphs, except that one ending in ':' binds to the block it introduces.
-
-    This is what keeps the condition 8547 rule attached to its exemption list. A
-    chunk stating a rule without its exemptions is not merely incomplete, it is
-    wrong in a way that could cause a visa breach.
-    """
-    units, buf = [], []
-    for para in re.split(r"\n\s*\n", section):
-        if not para.strip():
-            continue
-        buf.append(para.strip())
-        if para.rstrip().endswith(":"):
-            continue
-        units.append("\n\n".join(buf))
-        buf = []
-    if buf:
-        units.append("\n\n".join(buf))
-    return units
 
 
 def structure_aware(text: str, min_chars: int = 120, max_chars: int = 900, **_) -> list[str]:

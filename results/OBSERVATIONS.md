@@ -302,3 +302,76 @@ ingest command, for example:
 ```
 python ingest.py --strategy structure_aware --max-chars 1400 --prepend-metadata
 ```
+
+---
+
+# T09b — Fixing the condition 8547 hazard (2026-08-21)
+
+A controlled before/after on the chunking defect the sweep exposed. Same 34 configurations,
+same 8 questions, same retrievers — the only change is one binding rule in `chunking.py`.
+
+## The defect
+
+`chunking.py` already bound a paragraph ending in `:` **forward** to the list it introduces. It
+had no mirror rule, so the paragraph that *follows* a list could be split away from it.
+
+On the WHM document that produced a 134-character chunk reading:
+
+> *"If work does not fall within an exemption, you can only work for the same employer for a
+> maximum of 6 months while holding a WHM visa."*
+
+A rule with its exemptions detached. Retrieved alone it would tell someone doing fruit picking to
+stop after six months, when plant and animal cultivation is explicitly exempt.
+
+Every retrieval metric scores that chunk as fine, because it *is* topically relevant. Relevance
+and safety come apart here, which is the point.
+
+## The fix
+
+One rule: **a block containing bullets binds to the paragraph that follows it.** A bound unit is
+never split, even if it exceeds `max_chars` — correctness beats size. Applied to both
+`structure_aware` and `paragraph`, which are the two paragraph-aware strategies.
+
+## Result
+
+| Strategy | Before | After |
+|---|---|---|
+| `structure_aware` | 6 split / 0 safe | **0 split / 6 safe** |
+| `paragraph` | 6 split / 0 safe | **0 split / 6 safe** |
+| `sentence_window` | 0 split / 4 safe | 0 split / 4 safe |
+| `fixed_size` | 18 split / 0 safe | 18 split / 0 safe |
+| **Total** | **30 of 34 split** | **18 of 34 split** |
+
+## Cost: none measurable
+
+Across the two affected strategies (36 rows):
+
+| | MRR | R@1 | wrong-subclass@1 |
+|---|---|---|---|
+| Before | 0.842 | 0.736 | 0.233 |
+| After | 0.841 | 0.736 | 0.228 |
+
+Retrieval quality is unchanged. Given the resolution limits recorded in T09 Finding 2, the right
+statement is that **the fix costs nothing measurable at this sample size** — not that it is
+exactly free.
+
+## Why `fixed_size` cannot be fixed
+
+All 18 remaining failures are `fixed_size`, and this is inherent rather than a gap in the
+implementation. Fixed-size chunking cuts on character counts and has no representation of
+paragraphs, lists, or the relationship between them. There is no unit for a binding rule to
+operate on.
+
+This is a real finding about the strategy class, and it is worth stating in the report:
+**on structured regulatory text, character-based chunking cannot preserve
+rule-and-exemption groupings by construction.** Not because our implementation is naive —
+because the strategy has no access to the structure it would need.
+
+That is a stronger argument against fixed-size chunking than any of the retrieval numbers, all of
+which sit inside the noise floor.
+
+## Best configuration measured
+
+`structure_aware`, `max_chars=600`, subclass prefix on, BM25: R@1 0.875 · MRR 0.938 ·
+wrong-subclass@1 0.200. Per T09 Finding 2, not distinguishable from several others — carry it as
+the working default, not a proven optimum.
