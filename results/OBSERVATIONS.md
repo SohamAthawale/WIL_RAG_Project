@@ -212,7 +212,41 @@ to the list it introduces. It needs the mirror rule: a paragraph that refers bac
 list should bind *backward* to it. That is a targeted change, and it should be run as a
 controlled before/after like D9 rather than applied silently.
 
-## Finding 2 — a safety/performance trade-off
+## Finding 2 — the strategies cannot be told apart at this sample size
+
+This supersedes any reading of the strategy ranking as a result.
+
+| | MRR |
+|---|---|
+| Spread between best and worst **strategy** | 0.053 |
+| Movement from **one question** going rank 2 → rank 1 | 0.063 |
+| Movement from **one question** going rank 3 → rank 1 | 0.083 |
+
+The entire difference between the best and worst chunking strategy is smaller than a single
+question improving by one rank position.
+
+And the within-strategy spread is far larger than the between-strategy spread:
+
+| Strategy | Mean MRR | Range across its own settings | Spread |
+|---|---|---|---|
+| structure_aware | 0.851 | 0.771 – 0.938 | 0.167 |
+| paragraph | 0.832 | 0.719 – 0.917 | 0.198 |
+| fixed_size | 0.823 | 0.677 – 0.906 | 0.229 |
+| sentence_window | 0.798 | 0.646 – 0.875 | 0.229 |
+
+Within-strategy variation is three to four times between-strategy variation. Whatever moves
+these numbers, it is not the choice of strategy.
+
+**The honest conclusion: at n=8, this evaluation cannot distinguish the four chunking
+strategies.** `structure_aware` has the highest point estimate and is a reasonable working
+default, but calling it "best" is not supported.
+
+This is itself a useful methodological result. It is a concrete, quantified argument for
+expanding the test set — not a general appeal to "more data would be better", but a specific
+statement that the current instrument lacks the resolution to answer the question being asked
+of it. Report it that way.
+
+## Finding 3 — a safety/performance trade-off
 
 The only strategy that preserves the rule/exemption grouping is also the worst performer.
 
@@ -223,12 +257,14 @@ The only strategy that preserves the rule/exemption grouping is also the worst p
 | fixed_size | 0.823 | split |
 | **sentence_window** | **0.798** | **preserved** |
 
-The ranking spans about one question across an 8-question set, so treat the ordering as
-directional. The trade-off itself is real and worth stating in the report: on this corpus the
-safest chunking is the weakest retriever, and the fix is a targeted binding rule rather than a
-choice of strategy.
+Given Finding 2, the ordering itself is not meaningful. What survives is the structural point:
+**the only strategy that preserves the rule/exemption grouping is the one that does so by
+accident of formatting**, and no strategy preserves it by design.
 
-## Finding 3 — the subclass prefix helps the two retrievers differently
+The fix is therefore a targeted binding rule in `chunking.py`, not a choice between strategies —
+which is fortunate, because the numbers cannot support choosing between them anyway.
+
+## Finding 4 — the subclass prefix helps the two retrievers differently
 
 Averaged across all 34 configurations:
 
@@ -254,8 +290,8 @@ Hybrid gets both effects and reaches the lowest confusion rate of any configurat
 **R@1 0.875 · MRR 0.938 · wrong-subclass@1 0.000** — the only entry in the top ten with no
 wrong-subclass rank-1 hits.
 
-Caveat: n=8, document-level. This is the configuration to carry forward as the working default,
-not a proven optimum.
+Caveat: n=8, document-level, and per Finding 2 not distinguishable from several others. Carry it
+forward as the working default, not as a proven optimum.
 
 ## Reproducing any row
 
