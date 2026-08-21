@@ -12,3 +12,6 @@ scratch/
 
 # shareable packets, rebuilt on demand
 dist/
+
+# sweep snapshots - large, rebuildable from chunking_sweep.csv params
+data/sweeps/

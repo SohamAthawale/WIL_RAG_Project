@@ -164,3 +164,105 @@ Three consequences for the evaluation:
    a controlled experiment like D9 rather than applied silently.
 
 No accuracy figures are stated here. The manual grading for this run has not been done.
+
+---
+
+# T09 — Chunking strategy sweep (2026-08-21)
+
+34 configurations (4 strategies × sizes/overlaps × with and without the subclass prefix),
+each scored with three retrievers. 102 rows in `results/chunking_sweep.csv`.
+
+**Scored on 8 questions** — those with a single gold document. Document-level, not chunk-level;
+chunk-level NDCG needs the qrels. Differences below ~0.06 in MRR are under one question and
+should be read as noise.
+
+## Finding 1 — the condition 8547 hazard is near-universal
+
+**30 of 34 configurations separate the 8547 rule from its exemption list.** Only
+`sentence_window` keeps them together, in all 4 of its configurations.
+
+| Strategy | Configs splitting rule from exemptions |
+|---|---|
+| fixed_size | 18 of 18 |
+| paragraph | 6 of 6 |
+| structure_aware | 6 of 6 |
+| sentence_window | 0 of 4 |
+
+This is a structural property, not a statistical one — it does not depend on the 8-question
+sample and is not noise.
+
+Why `sentence_window` survives: the exemption list is bullets with no sentence-ending
+punctuation, so sentence splitting treats the whole list as a single unit, and the rule sentence
+that follows falls inside the same 3-sentence window. It preserves the grouping by accident of
+formatting rather than by design.
+
+**Raising the size cap does not fix it.** At `max_chars=1400` the exemption chunk is already
+1311 characters; adding the 134-character rule sentence would total 1445 and breach the cap, so
+the packer splits it. The chunk that results — `whm_6_month_work_limitation::1`, 134 characters —
+reads:
+
+> *"If work does not fall within an exemption, you can only work for the same employer for a
+> maximum of 6 months while holding a WHM visa."*
+
+A rule with no exemptions attached. Retrieved alone, it would tell a fruit picker they must stop
+after six months when in fact plant and animal cultivation is exempt.
+
+**The fix is not a bigger cap.** `chunking.py` already binds a paragraph ending in `:` *forward*
+to the list it introduces. It needs the mirror rule: a paragraph that refers back to a preceding
+list should bind *backward* to it. That is a targeted change, and it should be run as a
+controlled before/after like D9 rather than applied silently.
+
+## Finding 2 — a safety/performance trade-off
+
+The only strategy that preserves the rule/exemption grouping is also the worst performer.
+
+| Strategy | Mean MRR | 8547 grouping |
+|---|---|---|
+| structure_aware | 0.851 | split |
+| paragraph | 0.832 | split |
+| fixed_size | 0.823 | split |
+| **sentence_window** | **0.798** | **preserved** |
+
+The ranking spans about one question across an 8-question set, so treat the ordering as
+directional. The trade-off itself is real and worth stating in the report: on this corpus the
+safest chunking is the weakest retriever, and the fix is a targeted binding rule rather than a
+choice of strategy.
+
+## Finding 3 — the subclass prefix helps the two retrievers differently
+
+Averaged across all 34 configurations:
+
+| Retriever | metadata | R@1 | MRR | wrong-subclass@1 |
+|---|---|---|---|---|
+| dense | off | 0.728 | 0.834 | 0.306 |
+| dense | **on** | 0.728 | 0.818 | **0.235** |
+| bm25 | off | 0.596 | 0.761 | 0.200 |
+| bm25 | **on** | **0.801** | **0.870** | 0.200 |
+| hybrid_rrf | off | 0.706 | 0.820 | 0.306 |
+| hybrid_rrf | **on** | 0.765 | 0.855 | **0.176** |
+
+The pattern is mechanistically sensible. The prefix adds a **literal token** — "Subclass 482" —
+which BM25 matches directly, giving it the largest ranking gain (MRR 0.761 → 0.870). Dense
+retrieval already captured much of that meaning, so its ranking does not improve (and dips
+slightly, within noise), but its **subclass confusion falls by a quarter**.
+
+Hybrid gets both effects and reaches the lowest confusion rate of any configuration.
+
+## Best configuration measured
+
+`structure_aware`, `max_chars=1400`, subclass prefix on, hybrid RRF retrieval:
+**R@1 0.875 · MRR 0.938 · wrong-subclass@1 0.000** — the only entry in the top ten with no
+wrong-subclass rank-1 hits.
+
+Caveat: n=8, document-level. This is the configuration to carry forward as the working default,
+not a proven optimum.
+
+## Reproducing any row
+
+Sweep snapshots are gitignored — they are large and rebuildable. Every row of
+`chunking_sweep.csv` records its exact parameters, so any configuration regenerates with one
+ingest command, for example:
+
+```
+python ingest.py --strategy structure_aware --max-chars 1400 --prepend-metadata
+```
