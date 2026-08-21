@@ -8,9 +8,9 @@ import csv
 import json
 from pathlib import Path
 
-from metrics_generation import PROXY_LABEL, embedding_cosine_proxy, rouge_1
+from baseline.metrics_generation import PROXY_LABEL, embedding_cosine_proxy, rouge_1
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 RESULTS = ROOT / "results"
 OUT = RESULTS / "generation_metrics.csv"
 

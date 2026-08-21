@@ -19,7 +19,7 @@ from pathlib import Path
 import numpy as np
 import requests
 
-import retrieval_bm25
+from baseline import retrieval_bm25
 
 ROOT = Path(__file__).resolve().parent.parent
 SNAPSHOTS = ROOT / "data" / "snapshots"
