@@ -23,9 +23,9 @@ No internet is needed once the models are pulled — the corpus is already in th
 | `nomic-embed-text` | 274 MB | Turning text into vectors for semantic search |
 | `qwen2.5:7b-instruct` | 4.7 GB | Generating answers |
 
-`qwen2.5:7b-instruct` stands in for the Falcon-7B-Instruct that the Walert paper used. Both are
-open 7B instruction-tuned models, so the substitution is methodologically defensible — and it
-should be stated as such in the report.
+`qwen2.5:7b-instruct` is an open 7B instruction-tuned model chosen so the whole pipeline runs
+locally at no cost. Any comparable open 7B instruct model can be substituted; record which one was
+used, since generation results are not comparable across models.
 
 ## Setup
 

@@ -1,8 +1,8 @@
-"""Okapi BM25 sparse retrieval — Walert's sparse condition (B1).
+"""Okapi BM25 sparse retrieval — the lexical baseline (B1).
 
-Walert used BM25 via pyserini with k1=1.2, b=0.75. pyserini needs a JVM, which
-is unnecessary for a 29-chunk corpus, so this is a direct numpy implementation
-of the same scoring function with the same parameters.
+k1=1.2 and b=0.75 are the conventional Okapi defaults. Implemented directly in
+numpy: library implementations pull in a JVM or a heavy index, neither of which
+earns anything on a corpus this size.
 
 Interface matches the dense retriever in rag.py: retrieve(query, store, k).
 """

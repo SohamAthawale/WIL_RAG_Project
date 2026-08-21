@@ -1,8 +1,7 @@
 """T09 — chunking strategy sweep.
 
-Walert never faced this decision: their knowledge base was an FAQ, already
-segmented one entry per answer. Our sources are unstructured government pages,
-so chunking is a live design variable and an extension of their method.
+Our sources are unstructured government web pages, so how documents are cut up
+changes what can be retrieved. This sweep measures that rather than assuming it.
 
 Sweeps strategy x size x overlap x metadata, scores each with document-level
 retrieval measures, and tracks one specific hazard: whether the condition 8547

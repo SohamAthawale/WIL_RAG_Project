@@ -1,8 +1,8 @@
 """Chunking strategies behind one interface.
 
-Walert sidestepped chunking - their knowledge base was an FAQ, already segmented
-one-entry-per-passage. Our sources are unstructured government pages, so chunking
-is a live design variable and therefore an evaluation dimension they did not have.
+Our sources are unstructured government web pages, not pre-segmented records, so
+how documents are cut up changes what can be retrieved at all. Chunking is
+therefore a design variable to be measured rather than assumed.
 
 Strategies: fixed_size, paragraph (the original behaviour), structure_aware, sentence_window.
 

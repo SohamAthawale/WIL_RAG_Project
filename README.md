@@ -16,7 +16,7 @@ Course: Case Studies in Data Science (COSC2669 / COSC2816)
 
 Having a workable RAG pipeline is necessary but not sufficient. The deliverable of this
 project is the **evaluation framework**: eight measured dimensions across four baseline
-configurations, benchmarked against the Walert methodology (CHIIR '24).
+configurations, with every result traceable to the snapshot and configuration that produced it.
 
 The headline metric is **cross-subclass confusion rate** — the percentage of answers drawn
 from the wrong visa subclass. Telling a Subclass 485 holder they are capped at 48 hours per
@@ -72,8 +72,8 @@ The knowledge base is deliberately small — a handful of documents, not thousan
 | ID | Configuration | Status |
 |---|---|---|
 | B0 | Bare LLM, no retrieval | Implemented |
-| B1 | BM25 + LLM (Walert sparse) | Not started |
-| B2 | Dense retrieval + LLM (Walert DPR) | Implemented |
+| B1 | BM25 + LLM (sparse retrieval) | Implemented |
+| B2 | Dense retrieval + LLM | Implemented |
 | B3 | Hybrid + reranking | Not started |
 
 ## Requirements
@@ -134,16 +134,14 @@ docs/              planning, sprint tasks, ethics research
 results/           evaluation outputs
 ```
 
-## Method reference
+## Related work
 
-Pathiyan Cherumanal, Tian, et al., *"Walert: Putting Conversational Information Seeking
-Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot"*,
-CHIIR '24. Paper: https://arxiv.org/abs/2401.07216 · Code: https://github.com/rmit-ir/walert
+Pathiyan Cherumanal, Tian, et al., *"Walert: Putting Conversational Information Seeking Knowledge
+into Action by Building and Evaluating a Large Language Model-Powered Chatbot"*, CHIIR '24.
+https://arxiv.org/abs/2401.07216
 
-We reproduce Walert's **method**, not its stack: their pipeline was cloud-hosted and paid
-(Falcon-7B on SageMaker), ours is local and free (`qwen2.5:7b-instruct` via Ollama). Falcon-7B
-and Qwen2.5-7B-Instruct are comparable open 7B instruction-tuned models, so the substitution
-is methodologically defensible.
+Used as a published comparison point for evaluation methodology — retrieval conditions, question
+categorisation, and the reporting of refusal behaviour. This system shares no code or data with it.
 
 ## Academic integrity
 
