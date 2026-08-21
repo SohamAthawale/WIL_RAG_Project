@@ -1,5 +1,5 @@
 {
-  "n_questions": 8,
+  "n_questions": 61,
   "configs": [
     {
       "snapshot_id": "84636c1d6741",
@@ -7,28 +7,28 @@
       "strategy": "paragraph",
       "prepend_metadata": false,
       "n_chunks": 19,
-      "n_questions": 8,
+      "n_questions": 61,
       "systems": {
         "dense": {
-          "recall@1": 0.75,
-          "recall@3": 0.875,
-          "recall@5": 0.875,
-          "mrr": 0.833,
-          "wrong_subclass@1": 0.2
+          "recall@1": 0.754,
+          "recall@3": 0.984,
+          "recall@5": 0.984,
+          "mrr": 0.869,
+          "wrong_subclass@1": 0.241
         },
         "bm25": {
-          "recall@1": 0.625,
-          "recall@3": 0.875,
+          "recall@1": 0.885,
+          "recall@3": 0.967,
           "recall@5": 1.0,
-          "mrr": 0.781,
-          "wrong_subclass@1": 0.2
+          "mrr": 0.934,
+          "wrong_subclass@1": 0.056
         },
         "hybrid_rrf": {
-          "recall@1": 0.875,
-          "recall@3": 0.875,
+          "recall@1": 0.869,
+          "recall@3": 0.984,
           "recall@5": 1.0,
-          "mrr": 0.9,
-          "wrong_subclass@1": 0.2
+          "mrr": 0.93,
+          "wrong_subclass@1": 0.093
         }
       }
     },
@@ -38,27 +38,27 @@
       "strategy": "structure_aware",
       "prepend_metadata": true,
       "n_chunks": 24,
-      "n_questions": 8,
+      "n_questions": 61,
       "systems": {
         "dense": {
-          "recall@1": 0.75,
-          "recall@3": 0.875,
+          "recall@1": 0.967,
+          "recall@3": 0.984,
           "recall@5": 1.0,
-          "mrr": 0.838,
-          "wrong_subclass@1": 0.2
+          "mrr": 0.979,
+          "wrong_subclass@1": 0.019
         },
         "bm25": {
-          "recall@1": 0.875,
+          "recall@1": 0.934,
           "recall@3": 1.0,
           "recall@5": 1.0,
-          "mrr": 0.938,
-          "wrong_subclass@1": 0.2
+          "mrr": 0.967,
+          "wrong_subclass@1": 0.037
         },
         "hybrid_rrf": {
-          "recall@1": 0.875,
+          "recall@1": 0.984,
           "recall@3": 1.0,
           "recall@5": 1.0,
-          "mrr": 0.938,
+          "mrr": 0.992,
           "wrong_subclass@1": 0.0
         }
       }
@@ -69,28 +69,28 @@
       "strategy": "structure_aware",
       "prepend_metadata": false,
       "n_chunks": 24,
-      "n_questions": 8,
+      "n_questions": 61,
       "systems": {
         "dense": {
-          "recall@1": 0.625,
+          "recall@1": 0.885,
           "recall@3": 1.0,
           "recall@5": 1.0,
-          "mrr": 0.812,
-          "wrong_subclass@1": 0.4
+          "mrr": 0.943,
+          "wrong_subclass@1": 0.111
         },
         "bm25": {
-          "recall@1": 0.75,
-          "recall@3": 0.875,
+          "recall@1": 0.852,
+          "recall@3": 0.951,
           "recall@5": 1.0,
-          "mrr": 0.844,
-          "wrong_subclass@1": 0.2
+          "mrr": 0.913,
+          "wrong_subclass@1": 0.093
         },
         "hybrid_rrf": {
-          "recall@1": 0.75,
+          "recall@1": 0.902,
           "recall@3": 1.0,
           "recall@5": 1.0,
-          "mrr": 0.854,
-          "wrong_subclass@1": 0.2
+          "mrr": 0.948,
+          "wrong_subclass@1": 0.056
         }
       }
     }

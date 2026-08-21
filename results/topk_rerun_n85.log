@@ -1,0 +1,2 @@
+=== top-k sweep on the expanded set, started Fri Aug 21 23:31:41 AEST 2026 ===
+--- k=3 (includes B0, which is k-independent) ---

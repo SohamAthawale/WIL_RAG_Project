@@ -651,3 +651,69 @@ for Hong Kong and British National Overseas passport holders" — so the motivat
 reproduces. The distractor chunk is still retrieved at rank 2; the system now orders past it.
 T10 needs re-scoping as a robustness test or parking, and (e) is retained as the regression guard
 either way.
+
+---
+
+# Retrieval comparison re-run at n=61 — a finding reverses (2026-08-21)
+
+T13 expanded the test set from 13 to 100 questions. `src/eval_configs.py` scores at the
+**document** level against `gold_source`, which every new question already carries, so the
+comparison went from **n=8 to n=61 without a single new relevance judgement**.
+
+Same corpus, same code, same configurations. Only the sample size changed.
+
+## `structure_aware_meta`, before and after
+
+| retriever | R@1 n=8 | R@1 n=61 | MRR n=8 | MRR n=61 | wrong-sc@1 n=8 | wrong-sc@1 n=61 |
+|---|---|---|---|---|---|---|
+| dense | 0.750 | **0.967** | 0.838 | **0.979** | 0.200 | **0.019** |
+| bm25 | 0.875 | 0.934 | 0.938 | 0.967 | 0.200 | 0.037 |
+| hybrid_rrf | 0.875 | **0.984** | 0.938 | **0.992** | 0.000 | **0.000** |
+
+## What reversed
+
+**At n=8, BM25 out-ranked dense retrieval — R@1 0.875 against 0.750, MRR 0.938 against 0.838.
+At n=61 the ordering is the other way: dense 0.967 against 0.934, MRR 0.979 against 0.967.**
+
+The n=8 result was reported with a sample-size caveat attached, and the caveat was right. Eight
+questions is one question per 0.125 of R@1; the gap between the two retrievers was one question
+wide. It was noise presented as a ranking.
+
+This is the second finding in this project to fail on more data, after the top-k result. Both
+failed in the direction the caveats predicted, which is the only reassuring thing about it.
+
+## What held, and strengthened
+
+**Hybrid RRF fusion leads on every measure** — R@1 0.984, MRR 0.992, and 0.000 wrong-subclass@1,
+the only configuration with no rank-1 subclass errors at any sample size tested. At n=8 it merely
+tied the better of its two inputs; at n=61 it beats both. Fusion earning its place is a stronger
+claim now than it was.
+
+**The subclass prefix still matters.** Within `structure_aware`, metadata on versus off:
+wrong-subclass@1 0.019 against 0.111 for dense, 0.037 against 0.093 for BM25. The effect is
+roughly five times larger than the resolution limit at this n.
+
+**`structure_aware` still beats `paragraph`**, and by more than before — dense R@1 0.967 against
+0.754.
+
+## What this does to the rest of the report
+
+**Three findings still rest on n=8 and have not been re-run.** T09's chunking sweep — including
+Finding 4, that the prefix helps BM25 more than dense — is 34 configurations scored at n=8. Given
+that the dense-versus-BM25 ordering just reversed at the same sample size, **Finding 4 should be
+treated as unverified until the sweep is re-run at n=61.** It is not contradicted; it is
+untested.
+
+The `chunking_sweep.csv` re-run is cheap — retrieval only, no generation — and should happen
+before T12 quotes any of it.
+
+## The point worth making in the report
+
+A framework that reports a caveat and then, when the sample grows, **catches its own published
+finding**, is doing the job. The original result was not sloppy: it was measured correctly,
+reported with its limitation stated, and superseded when better evidence arrived. That is the
+difference between an evaluation and a demo, and it is a better section than the finding it
+replaces.
+
+It also quantifies why T13 mattered. The test-set expansion did not merely make future numbers
+more trustworthy — it invalidated an existing one, at no judging cost, on the day it landed.
