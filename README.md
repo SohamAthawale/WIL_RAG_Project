@@ -143,9 +143,3 @@ https://arxiv.org/abs/2401.07216
 Used as a published comparison point for evaluation methodology — retrieval conditions, question
 categorisation, and the reporting of refusal behaviour. This system shares no code or data with it.
 
-## Academic integrity
-
-This course gates AI use per assessment. AI assistance is used for process purposes only —
-scaffolding, checks, and critique. All analysis, design decisions, correctness judgements and
-written argument are authored and owned by the team members. Every submission carries the
-completed **Condition 3: Bounded Use of AI** declaration with prompt logs.
