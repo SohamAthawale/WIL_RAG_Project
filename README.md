@@ -24,14 +24,14 @@ fortnight, or telling a Subclass 500 holder they are not, are both visa breaches
 
 ## Team — Group 97
 
-| Student ID | Full name | Workstream (proposed — confirm at Sprint 1 standup) | % contribution |
-|---|---|---|---|
-| s4233801 | Soham Chaitanya Athawale | Pipeline & retrieval | TBC |
-| s4216323 | Hitesh Subhash Chaudhari | Test set & annotation | TBC |
-| s4183976 | Manoj Mahadev Bhosale | Metrics & statistics | TBC |
-| s4178063 | Vaishnavi Vijayanand Joshi | Corpus & data governance | TBC |
-| s4218211 | Heet Harshad Chanchad | Ethics, standards & report | TBC |
-| s4203473 | Glory Suresh Vanjare | UI/demo & process stewardship | TBC |
+| Student ID | Full name | Workstream | Tasks | % contribution |
+|---|---|---|---|---|
+| s4233801 | Soham Chaitanya Athawale | Confusion, chunking & final comparison | T04, T06, T08, T09, T10, T12 | TBC |
+| s4216323 | Hitesh Subhash Chaudhari | Grounding & retrieval engineering | T07, T11, T18, T19 | TBC |
+| s4183976 | Manoj Mahadev Bhosale | Retrieval measurement | T03, T17 | TBC |
+| s4178063 | Vaishnavi Vijayanand Joshi | Answer quality & demo | T05, T15, T20 | TBC |
+| s4218211 | Heet Harshad Chanchad | Test collection & statistics | T13, T14, T16 | TBC |
+| s4203473 | Glory Suresh Vanjare | Corpus governance, ethics & report | T01, T21, T22, T23 | TBC |
 
 Contact: `<student-id>@student.rmit.edu.au`
 
@@ -56,16 +56,19 @@ The knowledge base is deliberately small — a handful of documents, not thousan
 
 ## Evaluation dimensions
 
-| # | Dimension | Metric |
-|---|---|---|
-| 1 | Answerability | % unanswered, **split** into should-have-answered vs correctly refused |
-| 2 | Faithfulness | Every claim traceable to a retrieved chunk |
-| 3 | Attribution correctness | Cites the right document *and* the right subclass |
-| 4 | Retrieval quality | NDCG / Recall@k / MRR vs annotated gold chunks |
-| 5 | **Cross-subclass confusion** | % answered from the wrong subclass — headline |
-| 6 | Refusal compliance | % of case-specific questions correctly declined |
-| 7 | Vocabulary fairness | Accuracy across formal / plain / simplified-English registers |
-| 8 | Temporal correctness | % reflecting current vs superseded rules |
+| # | Dimension | Metric | Status |
+|---|---|---|---|
+| 1 | Answerability | % unanswered, **split** into should-have-answered vs correctly refused | not yet measured |
+| 2 | Faithfulness | Every claim traceable to a retrieved chunk | not yet measured |
+| 3 | Attribution correctness | Cites the right document *and* the right subclass | not yet measured |
+| 4 | Retrieval quality | NDCG / Recall@k / MRR vs annotated gold chunks | Recall@k and MRR measured; NDCG outstanding |
+| 5 | **Cross-subclass confusion** | % answered from the wrong subclass — headline | **measured**, five counters, `results/confusion_counters.json` |
+| 6 | Refusal compliance | % of case-specific questions correctly declined | not yet measured |
+| 7 | Vocabulary fairness | Accuracy across formal / plain / simplified-English registers | not yet measured |
+| 8 | Temporal correctness | % reflecting current vs superseded rules | not yet measured |
+
+The 312 relevance judgements needed by dimensions 1, 3, 4, 5 and 6 are complete and exported to
+`data/testset/test_set.json`. Measured results and their caveats are in `results/OBSERVATIONS.md`.
 
 ## Baseline configurations
 
