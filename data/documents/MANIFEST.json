@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-08-21T08:28:29+00:00",
+  "n_documents": 5,
+  "corpus_sha256": "2d8e935b89996f865c67b50c194a3dbb55007872054425527bd2a32423630582",
+  "snapshot_id": "2d8e935b8999",
+  "documents": [
+    {
+      "filename": "subclass_417_working_holiday.txt",
+      "sha256": "7f03e93d945ac32f11d0757eb83fbe782127e92351515b8f207e356003b17512",
+      "source_url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/work-holiday-417",
+      "retrieved_at": "2026-08-20",
+      "document_title": "Subclass 417 Working Holiday visa \u2014 Overview",
+      "bytes": 1970,
+      "lines": 32,
+      "missing_headers": []
+    },
+    {
+      "filename": "subclass_482_skills_in_demand.txt",
+      "sha256": "22d22e94aa6aee52852cf550b9b9e9507e65ce8d87b3d452f66141bf8a14120d",
+      "source_url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/skills-in-demand-visa-subclass-482",
+      "retrieved_at": "2026-08-20",
+      "document_title": "Skills in Demand visa (Subclass 482) \u2014 Overview",
+      "bytes": 2244,
+      "lines": 33,
+      "missing_headers": []
+    },
+    {
+      "filename": "subclass_485_temporary_graduate.txt",
+      "sha256": "bf7b813ae9a2f780b38ab5db0557ce1042cbd5b911d54a146b15cd69c3d87eb6",
+      "source_url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/temporary-graduate-485",
+      "retrieved_at": "2026-08-20",
+      "document_title": "Subclass 485 Temporary Graduate visa \u2014 Overview",
+      "bytes": 2706,
+      "lines": 42,
+      "missing_headers": []
+    },
+    {
+      "filename": "subclass_500_student.txt",
+      "sha256": "9008b3404f501fefb45fc8c8fdb61c9335b2aa4d0b4d86b3e3b7ee64deef28cf",
+      "source_url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500",
+      "retrieved_at": "2026-08-20",
+      "document_title": "Subclass 500 Student visa \u2014 Overview",
+      "bytes": 1339,
+      "lines": 32,
+      "missing_headers": []
+    },
+    {
+      "filename": "whm_6_month_work_limitation.txt",
+      "sha256": "e3ad95466fc95e2733d89a5a87d7da19942e08f94363812da6cfd12f21473e33",
+      "source_url": "https://immi.homeaffairs.gov.au/what-we-do/whm-program/specified-work-conditions/6-month-work-limitation",
+      "retrieved_at": "2026-08-20",
+      "document_title": "Working Holiday Maker (WHM) \u2014 6 month work limitation (visa condition 8547)",
+      "bytes": 3445,
+      "lines": 28,
+      "missing_headers": []
+    }
+  ]
+}
