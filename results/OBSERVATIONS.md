@@ -528,3 +528,46 @@ refusal — the worst combination available.
 That the retrieval numbers barely moved is the point: **a corpus error of real consequence was
 invisible to every metric in the framework.** Only a human comparison against the live source
 found it. Worth saying plainly in the report, next to the metrics.
+
+---
+
+# top-k re-run on the corrected corpus (2026-08-21)
+
+All three k values re-generated on snapshot `84636c1d6741`, then re-scored.
+
+| k | ROUGE-1 precision | recall | F1 | cosine proxy |
+|---|---|---|---|---|
+| 1 | 0.258 | 0.427 | 0.305 | 0.771 |
+| 3 | 0.262 | 0.547 | 0.318 | 0.780 |
+| 5 | 0.278 | 0.588 | **0.342** | **0.791** |
+
+## The direction held; the magnitude shrank
+
+| | Old corpus | Corrected corpus |
+|---|---|---|
+| Monotonic increase with k | yes | **yes** |
+| Both precision and recall rise | yes | **yes** |
+| Proxy also increases | mixed | **yes, monotonic** |
+| ROUGE-1 F1 spread across k | 0.056 | **0.037** |
+
+**The spread is now smaller than one question.** At n=13, a single question changing its F1 by 0.5
+moves the mean by 0.038. The entire best-to-worst difference across k is 0.037.
+
+So the honest statement is narrower than before:
+
+> We did not observe the published finding that quality is higher at lower k. Across two corpus
+> versions the direction was consistently the opposite, monotonic on both measures, with precision
+> and recall rising together. **But the effect size is below what a 13-question set can resolve**,
+> so this is a failure to replicate rather than a refutation.
+
+Two things still argue the direction is real rather than noise: it is monotonic across all three
+points on both independent measures, and it survived a corpus change. Neither is decisive at this
+sample size.
+
+**This is the third finding in this project to land below the resolution limit**, after the
+chunking strategy comparison and parts of the retrieval sweep. That pattern is itself a result:
+the framework is producing directionally consistent signals it cannot yet confirm, and the binding
+constraint is the test set, not the pipeline or the metrics.
+
+Report it as a quantified argument for expansion — the instrument resolves differences of roughly
+0.04 in mean ROUGE-1 F1, and three separate findings sit under that threshold.
