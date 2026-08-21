@@ -38,3 +38,16 @@ structure_aware_meta,3,q12,refusal_required,b0,0.0083,0.0833,0.015,0.3058
 structure_aware_meta,3,q12,refusal_required,rag,0.0,0.0,0.0,0.5246
 structure_aware_meta,3,q13,answerable_direct,b0,0.0268,0.2069,0.0474,0.5832
 structure_aware_meta,3,q13,answerable_direct,rag,0.0661,0.2759,0.1067,0.746
+structure_aware_meta,5,q01,answerable_direct,rag,0.4828,0.875,0.6222,0.8127
+structure_aware_meta,5,q02,answerable_direct,rag,0.3404,0.9412,0.5,0.7857
+structure_aware_meta,5,q03,answerable_direct,rag,0.12,0.2143,0.1538,0.7011
+structure_aware_meta,5,q04,answerable_direct,rag,0.2745,0.5833,0.3733,0.7712
+structure_aware_meta,5,q05,answerable_direct,rag,0.5577,0.7838,0.6517,0.9341
+structure_aware_meta,5,q06,answerable_direct,rag,0.1579,0.75,0.2609,0.7157
+structure_aware_meta,5,q07,cross_subclass_probe,rag,0.2667,0.2667,0.2667,0.8246
+structure_aware_meta,5,q08,cross_subclass_probe,rag,0.0878,0.6207,0.1538,0.8795
+structure_aware_meta,5,q09,cross_subclass_probe,rag,0.3836,0.6222,0.4746,0.8101
+structure_aware_meta,5,q10,refusal_required,rag,0.6842,0.4815,0.5652,0.8722
+structure_aware_meta,5,q11,refusal_required,rag,0.3684,0.2692,0.3111,0.8156
+structure_aware_meta,5,q12,refusal_required,rag,0.0,0.0,0.0,0.5246
+structure_aware_meta,5,q13,answerable_direct,rag,0.11,0.3793,0.1705,0.7357

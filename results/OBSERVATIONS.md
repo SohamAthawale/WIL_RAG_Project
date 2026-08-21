@@ -426,3 +426,56 @@ answer. Any refusal metric has to distinguish those, or the answerability split 
 both directions at once.
 
 Recorded here because it is a known fixture for that work, not a defect found in passing.
+
+---
+
+# T08 — top-k sweep: the published finding did not replicate (2026-08-21)
+
+Full test set generated at k = 1, 3 and 5 on `structure_aware_meta`, scored with ROUGE-1 and the
+labelled cosine proxy. 13 questions per configuration.
+
+## Result
+
+| k | ROUGE-1 precision | recall | F1 | cosine proxy | mean answer length |
+|---|---|---|---|---|---|
+| 1 | 0.246 | 0.423 | 0.290 | 0.766 | 54.3 words |
+| 3 | 0.273 | 0.451 | 0.310 | 0.764 | 53.6 words |
+| 5 | 0.295 | 0.522 | **0.346** | **0.783** | 53.8 words |
+
+**Quality increases monotonically with k on both measures.** The published result this reproduces
+reported the opposite — higher answer quality at *lower* k, attributed to additional passages
+distracting the model. On this corpus that does not hold.
+
+## The obvious confound, ruled out
+
+ROUGE recall rises mechanically when answers get longer, because a longer answer has more chances
+to contain reference words. If that were the explanation, recall would climb while precision fell.
+
+It is not the explanation:
+
+- **Answer length is flat** across k — 54.3, 53.6, 53.8 words.
+- **Precision and recall both rise** — 0.246 → 0.295 and 0.423 → 0.522.
+
+Answers at higher k contain more of the right words *without getting longer*. That is a real
+effect, not an artefact of verbosity.
+
+## Honest limits
+
+The ROUGE-1 spread across k is 0.056. One question changing its F1 by 0.5 moves the mean by
+0.038, so the whole spread is roughly 1.5 questions' worth of movement at n=13. Directional, not
+significant.
+
+Two things make it more than noise-shaped, though: the trend is **monotonic across all three
+points** on ROUGE, and precision and recall move **together**, which noise would not reliably do.
+
+## Why it may differ
+
+Worth stating in the report rather than leaving as a puzzle. The published study used a curated
+FAQ where one entry answered one question, so additional passages were pure distraction. This
+corpus is five overlapping government pages where answers are frequently split across sections —
+a stay figure in one chunk, the condition qualifying it in another. More context plausibly helps
+here for the same reason it hurt there.
+
+That is a hypothesis the corpus structure supports, not a finding. It would be tested by rerunning
+the sweep once the test set is large enough to separate the categories: if extra context helps
+`cross_subclass_probe` questions more than `answerable_direct` ones, the explanation holds.
