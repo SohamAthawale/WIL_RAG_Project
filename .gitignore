@@ -12,6 +12,7 @@ scratch/
 
 # shareable packets, rebuilt on demand
 dist/
+STALE-PACKETS-DO-NOT-USE-see-wil-team-coordination/
 
 # sweep snapshots - large, rebuildable from chunking_sweep.csv params
 data/sweeps/
