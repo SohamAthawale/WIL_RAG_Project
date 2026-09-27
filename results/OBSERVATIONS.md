@@ -91,8 +91,9 @@ Refusal-marker detection on the three `refusal_required` questions (q10, q11, q1
 | B0 | 1 of 3 (q10 only) |
 | RAG | 3 of 3 |
 
-**Caveat, and why a human must still grade these:** the same detector fires on q07 and q09, where
-refusal was *not* expected. On q07 the RAG output both hedged *and* supplied "48 hours" — a hedged
+**Caveat, and why a human must still grade these:** in the k=1 run the same detector also fires on
+q07 and q09, where refusal was *not* expected. (Run-dependent: against the graded answers it fires
+on q04, q07 and q13. Quote this figure with its run file or it will not reproduce.) On q07 the RAG output both hedged *and* supplied "48 hours" — a hedged
 partial answer, not a refusal. The detector cannot tell those apart. Treat every `check_*` column
 in the worksheet as a pointer, not a verdict.
 
@@ -418,14 +419,29 @@ would let a reader infer a quality ranking the numbers cannot support.
 It is also the concrete argument for the project's domain-specific measures — cross-subclass
 confusion, the answerability split, attribution correctness. Those catch what ROUGE cannot.
 
-## A second observation: q13 hedges and answers
+## A second observation: q13 hedges and answers — **corrected 2026-09-27**
 
-q13 opens with the configured refusal string and then answers anyway, correctly, from the
-exemption list. A string-matching refusal detector will classify it as a refusal; it is a hedged
-answer. Any refusal metric has to distinguish those, or the answerability split will be wrong in
-both directions at once.
+q13 carries the configured refusal string *and* answers anyway. A string-matching refusal
+detector classifies it as a refusal; it is a hedged answer. Any refusal metric has to distinguish
+those, or the answerability split will be wrong in both directions at once.
 
-Recorded here because it is a known fixture for that work, not a defect found in passing.
+> **This entry was wrong in two ways and is corrected here rather than deleted.**
+>
+> It said q13 answers "correctly". **It does not.** The human grading records q13 as
+> `answered_but_wrong`, `rag_correct: no`, with the note: *"Both miss the plant and animal
+> cultivation exemption. Fruit picking can continue with the same farm past six months without
+> permission."* The answer states the opposite of the gold answer, on the exact exemption
+> category that T01's corpus correction was made to add.
+>
+> It also said the refusal string comes at the start. In the graded text it comes at the end.
+>
+> **Root cause: this note did not name which run it described.** The q13 text differs across
+> k1, k3, k5 and the pre-fix run — in some it answers correctly and contains no refusal string at
+> all. A fixture quoted without its run file is not reproducible, and two readers will disagree
+> about what it says. Every fixture note below now names its source file.
+>
+> Found by Vaishnavi during T05's input checks, against
+> `results/annotation_sheet_annotated.xlsx`.
 
 ---
 
@@ -791,3 +807,47 @@ Every one of the findings that moved had been published with an explicit sample-
 attached. The caveats were not defensive boilerplate — they marked exactly the claims that could
 not survive, and all of them did fail. That is the evaluation framework working as designed, and
 it is a more valuable thing to report than any individual number in it.
+
+---
+
+# Refusal measurement was biased toward our own system (2026-09-27)
+
+Found by Vaishnavi during T05's input checks, before writing any measurement code.
+
+`src/annotate_worksheet.py` matches refusals against a marker list whose own comment reads
+*"Phrases the RAG system prompt instructs the model to use."* B0 has no system prompt. It refuses
+in its own words, and the detector cannot see it.
+
+B0 on q12, graded a correct refusal by a human, matching **none** of the markers:
+
+> "I don't have real-time data access, so I can't provide current or future weather forecasts."
+
+Correcting the list moves B0 from 0 to 3 detected refusals across 100 rows (0 → 2 on the
+`refusal_required` subset). **RAG does not move at all** — all nine of its refusals come through
+configured strings.
+
+**The bias is one-directional and it inflates the RAG-versus-B0 gap**, which is the comparison the
+project exists to make. Any B0-vs-RAG refusal figure recorded before this date inherits it.
+
+This is the same class of error as the two findings at larger n: the framework measuring its own
+preferred outcome favourably, caught by checking inputs rather than by the metric disagreeing with
+itself. The corrected detector keeps the two marker families separate so the report can state
+which fired.
+
+## Related input defects found in the same pass
+
+- **`results/annotation_sheet.xlsx` is the blank template** — 0 of 13 answerability grades, 0 of
+  312 relevance rows. The graded data is in `results/annotation_sheet_annotated.xlsx`.
+  `src/export_qrels.py` already reads the right file; the task briefs named the wrong one.
+- **Human grades are not attached to any stored run.** The graded `rag_answer` text matches the
+  k=3 run on only 6 of 13 rows (q01, q03, q06, q10, q11, q12). Generation is not pinned to a seed,
+  so the answers a human read are not the answers in any result file. Agreement must therefore be
+  computed against the sheet's own text. **Pin temperature and a seed before any further grading.**
+- **`rag_correct_manual` and `b0_correct_manual` are empty in all 100 rows**, and `test_set.json`
+  has no answerability field, so answered-correctly versus answered-but-wrong is computable only
+  for q01–q13. The refusal side computes over all 100.
+- **The `answerability` column describes RAG only** — it agrees with `rag_correct` on all 13 rows
+  and disagrees with `b0_correct`. There is no ground truth for the B0 split; report it as
+  unvalidated.
+- **Two of the five buckets have no human examples** — `missed_answerable` 0 and `over_refused` 0
+  across the 13. The agreement rate validates three of five categories.
