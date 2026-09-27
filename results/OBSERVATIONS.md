@@ -872,3 +872,81 @@ which fired.
   unvalidated.
 - **Two of the five buckets have no human examples** — `missed_answerable` 0 and `over_refused` 0
   across the 13. The agreement rate validates three of five categories.
+
+---
+
+# T09 chunking sweep re-run at n=61 — Finding 4 reverses (2026-09-27)
+
+The sweep was scored at n=8 because only eight questions had a single gold document. T13's
+expansion raised that to 61, so the whole sweep re-scores with no new judging and no generation.
+34 configurations × 3 retrievers, 102 rows, snapshot `84636c1d6741`.
+
+The n=8 file is kept as `results/chunking_sweep__n8_superseded.csv`.
+
+## Finding 4 reverses — and it reverses on the mechanism, not the size
+
+The n=8 result was that the subclass prefix helps BM25 far more than dense, with a stated
+mechanism: the prefix adds the literal token "Subclass 482", which BM25 matches directly, while
+dense retrieval had already captured that meaning and so gains nothing.
+
+**Mean MRR gain from turning metadata on, averaged across all 34 configurations:**
+
+| Retriever | n=8 | n=61 |
+|---|---|---|
+| dense | **−0.020** | **+0.066** |
+| bm25 | **+0.106** | +0.048 |
+| hybrid_rrf | +0.020 | +0.051 |
+
+At n=61 **dense gains the most and BM25 the least** — the exact opposite of the reported result.
+Dense Recall@1 was identical with and without metadata at n=8 (0.721 both ways), which is what
+the mechanism story was built on; at n=61 it moves 0.780 → 0.910.
+
+The mechanism was a story told about eight questions. It should not be repeated.
+
+**What survives, and is now much stronger:** the prefix reduces wrong-subclass@1 for *every*
+retriever — dense 0.202 → 0.083, BM25 0.070 → 0.042, hybrid 0.107 → 0.029. The prefix helps. The
+claim about *who* it helps and *why* does not hold.
+
+## Finding 2 — strategies are now marginally separable, and the order changed
+
+| | n=8 | n=61 |
+|---|---|---|
+| Strategy MRR spread | 0.056 | **0.023** |
+| One question moves the mean by | 0.125 | **0.016** |
+| Resolvable? | no — spread below noise | **marginally** — 1.4× |
+
+| Strategy | MRR n=8 | MRR n=61 |
+|---|---|---|
+| structure_aware | 0.854 (1st) | **0.949 (1st)** |
+| sentence_window | 0.798 (4th) | 0.939 (2nd) |
+| fixed_size | 0.820 (3rd) | 0.928 (3rd) |
+| paragraph | 0.829 (2nd) | 0.926 (4th) |
+
+`structure_aware` leads at both sample sizes, which is the one ordering claim worth carrying
+forward. The middle of the table reshuffled completely, and at 1.4× the per-question influence
+the separation is real but thin. **Report it as weakly resolved, not settled.**
+
+## What did not change
+
+**The condition 8547 hazard is identical: 18 of 34 configurations split the rule from its
+exemptions, and all 18 are `fixed_size`.** Unchanged between n=8 and n=61, because it is a
+structural property of how a strategy segments text, not a statistical estimate. Sample size
+cannot move it.
+
+That contrast is worth stating in the report: **every statistical finding in this sweep moved when
+n grew; the structural one did not.** It is the cleanest illustration in the project of which
+kinds of claim need a large sample and which do not.
+
+## Best configuration measured
+
+`structure_aware`, `max_chars=600`, subclass prefix on, hybrid RRF:
+**R@1 0.984 · MRR 0.992 · wrong-subclass@1 0.000** at n=61.
+
+At n=8 the best row was the same strategy and retriever at `max_chars=1400`. The size parameter
+moved; the strategy and retriever did not.
+
+## Tally
+
+Four findings re-examined at larger n across this project. **Three reversed** — dense-vs-BM25
+ordering, the top-k shape, and now the prefix mechanism. Every one of them was a statistical
+comparison reported with a sample-size caveat attached. Nothing structural has ever moved.

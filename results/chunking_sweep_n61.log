@@ -1,0 +1,38 @@
+[1/34] fixed_size_chunk_size400_overlap0.0_nometa            30 chunks  8547:SPLIT
+[2/34] fixed_size_chunk_size400_overlap0.0_meta              30 chunks  8547:SPLIT
+[3/34] fixed_size_chunk_size400_overlap0.1_nometa            33 chunks  8547:SPLIT
+[4/34] fixed_size_chunk_size400_overlap0.1_meta              33 chunks  8547:SPLIT
+[5/34] fixed_size_chunk_size400_overlap0.2_nometa            36 chunks  8547:SPLIT
+[6/34] fixed_size_chunk_size400_overlap0.2_meta              36 chunks  8547:SPLIT
+[7/34] fixed_size_chunk_size600_overlap0.0_nometa            20 chunks  8547:SPLIT
+[8/34] fixed_size_chunk_size600_overlap0.0_meta              20 chunks  8547:SPLIT
+[9/34] fixed_size_chunk_size600_overlap0.1_nometa            23 chunks  8547:SPLIT
+[10/34] fixed_size_chunk_size600_overlap0.1_meta              23 chunks  8547:SPLIT
+[11/34] fixed_size_chunk_size600_overlap0.2_nometa            25 chunks  8547:SPLIT
+[12/34] fixed_size_chunk_size600_overlap0.2_meta              25 chunks  8547:SPLIT
+[13/34] fixed_size_chunk_size1000_overlap0.0_nometa           14 chunks  8547:SPLIT
+[14/34] fixed_size_chunk_size1000_overlap0.0_meta             14 chunks  8547:SPLIT
+[15/34] fixed_size_chunk_size1000_overlap0.1_nometa           14 chunks  8547:SPLIT
+[16/34] fixed_size_chunk_size1000_overlap0.1_meta             14 chunks  8547:SPLIT
+[17/34] fixed_size_chunk_size1000_overlap0.2_nometa           17 chunks  8547:SPLIT
+[18/34] fixed_size_chunk_size1000_overlap0.2_meta             17 chunks  8547:SPLIT
+[19/34] paragraph_min_chars150_nometa                         22 chunks  8547:together
+[20/34] paragraph_min_chars150_meta                           22 chunks  8547:together
+[21/34] paragraph_min_chars200_nometa                         19 chunks  8547:together
+[22/34] paragraph_min_chars200_meta                           19 chunks  8547:together
+[23/34] paragraph_min_chars400_nometa                         13 chunks  8547:together
+[24/34] paragraph_min_chars400_meta                           13 chunks  8547:together
+[25/34] structure_aware_max_chars600_nometa                   26 chunks  8547:together
+[26/34] structure_aware_max_chars600_meta                     26 chunks  8547:together
+[27/34] structure_aware_max_chars900_nometa                   24 chunks  8547:together
+[28/34] structure_aware_max_chars900_meta                     24 chunks  8547:together
+[29/34] structure_aware_max_chars1400_nometa                  24 chunks  8547:together
+[30/34] structure_aware_max_chars1400_meta                    24 chunks  8547:together
+[31/34] sentence_window_window3_nometa                        55 chunks  8547:together
+[32/34] sentence_window_window3_meta                          55 chunks  8547:together
+[33/34] sentence_window_window5_nometa                        45 chunks  8547:together
+[34/34] sentence_window_window5_meta                          45 chunks  8547:together
+
+Wrote 102 rows (34 configs x 3 retrievers) to chunking_sweep.csv
+Scored on 61 questions with a single gold document.
+=== EXIT 0 ===
