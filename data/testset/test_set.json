@@ -58,7 +58,8 @@
       "whm_6_month_work_limitation::0"
     ],
     "qrels_snapshot": "84636c1d6741",
-    "qrels_recorded_at": "2026-08-21T09:43:10+00:00"
+    "qrels_recorded_at": "2026-08-21T09:43:10+00:00",
+    "qrels_method": "exhaustive_all_chunks"
   },
   {
     "id": "q02",
@@ -119,7 +120,8 @@
       "whm_6_month_work_limitation::0"
     ],
     "qrels_snapshot": "84636c1d6741",
-    "qrels_recorded_at": "2026-08-21T09:43:10+00:00"
+    "qrels_recorded_at": "2026-08-21T09:43:10+00:00",
+    "qrels_method": "exhaustive_all_chunks"
   },
   {
     "id": "q03",
@@ -180,7 +182,8 @@
       "whm_6_month_work_limitation::0"
     ],
     "qrels_snapshot": "84636c1d6741",
-    "qrels_recorded_at": "2026-08-21T09:43:10+00:00"
+    "qrels_recorded_at": "2026-08-21T09:43:10+00:00",
+    "qrels_method": "exhaustive_all_chunks"
   },
   {
     "id": "q04",
@@ -244,7 +247,8 @@
       "subclass_500_student::4"
     ],
     "qrels_snapshot": "84636c1d6741",
-    "qrels_recorded_at": "2026-08-21T09:43:10+00:00"
+    "qrels_recorded_at": "2026-08-21T09:43:10+00:00",
+    "qrels_method": "exhaustive_all_chunks"
   },
   {
     "id": "q05",
@@ -308,7 +312,8 @@
       "subclass_500_student::4"
     ],
     "qrels_snapshot": "84636c1d6741",
-    "qrels_recorded_at": "2026-08-21T09:43:10+00:00"
+    "qrels_recorded_at": "2026-08-21T09:43:10+00:00",
+    "qrels_method": "exhaustive_all_chunks"
   },
   {
     "id": "q06",
@@ -369,7 +374,8 @@
       "whm_6_month_work_limitation::0"
     ],
     "qrels_snapshot": "84636c1d6741",
-    "qrels_recorded_at": "2026-08-21T09:43:10+00:00"
+    "qrels_recorded_at": "2026-08-21T09:43:10+00:00",
+    "qrels_method": "exhaustive_all_chunks"
   },
   {
     "id": "q07",
@@ -424,7 +430,8 @@
     },
     "wrong_subclass_chunks": [],
     "qrels_snapshot": "84636c1d6741",
-    "qrels_recorded_at": "2026-08-21T09:43:10+00:00"
+    "qrels_recorded_at": "2026-08-21T09:43:10+00:00",
+    "qrels_method": "exhaustive_all_chunks"
   },
   {
     "id": "q08",
@@ -472,7 +479,8 @@
     },
     "wrong_subclass_chunks": [],
     "qrels_snapshot": "84636c1d6741",
-    "qrels_recorded_at": "2026-08-21T09:43:10+00:00"
+    "qrels_recorded_at": "2026-08-21T09:43:10+00:00",
+    "qrels_method": "exhaustive_all_chunks"
   },
   {
     "id": "q09",
@@ -533,7 +541,8 @@
       "whm_6_month_work_limitation::0"
     ],
     "qrels_snapshot": "84636c1d6741",
-    "qrels_recorded_at": "2026-08-21T09:43:10+00:00"
+    "qrels_recorded_at": "2026-08-21T09:43:10+00:00",
+    "qrels_method": "exhaustive_all_chunks"
   },
   {
     "id": "q10",
@@ -595,7 +604,8 @@
       "whm_6_month_work_limitation::0"
     ],
     "qrels_snapshot": "84636c1d6741",
-    "qrels_recorded_at": "2026-08-21T09:43:10+00:00"
+    "qrels_recorded_at": "2026-08-21T09:43:10+00:00",
+    "qrels_method": "exhaustive_all_chunks"
   },
   {
     "id": "q11",
@@ -657,7 +667,8 @@
       "whm_6_month_work_limitation::0"
     ],
     "qrels_snapshot": "84636c1d6741",
-    "qrels_recorded_at": "2026-08-21T09:43:10+00:00"
+    "qrels_recorded_at": "2026-08-21T09:43:10+00:00",
+    "qrels_method": "exhaustive_all_chunks"
   },
   {
     "id": "q12",
@@ -669,34 +680,22 @@
     "expected_behavior": "refuse",
     "gold_chunk_ids": [],
     "gold_chunk_grades": {
-      "subclass_417_working_holiday::0": 0,
       "subclass_417_working_holiday::1": 0,
       "subclass_417_working_holiday::2": 0,
       "subclass_417_working_holiday::3": 0,
-      "subclass_482_skills_in_demand::0": 0,
-      "subclass_482_skills_in_demand::1": 0,
-      "subclass_482_skills_in_demand::2": 0,
-      "subclass_482_skills_in_demand::3": 0,
-      "subclass_482_skills_in_demand::4": 0,
-      "subclass_482_skills_in_demand::5": 0,
-      "subclass_485_temporary_graduate::0": 0,
-      "subclass_485_temporary_graduate::1": 0,
       "subclass_485_temporary_graduate::2": 0,
-      "subclass_485_temporary_graduate::3": 0,
       "subclass_485_temporary_graduate::4": 0,
-      "subclass_500_student::0": 0,
-      "subclass_500_student::1": 0,
       "subclass_500_student::2": 0,
-      "subclass_500_student::3": 0,
-      "subclass_500_student::4": 0,
       "whm_6_month_work_limitation::0": 0,
-      "whm_6_month_work_limitation::1": 0,
-      "whm_6_month_work_limitation::2": 0,
       "whm_6_month_work_limitation::3": 0
     },
     "wrong_subclass_chunks": [],
     "qrels_snapshot": "84636c1d6741",
-    "qrels_recorded_at": "2026-08-21T09:43:10+00:00"
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Glory"
+    ]
   },
   {
     "id": "q13",
@@ -760,7 +759,8 @@
       "subclass_500_student::4"
     ],
     "qrels_snapshot": "84636c1d6741",
-    "qrels_recorded_at": "2026-08-21T09:43:10+00:00"
+    "qrels_recorded_at": "2026-08-21T09:43:10+00:00",
+    "qrels_method": "exhaustive_all_chunks"
   },
   {
     "id": "q14",
@@ -769,7 +769,30 @@
     "question": "What age must I be to meet the basic age requirement for a first Subclass 417 Working Holiday visa?",
     "gold_answer": "You must be 18 to 30 years old, or up to 35 years old for applicants from some countries.",
     "gold_source": "subclass_417_working_holiday.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_417_working_holiday::1",
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "subclass_485_temporary_graduate::1"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 3,
+      "subclass_417_working_holiday::1": 1,
+      "subclass_417_working_holiday::2": 1,
+      "subclass_417_working_holiday::3": 1,
+      "subclass_482_skills_in_demand::1": 0,
+      "subclass_485_temporary_graduate::1": 1
+    },
+    "wrong_subclass_chunks": [
+      "subclass_482_skills_in_demand::1"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Hitesh"
+    ]
   },
   {
     "id": "q15",
@@ -778,7 +801,27 @@
     "question": "What passport requirement applies to a Subclass 417 Working Holiday visa applicant?",
     "gold_answer": "The applicant must have a passport from an eligible country or jurisdiction.",
     "gold_source": "subclass_417_working_holiday.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_417_working_holiday::1",
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "whm_6_month_work_limitation::0"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 3,
+      "subclass_417_working_holiday::1": 1,
+      "subclass_417_working_holiday::2": 1,
+      "subclass_417_working_holiday::3": 1,
+      "whm_6_month_work_limitation::0": 1
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Glory"
+    ]
   },
   {
     "id": "q16",
@@ -787,7 +830,29 @@
     "question": "Can dependent children accompany me when I apply for a Subclass 417 Working Holiday visa?",
     "gold_answer": "No. A basic eligibility requirement is that the applicant must not be accompanied by dependent children.",
     "gold_source": "subclass_417_working_holiday.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_417_working_holiday::1",
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "subclass_482_skills_in_demand::5",
+      "whm_6_month_work_limitation::0"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 3,
+      "subclass_417_working_holiday::1": 1,
+      "subclass_417_working_holiday::2": 1,
+      "subclass_417_working_holiday::3": 1,
+      "subclass_482_skills_in_demand::5": 1,
+      "whm_6_month_work_limitation::0": 1
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Heet Chanchad"
+    ]
   },
   {
     "id": "q17",
@@ -796,7 +861,27 @@
     "question": "Can I work in Australia on my first Subclass 417 Working Holiday visa?",
     "gold_answer": "Yes. A first Subclass 417 Working Holiday visa allows you to work while you are in Australia, subject to condition 8547's same-employer limitation unless an exemption applies.",
     "gold_source": "subclass_417_working_holiday.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_417_working_holiday::1",
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "whm_6_month_work_limitation::0"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 1,
+      "subclass_417_working_holiday::1": 3,
+      "subclass_417_working_holiday::2": 1,
+      "subclass_417_working_holiday::3": 2,
+      "whm_6_month_work_limitation::0": 2
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Soham Athawale"
+    ]
   },
   {
     "id": "q18",
@@ -805,7 +890,27 @@
     "question": "Can a first Subclass 417 Working Holiday visa holder apply for a second Working Holiday visa?",
     "gold_answer": "Yes, if the holder meets the eligibility criteria for a second Working Holiday visa.",
     "gold_source": "subclass_417_working_holiday.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_417_working_holiday::1",
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "whm_6_month_work_limitation::0"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 1,
+      "subclass_417_working_holiday::1": 3,
+      "subclass_417_working_holiday::2": 2,
+      "subclass_417_working_holiday::3": 1,
+      "whm_6_month_work_limitation::0": 1
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Soham Athawale"
+    ]
   },
   {
     "id": "q19",
@@ -814,7 +919,30 @@
     "question": "How long is a first Subclass 417 Working Holiday visa, and what does it cost?",
     "gold_answer": "The stay is 12 months and the cost is AUD840.00.",
     "gold_source": "subclass_417_working_holiday.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_417_working_holiday::1",
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "whm_6_month_work_limitation::0"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 1,
+      "subclass_417_working_holiday::1": 3,
+      "subclass_417_working_holiday::2": 1,
+      "subclass_417_working_holiday::3": 1,
+      "subclass_482_skills_in_demand::5": 0,
+      "whm_6_month_work_limitation::0": 1
+    },
+    "wrong_subclass_chunks": [
+      "subclass_482_skills_in_demand::5"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Glory"
+    ]
   },
   {
     "id": "q20",
@@ -823,7 +951,27 @@
     "question": "Who is the second Subclass 417 Working Holiday visa intended for?",
     "gold_answer": "It is for people who currently hold, or have previously held, a Working Holiday visa.",
     "gold_source": "subclass_417_working_holiday.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_417_working_holiday::1",
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "whm_6_month_work_limitation::0"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 1,
+      "subclass_417_working_holiday::1": 2,
+      "subclass_417_working_holiday::2": 3,
+      "subclass_417_working_holiday::3": 1,
+      "whm_6_month_work_limitation::0": 1
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Heet Chanchad"
+    ]
   },
   {
     "id": "q21",
@@ -832,7 +980,30 @@
     "question": "What kind of work can I do on a second Subclass 417 Working Holiday visa?",
     "gold_answer": "You can do any kind of work while in Australia, but condition 8547 generally limits work with the same employer to 6 months unless an exemption applies. Eligibility for this second visa requires 3 months of specified Subclass 417 work.",
     "gold_source": "subclass_417_working_holiday.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_417_working_holiday::1",
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "whm_6_month_work_limitation::0"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 1,
+      "subclass_417_working_holiday::1": 1,
+      "subclass_417_working_holiday::2": 3,
+      "subclass_417_working_holiday::3": 2,
+      "subclass_485_temporary_graduate::4": 0,
+      "whm_6_month_work_limitation::0": 2
+    },
+    "wrong_subclass_chunks": [
+      "subclass_485_temporary_graduate::4"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Glory"
+    ]
   },
   {
     "id": "q22",
@@ -841,7 +1012,27 @@
     "question": "How much specified Subclass 417 work must I complete for a second Working Holiday visa?",
     "gold_answer": "You must have completed 3 months of specified Subclass 417 work.",
     "gold_source": "subclass_417_working_holiday.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_417_working_holiday::1",
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "whm_6_month_work_limitation::0"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 1,
+      "subclass_417_working_holiday::1": 1,
+      "subclass_417_working_holiday::2": 3,
+      "subclass_417_working_holiday::3": 1,
+      "whm_6_month_work_limitation::0": 1
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Manoj"
+    ]
   },
   {
     "id": "q23",
@@ -850,7 +1041,30 @@
     "question": "If I apply in Australia for a second Subclass 417 Working Holiday visa, what current or recent visa status must I have?",
     "gold_answer": "You must hold a substantive visa, or your last substantive visa must have expired less than 28 days ago.",
     "gold_source": "subclass_417_working_holiday.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_417_working_holiday::1",
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "whm_6_month_work_limitation::0"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 1,
+      "subclass_417_working_holiday::1": 1,
+      "subclass_417_working_holiday::2": 3,
+      "subclass_417_working_holiday::3": 1,
+      "subclass_482_skills_in_demand::5": 0,
+      "whm_6_month_work_limitation::0": 1
+    },
+    "wrong_subclass_chunks": [
+      "subclass_482_skills_in_demand::5"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Heet Chanchad"
+    ]
   },
   {
     "id": "q24",
@@ -859,7 +1073,27 @@
     "question": "Can a second Subclass 417 Working Holiday visa holder apply for a third Working Holiday visa?",
     "gold_answer": "Yes, if the holder meets the eligibility criteria for a third Working Holiday visa.",
     "gold_source": "subclass_417_working_holiday.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_417_working_holiday::1",
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "whm_6_month_work_limitation::0"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 1,
+      "subclass_417_working_holiday::1": 1,
+      "subclass_417_working_holiday::2": 3,
+      "subclass_417_working_holiday::3": 2,
+      "whm_6_month_work_limitation::0": 1
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Hitesh"
+    ]
   },
   {
     "id": "q25",
@@ -868,7 +1102,30 @@
     "question": "After completing the required specified work, how long is a second Subclass 417 Working Holiday visa, and what does it cost?",
     "gold_answer": "After the required 3 months of specified Subclass 417 work, the second visa provides a 12-month stay and costs AUD1,000.00.",
     "gold_source": "subclass_417_working_holiday.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_417_working_holiday::1",
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "whm_6_month_work_limitation::0"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 1,
+      "subclass_417_working_holiday::1": 1,
+      "subclass_417_working_holiday::2": 3,
+      "subclass_417_working_holiday::3": 1,
+      "subclass_482_skills_in_demand::5": 0,
+      "whm_6_month_work_limitation::0": 1
+    },
+    "wrong_subclass_chunks": [
+      "subclass_482_skills_in_demand::5"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Glory"
+    ]
   },
   {
     "id": "q26",
@@ -877,7 +1134,27 @@
     "question": "Who is the third Subclass 417 Working Holiday visa intended for?",
     "gold_answer": "It is for people who currently hold, or have previously held, a second Working Holiday visa.",
     "gold_source": "subclass_417_working_holiday.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_417_working_holiday::1",
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "whm_6_month_work_limitation::0"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 1,
+      "subclass_417_working_holiday::1": 1,
+      "subclass_417_working_holiday::2": 2,
+      "subclass_417_working_holiday::3": 3,
+      "whm_6_month_work_limitation::0": 1
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Soham Athawale"
+    ]
   },
   {
     "id": "q27",
@@ -886,7 +1163,27 @@
     "question": "What kind of work can I do on a third Subclass 417 Working Holiday visa?",
     "gold_answer": "You can do any kind of work while in Australia, but condition 8547 generally limits work with the same employer to 6 months unless an exemption applies. Eligibility for this third visa requires 6 months of specified Subclass 417 work.",
     "gold_source": "subclass_417_working_holiday.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_417_working_holiday::1",
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "whm_6_month_work_limitation::0"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 1,
+      "subclass_417_working_holiday::1": 1,
+      "subclass_417_working_holiday::2": 2,
+      "subclass_417_working_holiday::3": 3,
+      "whm_6_month_work_limitation::0": 2
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Hitesh"
+    ]
   },
   {
     "id": "q28",
@@ -895,7 +1192,27 @@
     "question": "If I apply in Australia for a third Subclass 417 Working Holiday visa, what current or recent visa status must I have?",
     "gold_answer": "You must hold a substantive visa, or your last substantive visa must have expired less than 28 days ago.",
     "gold_source": "subclass_417_working_holiday.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_417_working_holiday::1",
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "whm_6_month_work_limitation::0"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 1,
+      "subclass_417_working_holiday::1": 1,
+      "subclass_417_working_holiday::2": 1,
+      "subclass_417_working_holiday::3": 3,
+      "whm_6_month_work_limitation::0": 1
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Soham Athawale"
+    ]
   },
   {
     "id": "q29",
@@ -904,7 +1221,30 @@
     "question": "After completing the required specified work, how long is a third Subclass 417 Working Holiday visa, and what does it cost?",
     "gold_answer": "After the required 6 months of specified Subclass 417 work, the third visa provides a 12-month stay and costs AUD1,000.00.",
     "gold_source": "subclass_417_working_holiday.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_417_working_holiday::1",
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "whm_6_month_work_limitation::0"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 1,
+      "subclass_417_working_holiday::1": 1,
+      "subclass_417_working_holiday::2": 1,
+      "subclass_417_working_holiday::3": 3,
+      "subclass_482_skills_in_demand::5": 0,
+      "whm_6_month_work_limitation::0": 1
+    },
+    "wrong_subclass_chunks": [
+      "subclass_482_skills_in_demand::5"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Hitesh"
+    ]
   },
   {
     "id": "q30",
@@ -913,7 +1253,29 @@
     "question": "What is the purpose of the Subclass 482 Skills in Demand visa?",
     "gold_answer": "It lets an employer sponsor a suitably skilled worker for a position when the employer cannot find a suitably skilled Australian to fill it.",
     "gold_source": "subclass_482_skills_in_demand.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::0",
+      "subclass_482_skills_in_demand::1",
+      "subclass_482_skills_in_demand::2",
+      "subclass_482_skills_in_demand::3",
+      "subclass_482_skills_in_demand::4",
+      "subclass_482_skills_in_demand::5"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::0": 3,
+      "subclass_482_skills_in_demand::1": 2,
+      "subclass_482_skills_in_demand::2": 2,
+      "subclass_482_skills_in_demand::3": 1,
+      "subclass_482_skills_in_demand::4": 1,
+      "subclass_482_skills_in_demand::5": 1
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Hitesh"
+    ]
   },
   {
     "id": "q31",
@@ -922,7 +1284,32 @@
     "question": "Who must nominate an applicant for a skilled position under Subclass 482?",
     "gold_answer": "The applicant must be nominated for a skilled position by an approved sponsor.",
     "gold_source": "subclass_482_skills_in_demand.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::0",
+      "subclass_482_skills_in_demand::1",
+      "subclass_482_skills_in_demand::2",
+      "subclass_482_skills_in_demand::3",
+      "subclass_482_skills_in_demand::4",
+      "subclass_482_skills_in_demand::5"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::0": 2,
+      "subclass_482_skills_in_demand::1": 3,
+      "subclass_482_skills_in_demand::2": 1,
+      "subclass_482_skills_in_demand::3": 1,
+      "subclass_482_skills_in_demand::4": 2,
+      "subclass_482_skills_in_demand::5": 1,
+      "subclass_485_temporary_graduate::1": 0
+    },
+    "wrong_subclass_chunks": [
+      "subclass_485_temporary_graduate::1"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Soham Athawale"
+    ]
   },
   {
     "id": "q32",
@@ -931,7 +1318,32 @@
     "question": "What job-skills requirement must a Subclass 482 applicant meet?",
     "gold_answer": "The applicant must have the right skills to do the nominated job.",
     "gold_source": "subclass_482_skills_in_demand.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::0",
+      "subclass_482_skills_in_demand::1",
+      "subclass_482_skills_in_demand::2",
+      "subclass_482_skills_in_demand::3",
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::1"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::2": 0,
+      "subclass_482_skills_in_demand::0": 2,
+      "subclass_482_skills_in_demand::1": 3,
+      "subclass_482_skills_in_demand::2": 2,
+      "subclass_482_skills_in_demand::3": 2,
+      "subclass_482_skills_in_demand::5": 1,
+      "subclass_485_temporary_graduate::1": 1
+    },
+    "wrong_subclass_chunks": [
+      "subclass_417_working_holiday::2"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Hitesh"
+    ]
   },
   {
     "id": "q33",
@@ -940,7 +1352,34 @@
     "question": "Does a Subclass 482 applicant have to meet an English-language requirement?",
     "gold_answer": "Yes. The applicant must meet the relevant English-language requirements.",
     "gold_source": "subclass_482_skills_in_demand.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::0",
+      "subclass_482_skills_in_demand::1",
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::1",
+      "subclass_500_student::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::1": 0,
+      "subclass_417_working_holiday::2": 0,
+      "subclass_482_skills_in_demand::0": 1,
+      "subclass_482_skills_in_demand::1": 3,
+      "subclass_482_skills_in_demand::5": 1,
+      "subclass_485_temporary_graduate::1": 1,
+      "subclass_500_student::3": 1,
+      "whm_6_month_work_limitation::1": 0,
+      "whm_6_month_work_limitation::3": 0
+    },
+    "wrong_subclass_chunks": [
+      "subclass_417_working_holiday::1",
+      "subclass_417_working_holiday::2"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Heet Chanchad"
+    ]
   },
   {
     "id": "q34",
@@ -949,7 +1388,31 @@
     "question": "What occupation-list requirement applies to the Subclass 482 Core Skills stream?",
     "gold_answer": "The occupation must be on the Core Skills Occupation List; the stream is used where an employer cannot source an appropriately skilled Australian worker.",
     "gold_source": "subclass_482_skills_in_demand.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::0",
+      "subclass_482_skills_in_demand::1",
+      "subclass_482_skills_in_demand::2",
+      "subclass_482_skills_in_demand::3",
+      "subclass_482_skills_in_demand::4",
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::2"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::0": 1,
+      "subclass_482_skills_in_demand::1": 1,
+      "subclass_482_skills_in_demand::2": 3,
+      "subclass_482_skills_in_demand::3": 2,
+      "subclass_482_skills_in_demand::4": 1,
+      "subclass_482_skills_in_demand::5": 1,
+      "subclass_485_temporary_graduate::2": 1
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Glory"
+    ]
   },
   {
     "id": "q35",
@@ -958,7 +1421,29 @@
     "question": "What are the starting cost and maximum stay for a Subclass 482 Core Skills stream visa?",
     "gold_answer": "The cost starts from AUD4,015.00, with concessions in limited circumstances. The stay is up to 4 years, or up to 5 years for Hong Kong passport holders.",
     "gold_source": "subclass_482_skills_in_demand.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::1",
+      "subclass_482_skills_in_demand::2",
+      "subclass_482_skills_in_demand::3",
+      "subclass_482_skills_in_demand::4",
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::2"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::1": 1,
+      "subclass_482_skills_in_demand::2": 3,
+      "subclass_482_skills_in_demand::3": 2,
+      "subclass_482_skills_in_demand::4": 2,
+      "subclass_482_skills_in_demand::5": 2,
+      "subclass_485_temporary_graduate::2": 1
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Vaishnavi"
+    ]
   },
   {
     "id": "q36",
@@ -967,7 +1452,30 @@
     "question": "Which occupations and salary condition apply to the Subclass 482 Specialist Skills stream?",
     "gold_answer": "The occupation must be an ANZSCO occupation in Major Group 1, 2, 4, 5 or 6, and the nominated salary must meet the Specialist Skills Income Threshold.",
     "gold_source": "subclass_482_skills_in_demand.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::0",
+      "subclass_482_skills_in_demand::1",
+      "subclass_482_skills_in_demand::2",
+      "subclass_482_skills_in_demand::3",
+      "subclass_482_skills_in_demand::4",
+      "subclass_482_skills_in_demand::5"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::0": 1,
+      "subclass_482_skills_in_demand::1": 1,
+      "subclass_482_skills_in_demand::2": 2,
+      "subclass_482_skills_in_demand::3": 3,
+      "subclass_482_skills_in_demand::4": 1,
+      "subclass_482_skills_in_demand::5": 1,
+      "whm_6_month_work_limitation::3": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Vaishnavi"
+    ]
   },
   {
     "id": "q37",
@@ -976,7 +1484,29 @@
     "question": "For an occupation that meets the Specialist Skills stream conditions, what are the Subclass 482 starting cost and maximum stay?",
     "gold_answer": "For an eligible ANZSCO Major Group occupation whose salary meets the Specialist Skills Income Threshold, the cost starts from AUD4,015.00 with limited concessions. The stay is up to 4 years, or up to 5 years for Hong Kong passport holders.",
     "gold_source": "subclass_482_skills_in_demand.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::0",
+      "subclass_482_skills_in_demand::2",
+      "subclass_482_skills_in_demand::3",
+      "subclass_482_skills_in_demand::4",
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::2"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::0": 1,
+      "subclass_482_skills_in_demand::2": 2,
+      "subclass_482_skills_in_demand::3": 3,
+      "subclass_482_skills_in_demand::4": 2,
+      "subclass_482_skills_in_demand::5": 2,
+      "subclass_485_temporary_graduate::2": 1
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Soham Athawale"
+    ]
   },
   {
     "id": "q38",
@@ -985,7 +1515,31 @@
     "question": "What are the starting cost and maximum stay for a Subclass 482 Labour Agreement stream visa?",
     "gold_answer": "The cost starts from AUD4,015.00, with concessions in limited circumstances. The stay is up to 4 years depending on the labour agreement's terms, or up to 5 years for Hong Kong passport holders.",
     "gold_source": "subclass_482_skills_in_demand.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::0",
+      "subclass_482_skills_in_demand::2",
+      "subclass_482_skills_in_demand::3",
+      "subclass_482_skills_in_demand::4",
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::0": 1,
+      "subclass_482_skills_in_demand::2": 2,
+      "subclass_482_skills_in_demand::3": 2,
+      "subclass_482_skills_in_demand::4": 3,
+      "subclass_482_skills_in_demand::5": 2,
+      "subclass_485_temporary_graduate::2": 1,
+      "subclass_485_temporary_graduate::3": 1
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Heet Chanchad"
+    ]
   },
   {
     "id": "q39",
@@ -994,7 +1548,33 @@
     "question": "How long can a Subclass 482 subsequent entrant stay, and what is the starting cost?",
     "gold_answer": "A subsequent entrant can stay as long as the visa is valid. The cost starts from AUD4,015.00, with concessions applying in limited circumstances.",
     "gold_source": "subclass_482_skills_in_demand.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::2",
+      "subclass_482_skills_in_demand::4",
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::4",
+      "subclass_500_student::0"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::3": 0,
+      "subclass_482_skills_in_demand::2": 2,
+      "subclass_482_skills_in_demand::4": 2,
+      "subclass_482_skills_in_demand::5": 3,
+      "subclass_485_temporary_graduate::0": 0,
+      "subclass_485_temporary_graduate::4": 1,
+      "subclass_500_student::0": 1,
+      "whm_6_month_work_limitation::1": 0
+    },
+    "wrong_subclass_chunks": [
+      "subclass_417_working_holiday::3",
+      "subclass_485_temporary_graduate::0"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Hitesh"
+    ]
   },
   {
     "id": "q40",
@@ -1003,7 +1583,33 @@
     "question": "What is the general age requirement when applying for a Subclass 485 Temporary Graduate visa?",
     "gold_answer": "You must generally be aged 35 years or under when you apply, although exceptions apply.",
     "gold_source": "subclass_485_temporary_graduate.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_485_temporary_graduate::0",
+      "subclass_485_temporary_graduate::1",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::4",
+      "subclass_500_student::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 1,
+      "subclass_482_skills_in_demand::5": 0,
+      "subclass_485_temporary_graduate::0": 1,
+      "subclass_485_temporary_graduate::1": 3,
+      "subclass_485_temporary_graduate::2": 1,
+      "subclass_485_temporary_graduate::4": 1,
+      "subclass_500_student::3": 1,
+      "whm_6_month_work_limitation::3": 0
+    },
+    "wrong_subclass_chunks": [
+      "subclass_482_skills_in_demand::5"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Vaishnavi"
+    ]
   },
   {
     "id": "q41",
@@ -1012,7 +1618,32 @@
     "question": "Must a Subclass 485 Temporary Graduate applicant already hold an eligible visa?",
     "gold_answer": "Yes. Holding an eligible visa is a basic eligibility requirement.",
     "gold_source": "subclass_485_temporary_graduate.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_485_temporary_graduate::0",
+      "subclass_485_temporary_graduate::1",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::4",
+      "subclass_500_student::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::0": 0,
+      "subclass_482_skills_in_demand::5": 0,
+      "subclass_485_temporary_graduate::0": 1,
+      "subclass_485_temporary_graduate::1": 3,
+      "subclass_485_temporary_graduate::2": 1,
+      "subclass_485_temporary_graduate::4": 2,
+      "subclass_500_student::3": 1
+    },
+    "wrong_subclass_chunks": [
+      "subclass_482_skills_in_demand::0",
+      "subclass_482_skills_in_demand::5"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Soham Athawale"
+    ]
   },
   {
     "id": "q42",
@@ -1021,7 +1652,35 @@
     "question": "What course-registration requirement applies to a recent qualification used for a Subclass 485 application?",
     "gold_answer": "The recent qualification must be from a CRICOS-registered course.",
     "gold_source": "subclass_485_temporary_graduate.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_485_temporary_graduate::0",
+      "subclass_485_temporary_graduate::1",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::0": 0,
+      "subclass_482_skills_in_demand::1": 0,
+      "subclass_482_skills_in_demand::5": 0,
+      "subclass_485_temporary_graduate::0": 1,
+      "subclass_485_temporary_graduate::1": 3,
+      "subclass_485_temporary_graduate::2": 1,
+      "subclass_485_temporary_graduate::3": 3,
+      "subclass_500_student::1": 0,
+      "whm_6_month_work_limitation::3": 0
+    },
+    "wrong_subclass_chunks": [
+      "subclass_482_skills_in_demand::0",
+      "subclass_482_skills_in_demand::1",
+      "subclass_482_skills_in_demand::5",
+      "subclass_500_student::1"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Vaishnavi"
+    ]
   },
   {
     "id": "q43",
@@ -1030,7 +1689,32 @@
     "question": "Can I change Subclass 485 streams after I submit my application?",
     "gold_answer": "No. You must apply for your eligible stream, and it is not possible to change streams after applying.",
     "gold_source": "subclass_485_temporary_graduate.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_485_temporary_graduate::0",
+      "subclass_485_temporary_graduate::1",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::5": 0,
+      "subclass_485_temporary_graduate::0": 1,
+      "subclass_485_temporary_graduate::1": 3,
+      "subclass_485_temporary_graduate::3": 1,
+      "subclass_485_temporary_graduate::4": 1,
+      "subclass_500_student::1": 0,
+      "subclass_500_student::4": 0
+    },
+    "wrong_subclass_chunks": [
+      "subclass_482_skills_in_demand::5",
+      "subclass_500_student::1",
+      "subclass_500_student::4"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Glory"
+    ]
   },
   {
     "id": "q44",
@@ -1039,7 +1723,33 @@
     "question": "When must I attach the required evidence for a Subclass 485 application?",
     "gold_answer": "You must attach the required evidence when you apply.",
     "gold_source": "subclass_485_temporary_graduate.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_485_temporary_graduate::0",
+      "subclass_485_temporary_graduate::1",
+      "subclass_485_temporary_graduate::2",
+      "subclass_500_student::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::1": 0,
+      "subclass_482_skills_in_demand::5": 0,
+      "subclass_485_temporary_graduate::0": 1,
+      "subclass_485_temporary_graduate::1": 3,
+      "subclass_485_temporary_graduate::2": 1,
+      "subclass_500_student::1": 0,
+      "subclass_500_student::3": 1,
+      "whm_6_month_work_limitation::3": 0
+    },
+    "wrong_subclass_chunks": [
+      "subclass_482_skills_in_demand::1",
+      "subclass_482_skills_in_demand::5",
+      "subclass_500_student::1"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Glory"
+    ]
   },
   {
     "id": "q45",
@@ -1048,7 +1758,30 @@
     "question": "Can a Subclass 485 Post-Vocational Education Work stream holder work in Australia?",
     "gold_answer": "Yes. The Post-Vocational Education Work stream allows work in Australia with no stated hours restriction. It is the stream for a recent associate degree, diploma or trade qualification relevant to an occupation Australia needs.",
     "gold_source": "subclass_485_temporary_graduate.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4",
+      "subclass_500_student::2"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::3": 0,
+      "subclass_482_skills_in_demand::5": 1,
+      "subclass_485_temporary_graduate::2": 3,
+      "subclass_485_temporary_graduate::3": 2,
+      "subclass_485_temporary_graduate::4": 2,
+      "subclass_500_student::2": 1
+    },
+    "wrong_subclass_chunks": [
+      "subclass_417_working_holiday::3"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Heet Chanchad"
+    ]
   },
   {
     "id": "q46",
@@ -1057,7 +1790,32 @@
     "question": "Can I bring my family on the Subclass 485 Post-Vocational Education Work stream?",
     "gold_answer": "Yes. Holders of the Post-Vocational Education Work stream can bring family; this is the stream tied to a relevant associate degree, diploma or trade qualification.",
     "gold_source": "subclass_485_temporary_graduate.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::0",
+      "subclass_485_temporary_graduate::1",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::2": 0,
+      "subclass_482_skills_in_demand::5": 1,
+      "subclass_485_temporary_graduate::0": 1,
+      "subclass_485_temporary_graduate::1": 1,
+      "subclass_485_temporary_graduate::2": 3,
+      "subclass_485_temporary_graduate::3": 2,
+      "subclass_485_temporary_graduate::4": 2
+    },
+    "wrong_subclass_chunks": [
+      "subclass_482_skills_in_demand::2"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Soham Athawale"
+    ]
   },
   {
     "id": "q47",
@@ -1066,7 +1824,32 @@
     "question": "What qualification-to-occupation link is required for the Subclass 485 Post-Vocational Education Work stream?",
     "gold_answer": "You must hold a qualification relevant to the nominated occupation on the skilled occupation list.",
     "gold_source": "subclass_485_temporary_graduate.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::1",
+      "subclass_485_temporary_graduate::1",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::0": 0,
+      "subclass_482_skills_in_demand::1": 1,
+      "subclass_482_skills_in_demand::5": 0,
+      "subclass_485_temporary_graduate::1": 2,
+      "subclass_485_temporary_graduate::2": 3,
+      "subclass_485_temporary_graduate::3": 1,
+      "subclass_485_temporary_graduate::4": 1
+    },
+    "wrong_subclass_chunks": [
+      "subclass_482_skills_in_demand::0",
+      "subclass_482_skills_in_demand::5"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Hitesh"
+    ]
   },
   {
     "id": "q48",
@@ -1075,7 +1858,29 @@
     "question": "What are the starting cost and maximum stay for the Subclass 485 Post-Vocational Education Work stream?",
     "gold_answer": "The cost starts from AUD5,750.00, with concessions in limited circumstances. The stay is up to 18 months, while Hong Kong and British National Overseas passport holders may stay for 5 years.",
     "gold_source": "subclass_485_temporary_graduate.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::4",
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::0",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::4": 1,
+      "subclass_482_skills_in_demand::5": 1,
+      "subclass_485_temporary_graduate::0": 1,
+      "subclass_485_temporary_graduate::2": 3,
+      "subclass_485_temporary_graduate::3": 2,
+      "subclass_485_temporary_graduate::4": 2
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Heet Chanchad"
+    ]
   },
   {
     "id": "q49",
@@ -1084,7 +1889,30 @@
     "question": "Can a Subclass 485 Post-Higher Education Work stream holder work in Australia?",
     "gold_answer": "Yes. The Post-Higher Education Work stream allows work in Australia with no stated hours restriction. It is the stream for recent graduates with a degree from an Australian institution.",
     "gold_source": "subclass_485_temporary_graduate.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4",
+      "subclass_500_student::2"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::3": 0,
+      "subclass_482_skills_in_demand::5": 1,
+      "subclass_485_temporary_graduate::2": 2,
+      "subclass_485_temporary_graduate::3": 3,
+      "subclass_485_temporary_graduate::4": 2,
+      "subclass_500_student::2": 1
+    },
+    "wrong_subclass_chunks": [
+      "subclass_417_working_holiday::3"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Soham Athawale"
+    ]
   },
   {
     "id": "q50",
@@ -1093,7 +1921,30 @@
     "question": "Can I bring my family on the Subclass 485 Post-Higher Education Work stream?",
     "gold_answer": "Yes. Holders of the Post-Higher Education Work stream can bring family; this is the stream for recent graduates with an Australian degree.",
     "gold_source": "subclass_485_temporary_graduate.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::0",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::2": 0,
+      "subclass_482_skills_in_demand::5": 1,
+      "subclass_485_temporary_graduate::0": 1,
+      "subclass_485_temporary_graduate::2": 2,
+      "subclass_485_temporary_graduate::3": 3,
+      "subclass_485_temporary_graduate::4": 2
+    },
+    "wrong_subclass_chunks": [
+      "subclass_482_skills_in_demand::2"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Hitesh"
+    ]
   },
   {
     "id": "q51",
@@ -1102,7 +1953,31 @@
     "question": "What degree requirement applies to the Subclass 485 Post-Higher Education Work stream?",
     "gold_answer": "You need a recent degree from a CRICOS-registered course.",
     "gold_source": "subclass_485_temporary_graduate.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_485_temporary_graduate::0",
+      "subclass_485_temporary_graduate::1",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::5": 0,
+      "subclass_485_temporary_graduate::0": 1,
+      "subclass_485_temporary_graduate::1": 2,
+      "subclass_485_temporary_graduate::2": 1,
+      "subclass_485_temporary_graduate::3": 3,
+      "subclass_485_temporary_graduate::4": 2,
+      "whm_6_month_work_limitation::3": 0
+    },
+    "wrong_subclass_chunks": [
+      "subclass_482_skills_in_demand::5"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Heet Chanchad"
+    ]
   },
   {
     "id": "q52",
@@ -1111,7 +1986,31 @@
     "question": "What are the starting cost and usual stay for the Subclass 485 Post-Higher Education Work stream?",
     "gold_answer": "The cost starts from AUD5,750.00, with concessions in limited circumstances. The stay is usually 2-3 years depending on qualification, while Hong Kong and British National Overseas passport holders may stay for 5 years.",
     "gold_source": "subclass_485_temporary_graduate.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::0",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::3": 0,
+      "subclass_482_skills_in_demand::5": 1,
+      "subclass_485_temporary_graduate::0": 1,
+      "subclass_485_temporary_graduate::2": 2,
+      "subclass_485_temporary_graduate::3": 3,
+      "subclass_485_temporary_graduate::4": 2,
+      "whm_6_month_work_limitation::2": 0
+    },
+    "wrong_subclass_chunks": [
+      "subclass_417_working_holiday::3"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Heet Chanchad"
+    ]
   },
   {
     "id": "q53",
@@ -1120,7 +2019,30 @@
     "question": "Can a Subclass 485 Second Post-Higher Education Work stream holder work in Australia?",
     "gold_answer": "Yes. The Second Post-Higher Education Work stream allows work in Australia with no stated hours restriction. It is for qualifying temporary graduates with a degree from an Australian institution located in a regional area.",
     "gold_source": "subclass_485_temporary_graduate.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4",
+      "subclass_500_student::2"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::3": 0,
+      "subclass_482_skills_in_demand::5": 1,
+      "subclass_485_temporary_graduate::2": 2,
+      "subclass_485_temporary_graduate::3": 2,
+      "subclass_485_temporary_graduate::4": 3,
+      "subclass_500_student::2": 1
+    },
+    "wrong_subclass_chunks": [
+      "subclass_417_working_holiday::3"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Heet Chanchad"
+    ]
   },
   {
     "id": "q54",
@@ -1129,7 +2051,30 @@
     "question": "Can I bring my family on the Subclass 485 Second Post-Higher Education Work stream?",
     "gold_answer": "Yes. Holders of the Second Post-Higher Education Work stream can bring family; this is the additional regional stream for qualifying temporary graduates.",
     "gold_source": "subclass_485_temporary_graduate.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::0",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::2": 0,
+      "subclass_482_skills_in_demand::5": 1,
+      "subclass_485_temporary_graduate::0": 1,
+      "subclass_485_temporary_graduate::2": 2,
+      "subclass_485_temporary_graduate::3": 2,
+      "subclass_485_temporary_graduate::4": 3
+    },
+    "wrong_subclass_chunks": [
+      "subclass_482_skills_in_demand::2"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Manoj"
+    ]
   },
   {
     "id": "q55",
@@ -1138,7 +2083,30 @@
     "question": "What is the starting cost of the Subclass 485 Second Post-Higher Education Work stream?",
     "gold_answer": "The cost starts from AUD2,265.00, with concessions applying in limited circumstances.",
     "gold_source": "subclass_485_temporary_graduate.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::0",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::3": 0,
+      "subclass_482_skills_in_demand::5": 1,
+      "subclass_485_temporary_graduate::0": 1,
+      "subclass_485_temporary_graduate::2": 1,
+      "subclass_485_temporary_graduate::3": 1,
+      "subclass_485_temporary_graduate::4": 3
+    },
+    "wrong_subclass_chunks": [
+      "subclass_417_working_holiday::3"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Manoj"
+    ]
   },
   {
     "id": "q56",
@@ -1147,7 +2115,32 @@
     "question": "How long can a Subclass 500 Student visa allow me to stay in Australia?",
     "gold_answer": "The stay can be up to 6 years and must be in line with your enrolment.",
     "gold_source": "subclass_500_student.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4",
+      "subclass_500_student::0",
+      "subclass_500_student::2",
+      "subclass_500_student::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::3": 0,
+      "subclass_482_skills_in_demand::5": 1,
+      "subclass_485_temporary_graduate::3": 1,
+      "subclass_485_temporary_graduate::4": 1,
+      "subclass_500_student::0": 3,
+      "subclass_500_student::2": 1,
+      "subclass_500_student::3": 2
+    },
+    "wrong_subclass_chunks": [
+      "subclass_417_working_holiday::3"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Heet Chanchad"
+    ]
   },
   {
     "id": "q57",
@@ -1156,7 +2149,30 @@
     "question": "Can a Subclass 500 Student visa holder participate in a course of study in Australia?",
     "gold_answer": "Yes. The visa allows participation in an eligible course of study in Australia.",
     "gold_source": "subclass_500_student.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::5",
+      "subclass_500_student::0",
+      "subclass_500_student::1",
+      "subclass_500_student::2",
+      "subclass_500_student::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::3": 0,
+      "subclass_482_skills_in_demand::5": 1,
+      "subclass_500_student::0": 2,
+      "subclass_500_student::1": 1,
+      "subclass_500_student::2": 3,
+      "subclass_500_student::3": 2
+    },
+    "wrong_subclass_chunks": [
+      "subclass_417_working_holiday::3"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Manoj"
+    ]
   },
   {
     "id": "q58",
@@ -1165,7 +2181,29 @@
     "question": "Can a Subclass 500 Student visa holder travel out of and back into Australia?",
     "gold_answer": "Yes. The visa allows the holder to travel in and out of Australia.",
     "gold_source": "subclass_500_student.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_500_student::0",
+      "subclass_500_student::2",
+      "subclass_500_student::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::3": 0,
+      "subclass_482_skills_in_demand::5": 0,
+      "subclass_500_student::0": 1,
+      "subclass_500_student::1": 0,
+      "subclass_500_student::2": 3,
+      "subclass_500_student::3": 1
+    },
+    "wrong_subclass_chunks": [
+      "subclass_417_working_holiday::3",
+      "subclass_482_skills_in_demand::5"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Hitesh"
+    ]
   },
   {
     "id": "q59",
@@ -1174,7 +2212,32 @@
     "question": "Can I apply for a Subclass 500 Student visa while I am outside Australia?",
     "gold_answer": "Yes. You can apply online either in or outside Australia.",
     "gold_source": "subclass_500_student.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_500_student::0",
+      "subclass_500_student::1",
+      "subclass_500_student::2",
+      "subclass_500_student::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::2": 0,
+      "subclass_417_working_holiday::3": 0,
+      "subclass_485_temporary_graduate::4": 0,
+      "subclass_500_student::0": 1,
+      "subclass_500_student::1": 1,
+      "subclass_500_student::2": 1,
+      "subclass_500_student::3": 3
+    },
+    "wrong_subclass_chunks": [
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "subclass_485_temporary_graduate::4"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Manoj"
+    ]
   },
   {
     "id": "q60",
@@ -1183,7 +2246,31 @@
     "question": "What enrolment document must be valid when a Subclass 500 Student visa is decided?",
     "gold_answer": "You must be enrolled in an Australian course and hold a valid Confirmation of Enrolment (CoE) when the visa is decided.",
     "gold_source": "subclass_500_student.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_500_student::0",
+      "subclass_500_student::2",
+      "subclass_500_student::3",
+      "subclass_500_student::4"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::3": 0,
+      "subclass_485_temporary_graduate::1": 0,
+      "subclass_500_student::0": 1,
+      "subclass_500_student::1": 0,
+      "subclass_500_student::2": 1,
+      "subclass_500_student::3": 3,
+      "subclass_500_student::4": 2
+    },
+    "wrong_subclass_chunks": [
+      "subclass_417_working_holiday::3",
+      "subclass_485_temporary_graduate::1"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Vaishnavi"
+    ]
   },
   {
     "id": "q61",
@@ -1192,7 +2279,31 @@
     "question": "What health-cover requirement applies to a Subclass 500 Student visa applicant?",
     "gold_answer": "You must hold Overseas Student Health Cover (OSHC), unless you fall within an exemption category.",
     "gold_source": "subclass_500_student.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_485_temporary_graduate::1",
+      "subclass_500_student::0",
+      "subclass_500_student::1",
+      "subclass_500_student::2",
+      "subclass_500_student::3",
+      "subclass_500_student::4"
+    ],
+    "gold_chunk_grades": {
+      "subclass_485_temporary_graduate::1": 1,
+      "subclass_500_student::0": 1,
+      "subclass_500_student::1": 1,
+      "subclass_500_student::2": 1,
+      "subclass_500_student::3": 3,
+      "subclass_500_student::4": 1,
+      "whm_6_month_work_limitation::0": 0,
+      "whm_6_month_work_limitation::3": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Manoj"
+    ]
   },
   {
     "id": "q62",
@@ -1201,7 +2312,37 @@
     "question": "What is the minimum age stated for a Subclass 500 Student visa applicant?",
     "gold_answer": "The applicant must be at least 6 years old.",
     "gold_source": "subclass_500_student.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_485_temporary_graduate::1",
+      "subclass_500_student::0",
+      "subclass_500_student::1",
+      "subclass_500_student::3",
+      "subclass_500_student::4"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 1,
+      "subclass_417_working_holiday::3": 0,
+      "subclass_482_skills_in_demand::5": 0,
+      "subclass_485_temporary_graduate::1": 1,
+      "subclass_485_temporary_graduate::4": 0,
+      "subclass_500_student::0": 1,
+      "subclass_500_student::1": 1,
+      "subclass_500_student::3": 3,
+      "subclass_500_student::4": 1,
+      "whm_6_month_work_limitation::3": 0
+    },
+    "wrong_subclass_chunks": [
+      "subclass_417_working_holiday::3",
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::4"
+    ],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Manoj"
+    ]
   },
   {
     "id": "q63",
@@ -1210,7 +2351,29 @@
     "question": "Can a Working Holiday Maker work for the same employer for more than 6 months in natural-disaster recovery?",
     "gold_answer": "Yes. Natural-disaster recovery work anywhere in Australia is exempt from condition 8547's 6-month same-employer limit, so permission is not required for the exemption.",
     "gold_source": "whm_6_month_work_limitation.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "whm_6_month_work_limitation::0",
+      "whm_6_month_work_limitation::1",
+      "whm_6_month_work_limitation::2",
+      "whm_6_month_work_limitation::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::2": 1,
+      "subclass_417_working_holiday::3": 1,
+      "whm_6_month_work_limitation::0": 2,
+      "whm_6_month_work_limitation::1": 3,
+      "whm_6_month_work_limitation::2": 2,
+      "whm_6_month_work_limitation::3": 1
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Hitesh"
+    ]
   },
   {
     "id": "q64",
@@ -1219,7 +2382,29 @@
     "question": "Which critical sectors let a Working Holiday Maker stay with the same employer for more than 6 months without asking permission?",
     "gold_answer": "The listed critical sectors are agriculture, food processing, health, aged and disability care and childcare, and tourism and hospitality, anywhere in Australia.",
     "gold_source": "whm_6_month_work_limitation.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "whm_6_month_work_limitation::0",
+      "whm_6_month_work_limitation::1",
+      "whm_6_month_work_limitation::2",
+      "whm_6_month_work_limitation::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::2": 1,
+      "subclass_417_working_holiday::3": 1,
+      "whm_6_month_work_limitation::0": 2,
+      "whm_6_month_work_limitation::1": 3,
+      "whm_6_month_work_limitation::2": 1,
+      "whm_6_month_work_limitation::3": 1
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Vaishnavi"
+    ]
   },
   {
     "id": "q65",
@@ -1228,7 +2413,31 @@
     "question": "Which Northern Australia industries are exempt from the Working Holiday Maker 6-month same-employer limit?",
     "gold_answer": "In Northern Australia only, the listed exempt industries are fishing and pearling, tree farming and felling, construction, and mining.",
     "gold_source": "whm_6_month_work_limitation.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::1",
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "whm_6_month_work_limitation::0",
+      "whm_6_month_work_limitation::1",
+      "whm_6_month_work_limitation::2",
+      "whm_6_month_work_limitation::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::1": 1,
+      "subclass_417_working_holiday::2": 1,
+      "subclass_417_working_holiday::3": 1,
+      "whm_6_month_work_limitation::0": 2,
+      "whm_6_month_work_limitation::1": 3,
+      "whm_6_month_work_limitation::2": 1,
+      "whm_6_month_work_limitation::3": 1
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Glory"
+    ]
   },
   {
     "id": "q66",
@@ -1237,7 +2446,27 @@
     "question": "When may a Working Holiday Maker be given permission to work for the same employer beyond 6 months?",
     "gold_answer": "Permission may be given if the person has applied for a visa allowing ongoing full-time work and is awaiting the outcome, or if they undertake work critical to the employer and attach a supporting letter to the request.",
     "gold_source": "whm_6_month_work_limitation.txt",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::3",
+      "whm_6_month_work_limitation::0",
+      "whm_6_month_work_limitation::1",
+      "whm_6_month_work_limitation::2",
+      "whm_6_month_work_limitation::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::3": 1,
+      "whm_6_month_work_limitation::0": 2,
+      "whm_6_month_work_limitation::1": 2,
+      "whm_6_month_work_limitation::2": 3,
+      "whm_6_month_work_limitation::3": 1
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Soham Athawale"
+    ]
   },
   {
     "id": "q67",
@@ -1246,7 +2475,31 @@
     "question": "I have finished studying and want to keep working in Australia. Does my student work-hours cap continue, or can I work without that cap?",
     "gold_answer": "It depends on the visa currently held. Subclass 500 is capped at 48 hours per fortnight while the course is in session. The listed Subclass 485 graduate streams state no fortnightly hours restriction, but finishing study does not itself change the visa; the current grant and conditions must be checked.",
     "gold_source": "multiple",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::0",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4",
+      "subclass_500_student::2"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::3": 0,
+      "subclass_482_skills_in_demand::5": 2,
+      "subclass_485_temporary_graduate::0": 2,
+      "subclass_485_temporary_graduate::2": 2,
+      "subclass_485_temporary_graduate::3": 2,
+      "subclass_485_temporary_graduate::4": 2,
+      "subclass_500_student::2": 3,
+      "whm_6_month_work_limitation::2": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Manoj"
+    ]
   },
   {
     "id": "q68",
@@ -1255,7 +2508,30 @@
     "question": "My visa application costs AUD5,750. Is that the Student visa, a graduate visa, or a sponsored-work visa?",
     "gold_answer": "That starting cost matches the Subclass 485 Post-Vocational Education Work and Post-Higher Education Work streams in this corpus. Subclass 500 starts at AUD2,500 and Subclass 482 starts at AUD4,015, all subject to the stated limited concessions.",
     "gold_source": "multiple",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::0",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4",
+      "subclass_500_student::1"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::5": 2,
+      "subclass_485_temporary_graduate::0": 1,
+      "subclass_485_temporary_graduate::2": 3,
+      "subclass_485_temporary_graduate::3": 3,
+      "subclass_485_temporary_graduate::4": 2,
+      "subclass_500_student::1": 2,
+      "whm_6_month_work_limitation::3": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Vaishnavi"
+    ]
   },
   {
     "id": "q69",
@@ -1264,7 +2540,30 @@
     "question": "How long can I stay in Australia on one of these temporary visas?",
     "gold_answer": "The visa must be identified. Subclass 417 stays are 12 months. Subclass 482 Core and Specialist Skills stays are up to 4 years, the Labour Agreement stay is up to 4 years depending on its terms, and a subsequent entrant stays as long as the visa is valid; the listed primary streams allow up to 5 years for Hong Kong passport holders. Subclass 485 varies by stream from 18 months or 1-2 years to usually 2-3 years, with stated 5-year Hong Kong/BNO exceptions in two streams. Subclass 500 can be up to 6 years in line with enrolment.",
     "gold_source": "multiple",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::2",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4",
+      "subclass_500_student::2",
+      "subclass_500_student::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::2": 3,
+      "subclass_485_temporary_graduate::2": 3,
+      "subclass_485_temporary_graduate::3": 3,
+      "subclass_485_temporary_graduate::4": 3,
+      "subclass_500_student::2": 1,
+      "subclass_500_student::3": 1,
+      "whm_6_month_work_limitation::1": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Manoj"
+    ]
   },
   {
     "id": "q70",
@@ -1273,7 +2572,34 @@
     "question": "Can my family or dependent children come with me on my visa?",
     "gold_answer": "The answer depends on the visa. Subclass 417 applicants must not be accompanied by dependent children. The listed Subclass 485 streams allow holders to bring family, and Subclass 482 has a subsequent-entrant pathway for family members of 457 and 482 holders. The Student visa document does not answer this family question.",
     "gold_source": "multiple",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_482_skills_in_demand::0",
+      "subclass_482_skills_in_demand::1",
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4",
+      "subclass_500_student::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 3,
+      "subclass_482_skills_in_demand::0": 1,
+      "subclass_482_skills_in_demand::1": 1,
+      "subclass_482_skills_in_demand::5": 3,
+      "subclass_485_temporary_graduate::2": 3,
+      "subclass_485_temporary_graduate::3": 3,
+      "subclass_485_temporary_graduate::4": 3,
+      "subclass_500_student::2": 0,
+      "subclass_500_student::3": 1
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Vaishnavi"
+    ]
   },
   {
     "id": "q71",
@@ -1282,7 +2608,30 @@
     "question": "I recently graduated in Australia and have a job offer. Do I need employer sponsorship to work on my next visa?",
     "gold_answer": "The visa pathway matters. The listed Subclass 485 graduate streams provide post-study work rights without employer sponsorship, while Subclass 482 requires nomination by an approved sponsor and ties work rights to the sponsoring employer and nominated occupation.",
     "gold_source": "multiple",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::0",
+      "subclass_482_skills_in_demand::1",
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::3": 0,
+      "subclass_482_skills_in_demand::0": 3,
+      "subclass_482_skills_in_demand::1": 3,
+      "subclass_482_skills_in_demand::5": 3,
+      "subclass_485_temporary_graduate::2": 2,
+      "subclass_485_temporary_graduate::3": 2,
+      "subclass_485_temporary_graduate::4": 2
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Heet Chanchad"
+    ]
   },
   {
     "id": "q72",
@@ -1291,7 +2640,30 @@
     "question": "I am still enrolled but expect to graduate soon. When do the 48-hours-per-fortnight rules stop applying?",
     "gold_answer": "The current visa controls the answer. A Subclass 500 holder is capped at 48 hours per fortnight while the course is in session. The listed Subclass 485 streams state no such cap, but graduating does not itself establish that a 485 visa has been granted; the current visa grant and conditions must be checked.",
     "gold_source": "multiple",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::1",
+      "subclass_485_temporary_graduate::4",
+      "subclass_500_student::2",
+      "subclass_500_student::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::3": 0,
+      "subclass_482_skills_in_demand::5": 2,
+      "subclass_485_temporary_graduate::1": 2,
+      "subclass_485_temporary_graduate::4": 2,
+      "subclass_500_student::2": 3,
+      "subclass_500_student::3": 1,
+      "whm_6_month_work_limitation::2": 0,
+      "whm_6_month_work_limitation::3": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Hitesh"
+    ]
   },
   {
     "id": "q73",
@@ -1300,7 +2672,29 @@
     "question": "I have worked for one employer for 7 months. Have I breached my visa conditions?",
     "gold_answer": "The visa and work circumstances are needed. The 6-month same-employer limit applies to Working Holiday Maker visas under condition 8547, subject to exemptions or permission. It does not apply to Subclass 500, 485 or 482, which have different work conditions.",
     "gold_source": "multiple",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "whm_6_month_work_limitation::0",
+      "whm_6_month_work_limitation::1",
+      "whm_6_month_work_limitation::2",
+      "whm_6_month_work_limitation::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::2": 1,
+      "subclass_417_working_holiday::3": 2,
+      "whm_6_month_work_limitation::0": 3,
+      "whm_6_month_work_limitation::1": 2,
+      "whm_6_month_work_limitation::2": 2,
+      "whm_6_month_work_limitation::3": 2
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Vaishnavi"
+    ]
   },
   {
     "id": "q74",
@@ -1309,7 +2703,35 @@
     "question": "Does a Working Holiday visa limit my fortnightly hours in the same way as a Student visa?",
     "gold_answer": "No. A Subclass 417 holder can work unlimited hours but is generally limited to 6 months with the same employer unless an exemption applies; working at different locations is one exemption when no single location exceeds 6 months. A Subclass 500 holder has no employer limit stated here but is capped at 48 hours per fortnight while the course is in session.",
     "gold_source": "multiple",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_417_working_holiday::1",
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "subclass_482_skills_in_demand::5",
+      "whm_6_month_work_limitation::0",
+      "whm_6_month_work_limitation::1",
+      "whm_6_month_work_limitation::2",
+      "whm_6_month_work_limitation::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 1,
+      "subclass_417_working_holiday::1": 2,
+      "subclass_417_working_holiday::2": 2,
+      "subclass_417_working_holiday::3": 2,
+      "subclass_482_skills_in_demand::5": 3,
+      "whm_6_month_work_limitation::0": 3,
+      "whm_6_month_work_limitation::1": 3,
+      "whm_6_month_work_limitation::2": 1,
+      "whm_6_month_work_limitation::3": 1
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Manoj"
+    ]
   },
   {
     "id": "q75",
@@ -1318,7 +2740,32 @@
     "question": "I have a degree from a regional Australian institution. Is the Subclass 485 stay 2-3 years or another 1-2 years?",
     "gold_answer": "The stream must be identified. The Post-Higher Education Work stream is usually 2-3 years depending on qualification, with 5 years for Hong Kong/BNO passport holders. The Second Post-Higher Education Work stream is for qualifying existing temporary graduates with a regional degree and provides 1-2 years depending on the relevant regional locations.",
     "gold_source": "multiple",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_485_temporary_graduate::0",
+      "subclass_485_temporary_graduate::1",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4",
+      "subclass_500_student::0"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::3": 0,
+      "subclass_482_skills_in_demand::4": 0,
+      "subclass_485_temporary_graduate::0": 1,
+      "subclass_485_temporary_graduate::1": 1,
+      "subclass_485_temporary_graduate::2": 2,
+      "subclass_485_temporary_graduate::3": 3,
+      "subclass_485_temporary_graduate::4": 3,
+      "subclass_500_student::0": 1,
+      "subclass_500_student::2": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Glory"
+    ]
   },
   {
     "id": "q76",
@@ -1327,7 +2774,30 @@
     "question": "I completed an Australian qualification. Is my Subclass 485 stream based on 18 months or 2-3 years?",
     "gold_answer": "It depends on the qualification and stream. A relevant associate degree, diploma or trade qualification can point to the Post-Vocational Education Work stream, with up to 18 months and a 5-year Hong Kong/BNO exception. A recent Australian degree can point to the Post-Higher Education Work stream, usually 2-3 years depending on qualification and also 5 years for Hong Kong/BNO passport holders.",
     "gold_source": "multiple",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_485_temporary_graduate::1",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4",
+      "subclass_500_student::0"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::2": 0,
+      "subclass_482_skills_in_demand::5": 0,
+      "subclass_485_temporary_graduate::1": 2,
+      "subclass_485_temporary_graduate::2": 3,
+      "subclass_485_temporary_graduate::3": 3,
+      "subclass_485_temporary_graduate::4": 2,
+      "subclass_500_student::0": 1,
+      "whm_6_month_work_limitation::3": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Hitesh"
+    ]
   },
   {
     "id": "q77",
@@ -1336,7 +2806,33 @@
     "question": "I have a skilled occupation and an Australian graduate qualification. Are my work rights tied to an employer?",
     "gold_answer": "That depends on the visa. Subclass 482 is employer-sponsored and tied to the nominated position and occupation. The listed Subclass 485 graduate streams allow work in Australia and do not require employer sponsorship in this corpus.",
     "gold_source": "multiple",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::0",
+      "subclass_482_skills_in_demand::2",
+      "subclass_482_skills_in_demand::4",
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::0": 3,
+      "subclass_482_skills_in_demand::2": 2,
+      "subclass_482_skills_in_demand::4": 2,
+      "subclass_482_skills_in_demand::5": 3,
+      "subclass_485_temporary_graduate::2": 2,
+      "subclass_485_temporary_graduate::3": 2,
+      "subclass_485_temporary_graduate::4": 2,
+      "whm_6_month_work_limitation::1": 0,
+      "whm_6_month_work_limitation::2": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Vaishnavi"
+    ]
   },
   {
     "id": "q78",
@@ -1345,7 +2841,30 @@
     "question": "My employer wants me to stay for four years. Can I do that on a Working Holiday visa, or is sponsorship relevant?",
     "gold_answer": "A Subclass 417 Working Holiday stay is 12 months per listed visa and is generally subject to the 6-month same-employer limitation. Subclass 482 is the employer-sponsored category and its listed streams can allow up to 4 years, with stated 5-year exceptions for Hong Kong passport holders; the appropriate pathway depends on eligibility and the actual grant.",
     "gold_source": "multiple",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_417_working_holiday::1",
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "whm_6_month_work_limitation::0",
+      "whm_6_month_work_limitation::2"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 1,
+      "subclass_417_working_holiday::1": 3,
+      "subclass_417_working_holiday::2": 2,
+      "subclass_417_working_holiday::3": 2,
+      "subclass_485_temporary_graduate::2": 0,
+      "whm_6_month_work_limitation::0": 3,
+      "whm_6_month_work_limitation::2": 2
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Glory"
+    ]
   },
   {
     "id": "q79",
@@ -1354,7 +2873,29 @@
     "question": "An approved sponsor nominated me for a skilled position. Am I limited to 48 hours of work each fortnight?",
     "gold_answer": "That description points to Subclass 482, whose work rights are tied to the sponsoring employer and nominated occupation rather than a fortnightly hours cap. The 48-hours-per-fortnight cap applies to Subclass 500 while study or training is in session.",
     "gold_source": "multiple",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::0",
+      "subclass_482_skills_in_demand::1",
+      "subclass_482_skills_in_demand::5",
+      "subclass_500_student::2"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::3": 0,
+      "subclass_482_skills_in_demand::0": 3,
+      "subclass_482_skills_in_demand::1": 3,
+      "subclass_482_skills_in_demand::5": 3,
+      "subclass_500_student::2": 3,
+      "whm_6_month_work_limitation::1": 0,
+      "whm_6_month_work_limitation::2": 0,
+      "whm_6_month_work_limitation::3": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Soham Athawale"
+    ]
   },
   {
     "id": "q80",
@@ -1363,7 +2904,28 @@
     "question": "I moved from a Student visa to a graduate work visa, and my degree was from regional Australia. Is extra time a Student visa extension or the similarly named second graduate stream?",
     "gold_answer": "It is not described here as a Subclass 500 extension. The Second Post-Higher Education Work stream is for qualifying holders of a Post-Higher Education Work, Post-Study Work or Replacement visa with a degree from a regional Australian institution. Its stay is 1-2 years depending on the relevant regional locations.",
     "gold_source": "multiple",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4",
+      "subclass_500_student::2"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::3": 0,
+      "subclass_482_skills_in_demand::5": 0,
+      "subclass_485_temporary_graduate::2": 1,
+      "subclass_485_temporary_graduate::3": 2,
+      "subclass_485_temporary_graduate::4": 3,
+      "subclass_500_student::2": 1,
+      "whm_6_month_work_limitation::3": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Manoj"
+    ]
   },
   {
     "id": "q81",
@@ -1372,7 +2934,31 @@
     "question": "I want to work in Australia and bring my dependent child. Does a Working Holiday visa or Temporary Graduate visa fit those stated conditions?",
     "gold_answer": "The corpus rules distinguish them: a Subclass 417 applicant must not be accompanied by dependent children, while each listed Subclass 485 stream says the holder can bring family. Actual eligibility for a 485 stream still depends on its separate requirements.",
     "gold_source": "multiple",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4",
+      "whm_6_month_work_limitation::0"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 3,
+      "subclass_417_working_holiday::2": 1,
+      "subclass_417_working_holiday::3": 1,
+      "subclass_485_temporary_graduate::2": 3,
+      "subclass_485_temporary_graduate::3": 3,
+      "subclass_485_temporary_graduate::4": 3,
+      "whm_6_month_work_limitation::0": 1
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Vaishnavi"
+    ]
   },
   {
     "id": "q82",
@@ -1381,7 +2967,31 @@
     "question": "I want to study an eligible course and also work in Australia. Which work restriction should I expect?",
     "gold_answer": "The study description points to Subclass 500, which allows eligible study and caps work at 48 hours per fortnight while the course or training is in session. That is different from the 417 same-employer limit, the 482 sponsor-and-position restriction, and the listed 485 streams with no stated fortnightly hours cap.",
     "gold_source": "multiple",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_417_working_holiday::3",
+      "subclass_485_temporary_graduate::4",
+      "subclass_500_student::2",
+      "subclass_500_student::3",
+      "whm_6_month_work_limitation::0",
+      "whm_6_month_work_limitation::1"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 1,
+      "subclass_417_working_holiday::3": 1,
+      "subclass_485_temporary_graduate::4": 2,
+      "subclass_500_student::2": 3,
+      "subclass_500_student::3": 2,
+      "whm_6_month_work_limitation::0": 2,
+      "whm_6_month_work_limitation::1": 1
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Manoj"
+    ]
   },
   {
     "id": "q83",
@@ -1390,7 +3000,32 @@
     "question": "What is the starting application cost for my visa?",
     "gold_answer": "The visa and stream must be known. The corpus lists AUD840 for a first 417 and AUD1,000 for a second or third 417; from AUD4,015 for listed 482 pathways; from AUD5,750 for two 485 streams and AUD2,265 for the Second Post-Higher Education Work stream; and from AUD2,500 for Subclass 500. Limited concessions or lower-cost categories are stated for some visas.",
     "gold_source": "multiple",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::1",
+      "subclass_417_working_holiday::3",
+      "subclass_482_skills_in_demand::2",
+      "subclass_482_skills_in_demand::4",
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::4",
+      "subclass_500_student::1"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::1": 3,
+      "subclass_417_working_holiday::3": 3,
+      "subclass_482_skills_in_demand::2": 3,
+      "subclass_482_skills_in_demand::4": 3,
+      "subclass_482_skills_in_demand::5": 3,
+      "subclass_485_temporary_graduate::4": 3,
+      "subclass_500_student::1": 3,
+      "whm_6_month_work_limitation::3": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Hitesh"
+    ]
   },
   {
     "id": "q84",
@@ -1399,7 +3034,32 @@
     "question": "I am 35 years old. Does that make me too old for both a Working Holiday visa and a Temporary Graduate visa?",
     "gold_answer": "Not necessarily. Subclass 417 generally requires age 18-30 but allows age 35 for some countries. Subclass 485 generally requires age 35 or under when applying, with exceptions. Nationality and the specific exception rules would need to be checked.",
     "gold_source": "multiple",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_417_working_holiday::1",
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "subclass_485_temporary_graduate::0",
+      "subclass_485_temporary_graduate::1",
+      "subclass_485_temporary_graduate::4"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 3,
+      "subclass_417_working_holiday::1": 1,
+      "subclass_417_working_holiday::2": 1,
+      "subclass_417_working_holiday::3": 1,
+      "subclass_485_temporary_graduate::0": 1,
+      "subclass_485_temporary_graduate::1": 3,
+      "subclass_485_temporary_graduate::4": 1,
+      "whm_6_month_work_limitation::3": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Glory"
+    ]
   },
   {
     "id": "q85",
@@ -1408,7 +3068,32 @@
     "question": "Do I need a Confirmation of Enrolment or an approved employer nomination for my visa?",
     "gold_answer": "It depends on the visa. Subclass 500 requires enrolment and a valid Confirmation of Enrolment when the visa is decided. Subclass 482 requires nomination for a skilled position by an approved sponsor.",
     "gold_source": "multiple",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::0",
+      "subclass_482_skills_in_demand::1",
+      "subclass_482_skills_in_demand::4",
+      "subclass_482_skills_in_demand::5",
+      "subclass_500_student::0",
+      "subclass_500_student::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::2": 0,
+      "subclass_417_working_holiday::3": 0,
+      "subclass_482_skills_in_demand::0": 2,
+      "subclass_482_skills_in_demand::1": 3,
+      "subclass_482_skills_in_demand::4": 2,
+      "subclass_482_skills_in_demand::5": 1,
+      "subclass_500_student::0": 1,
+      "subclass_500_student::3": 3,
+      "whm_6_month_work_limitation::2": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Soham Athawale"
+    ]
   },
   {
     "id": "q86",
@@ -1417,7 +3102,27 @@
     "question": "I worked 5 months for one employer on a Working Holiday visa and then received a Temporary Graduate visa. Does the WHM 6-month clock still control that job?",
     "gold_answer": "Condition 8547's 6-month same-employer limitation is specific to Working Holiday Maker and affected bridging visas; it does not apply to Subclass 485. Once the new visa is granted, its own conditions control, and the listed 485 streams state no fortnightly hours cap, though the individual grant notice or VEVO should be checked.",
     "gold_source": "multiple",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::3",
+      "whm_6_month_work_limitation::0",
+      "whm_6_month_work_limitation::1",
+      "whm_6_month_work_limitation::2",
+      "whm_6_month_work_limitation::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::3": 2,
+      "whm_6_month_work_limitation::0": 3,
+      "whm_6_month_work_limitation::1": 1,
+      "whm_6_month_work_limitation::2": 1,
+      "whm_6_month_work_limitation::3": 3
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Vaishnavi"
+    ]
   },
   {
     "id": "q87",
@@ -1426,7 +3131,27 @@
     "question": "I changed from a Student visa to a sponsored skilled-work visa. Is my employer limit still 48 hours a fortnight?",
     "gold_answer": "The 48-hours-per-fortnight cap belongs to Subclass 500 while the course is in session. Subclass 482 instead ties work rights to the sponsoring employer and nominated occupation; the conditions of the current visa grant control after the change.",
     "gold_source": "multiple",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::0",
+      "subclass_482_skills_in_demand::5",
+      "subclass_500_student::2"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::3": 0,
+      "subclass_482_skills_in_demand::0": 3,
+      "subclass_482_skills_in_demand::5": 3,
+      "subclass_500_student::2": 3,
+      "whm_6_month_work_limitation::0": 0,
+      "whm_6_month_work_limitation::2": 0,
+      "whm_6_month_work_limitation::3": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Vaishnavi"
+    ]
   },
   {
     "id": "q88",
@@ -1435,7 +3160,30 @@
     "question": "Does being an international graduate automatically mean I use Subclass 485 rather than Subclass 482?",
     "gold_answer": "No. Subclass 485 is a post-study category for eligible recent graduates and its listed streams do not require employer sponsorship. Subclass 482 is a separate employer-sponsored category for a suitably skilled worker nominated to fill a position; the person's facts and actual visa determine which applies.",
     "gold_source": "multiple",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::5",
+      "subclass_485_temporary_graduate::0",
+      "subclass_485_temporary_graduate::1",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3",
+      "subclass_485_temporary_graduate::4"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::5": 3,
+      "subclass_485_temporary_graduate::0": 3,
+      "subclass_485_temporary_graduate::1": 2,
+      "subclass_485_temporary_graduate::2": 2,
+      "subclass_485_temporary_graduate::3": 2,
+      "subclass_485_temporary_graduate::4": 1,
+      "whm_6_month_work_limitation::3": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Heet Chanchad"
+    ]
   },
   {
     "id": "q89",
@@ -1444,7 +3192,27 @@
     "question": "Will my three months of farm work definitely get my second Subclass 417 visa approved?",
     "gold_answer": "Cannot be determined from these sources. Completing 3 months of specified work is one stated requirement, but approval is a case-specific decision; the response should not predict the outcome and should direct the person to Home Affairs or a registered migration agent.",
     "gold_source": "none",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::0",
+      "subclass_417_working_holiday::1",
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 1,
+      "subclass_417_working_holiday::1": 1,
+      "subclass_417_working_holiday::2": 2,
+      "subclass_417_working_holiday::3": 1,
+      "subclass_482_skills_in_demand::1": 0,
+      "whm_6_month_work_limitation::2": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Manoj"
+    ]
   },
   {
     "id": "q90",
@@ -1453,7 +3221,30 @@
     "question": "I am 36 but think an exception applies. Will Home Affairs grant my Subclass 485 visa?",
     "gold_answer": "Cannot be determined from these sources. The corpus says the general age limit is 35 or under and that exceptions apply, but it cannot assess the person's exception or predict a case-specific decision; refer to Home Affairs or a registered migration agent.",
     "gold_source": "none",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_485_temporary_graduate::0",
+      "subclass_485_temporary_graduate::1",
+      "subclass_485_temporary_graduate::4"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 0,
+      "subclass_417_working_holiday::3": 0,
+      "subclass_482_skills_in_demand::5": 0,
+      "subclass_485_temporary_graduate::0": 1,
+      "subclass_485_temporary_graduate::1": 2,
+      "subclass_485_temporary_graduate::4": 1,
+      "subclass_500_student::1": 0,
+      "subclass_500_student::3": 0,
+      "whm_6_month_work_limitation::0": 0,
+      "whm_6_month_work_limitation::3": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Soham Athawale"
+    ]
   },
   {
     "id": "q91",
@@ -1462,7 +3253,24 @@
     "question": "Which Australian visa should I choose for the best long-term career outcome?",
     "gold_answer": "Cannot be answered from this corpus as a personal recommendation. The response should ask for relevant circumstances and refer the person to official Home Affairs guidance or a registered migration agent rather than selecting a visa for them.",
     "gold_source": "none",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::4": 0,
+      "subclass_482_skills_in_demand::5": 0,
+      "subclass_485_temporary_graduate::2": 0,
+      "subclass_485_temporary_graduate::3": 0,
+      "subclass_485_temporary_graduate::4": 0,
+      "subclass_500_student::2": 0,
+      "whm_6_month_work_limitation::1": 0,
+      "whm_6_month_work_limitation::2": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Soham Athawale"
+    ]
   },
   {
     "id": "q92",
@@ -1471,7 +3279,26 @@
     "question": "Should I accept a Subclass 482 sponsored job if it means leaving my current employer?",
     "gold_answer": "Cannot be answered from these sources. This is a personal employment and migration decision; the response may explain that Subclass 482 is tied to the sponsoring employer and nominated occupation but should not tell the person which job to take.",
     "gold_source": "none",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_482_skills_in_demand::0",
+      "subclass_482_skills_in_demand::1",
+      "subclass_482_skills_in_demand::5"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::0": 2,
+      "subclass_482_skills_in_demand::1": 2,
+      "subclass_482_skills_in_demand::5": 2,
+      "subclass_485_temporary_graduate::0": 0,
+      "subclass_500_student::4": 0,
+      "whm_6_month_work_limitation::3": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Soham Athawale"
+    ]
   },
   {
     "id": "q93",
@@ -1480,7 +3307,27 @@
     "question": "Should I drop my course so I can work more hours than my Subclass 500 visa allows?",
     "gold_answer": "The system should not recommend a personal course or visa strategy. It may state that the corpus limits Subclass 500 work to 48 hours per fortnight while the course is in session and that a completed or cancelled course invalidates the CoE, then refer the person to Home Affairs or a registered migration agent.",
     "gold_source": "none",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_500_student::0",
+      "subclass_500_student::2",
+      "subclass_500_student::4"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::3": 0,
+      "subclass_485_temporary_graduate::0": 0,
+      "subclass_485_temporary_graduate::4": 0,
+      "subclass_500_student::0": 1,
+      "subclass_500_student::2": 2,
+      "subclass_500_student::4": 2,
+      "whm_6_month_work_limitation::2": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Manoj"
+    ]
   },
   {
     "id": "q94",
@@ -1489,7 +3336,29 @@
     "question": "My employer says I am critical to the business. Can you guarantee Home Affairs will let me stay in the job beyond 6 months?",
     "gold_answer": "No guarantee can be made. The corpus says permission may be given for work critical to the employer with a supporting letter, but the decision is case-specific; the response should avoid predicting it and refer to the official permission process.",
     "gold_source": "none",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::3",
+      "whm_6_month_work_limitation::0",
+      "whm_6_month_work_limitation::1",
+      "whm_6_month_work_limitation::2",
+      "whm_6_month_work_limitation::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::3": 1,
+      "subclass_482_skills_in_demand::1": 0,
+      "subclass_482_skills_in_demand::4": 0,
+      "whm_6_month_work_limitation::0": 1,
+      "whm_6_month_work_limitation::1": 1,
+      "whm_6_month_work_limitation::2": 2,
+      "whm_6_month_work_limitation::3": 1
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Glory"
+    ]
   },
   {
     "id": "q95",
@@ -1498,7 +3367,29 @@
     "question": "I uploaded my degree certificate and passport. Is that definitely enough evidence for my Subclass 485 application?",
     "gold_answer": "Cannot be determined from these sources. They only state that required evidence must be attached when applying and do not provide a complete, case-specific evidence checklist; refer to the current Home Affairs requirements or a registered migration agent.",
     "gold_source": "none",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_485_temporary_graduate::0",
+      "subclass_485_temporary_graduate::1",
+      "subclass_485_temporary_graduate::2",
+      "subclass_485_temporary_graduate::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::1": 0,
+      "subclass_482_skills_in_demand::5": 0,
+      "subclass_485_temporary_graduate::0": 1,
+      "subclass_485_temporary_graduate::1": 2,
+      "subclass_485_temporary_graduate::2": 1,
+      "subclass_485_temporary_graduate::3": 1,
+      "subclass_500_student::3": 0,
+      "whm_6_month_work_limitation::3": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Glory"
+    ]
   },
   {
     "id": "q96",
@@ -1507,7 +3398,28 @@
     "question": "How should I rotate labour-hire agencies so Home Affairs will not notice I stayed in the same Working Holiday job for more than 6 months?",
     "gold_answer": "The response should refuse to help evade visa conditions. The corpus expressly says that rotating through employment agencies, affiliates or subcontracting arrangements does not permit someone to remain in the same position and location with the same employer beyond 6 months.",
     "gold_source": "none",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_417_working_holiday::2",
+      "subclass_417_working_holiday::3",
+      "whm_6_month_work_limitation::1",
+      "whm_6_month_work_limitation::2",
+      "whm_6_month_work_limitation::3"
+    ],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::1": 0,
+      "subclass_417_working_holiday::2": 1,
+      "subclass_417_working_holiday::3": 1,
+      "whm_6_month_work_limitation::1": 2,
+      "whm_6_month_work_limitation::2": 1,
+      "whm_6_month_work_limitation::3": 2
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Heet Chanchad"
+    ]
   },
   {
     "id": "q97",
@@ -1516,7 +3428,28 @@
     "question": "My Confirmation of Enrolment was cancelled yesterday. Does that mean I will be deported immediately?",
     "gold_answer": "Cannot be determined from these sources. They state only that a cancelled CoE is no longer valid; they do not establish the person's current visa status or predict enforcement action. The response should refer the person to VEVO, Home Affairs, or a registered migration agent promptly.",
     "gold_source": "none",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [
+      "subclass_500_student::0",
+      "subclass_500_student::3",
+      "subclass_500_student::4"
+    ],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::0": 0,
+      "subclass_482_skills_in_demand::1": 0,
+      "subclass_482_skills_in_demand::5": 0,
+      "subclass_500_student::0": 1,
+      "subclass_500_student::3": 1,
+      "subclass_500_student::4": 2,
+      "whm_6_month_work_limitation::2": 0,
+      "whm_6_month_work_limitation::3": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Vaishnavi"
+    ]
   },
   {
     "id": "q98",
@@ -1525,7 +3458,27 @@
     "question": "Can you use my passport number to tell me which visa and work conditions I currently have?",
     "gold_answer": "The corpus and system cannot access or verify an individual's immigration record. The response should not request sensitive passport details and should direct the person to check VEVO or their visa grant notice.",
     "gold_source": "none",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 0,
+      "subclass_417_working_holiday::1": 0,
+      "subclass_417_working_holiday::2": 0,
+      "subclass_482_skills_in_demand::1": 0,
+      "subclass_485_temporary_graduate::2": 0,
+      "subclass_485_temporary_graduate::3": 0,
+      "subclass_485_temporary_graduate::4": 0,
+      "subclass_500_student::3": 0,
+      "whm_6_month_work_limitation::0": 0,
+      "whm_6_month_work_limitation::2": 0,
+      "whm_6_month_work_limitation::3": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Hitesh"
+    ]
   },
   {
     "id": "q99",
@@ -1534,7 +3487,24 @@
     "question": "How much Australian income tax will I pay on my Subclass 482 salary?",
     "gold_answer": "Out of scope. The corpus covers selected visa conditions and costs, not personal tax calculations; the response should not invent a figure and should direct the person to an appropriate tax source or adviser.",
     "gold_source": "none",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [],
+    "gold_chunk_grades": {
+      "subclass_482_skills_in_demand::0": 0,
+      "subclass_482_skills_in_demand::2": 0,
+      "subclass_482_skills_in_demand::3": 0,
+      "subclass_482_skills_in_demand::4": 0,
+      "subclass_482_skills_in_demand::5": 0,
+      "subclass_485_temporary_graduate::2": 0,
+      "subclass_485_temporary_graduate::3": 0,
+      "subclass_485_temporary_graduate::4": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Heet Chanchad"
+    ]
   },
   {
     "id": "q100",
@@ -1543,6 +3513,22 @@
     "question": "Can you book flights and accommodation for my Australian working holiday?",
     "gold_answer": "Out of scope. The visa knowledge base cannot make travel bookings; the response should decline rather than presenting a visa rule as an answer.",
     "gold_source": "none",
-    "gold_chunk_ids": []
+    "gold_chunk_ids": [],
+    "gold_chunk_grades": {
+      "subclass_417_working_holiday::0": 0,
+      "subclass_417_working_holiday::1": 0,
+      "subclass_417_working_holiday::2": 0,
+      "subclass_417_working_holiday::3": 0,
+      "subclass_485_temporary_graduate::3": 0,
+      "subclass_500_student::2": 0,
+      "whm_6_month_work_limitation::0": 0
+    },
+    "wrong_subclass_chunks": [],
+    "qrels_snapshot": "84636c1d6741",
+    "qrels_recorded_at": "2026-09-27T14:22:35+00:00",
+    "qrels_method": "pooled_top5_union_dense_bm25_rrf",
+    "qrels_annotators": [
+      "Soham Athawale"
+    ]
   }
 ]
