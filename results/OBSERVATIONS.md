@@ -412,6 +412,27 @@ q03 is correct but phrased more directly than the gold answer, so it shares few 
 q02 is wrong by more than a year on the only figure that matters, but its sentence structure
 closely mirrors the reference.
 
+> **The example above does not reproduce. Corrected 2026-09-27; the finding survives, the
+> illustration does not.**
+>
+> The q02 figure of 0.185 appears in **no stored run**: k=1 gives 0.136, k=3 and k=5 give 0.500,
+> the pre-fix run gives 0.114. And in the two runs where q02 does outscore q03, **q02 is graded
+> correct** — so it is a correct answer beating a correct one, which demonstrates nothing. In the
+> two runs where q02 is wrong, it scores *below* q03.
+>
+> Same root cause as the q13 note: the section says "the k=3 run" without saying which, and the
+> corpus correction changed q02 from wrong to right underneath it.
+>
+> **Replacement pair, scored against the text the annotator actually graded:**
+>
+> | Question | Human grade | ROUGE-1 F1 |
+> |---|---|---|
+> | **q04** | **wrong** — misses the tourism and hospitality exemption | **0.191** |
+> | **q03** | **correct** — matches the gold answer on sponsorship | **0.154** |
+>
+> The point stands and is now reproducible: a wrong answer outscores a correct one. Quote q04
+> against q03, on the graded text, not q02.
+
 This is not a flaw in the implementation. It is what these measures are: they compare an answer
 to a reference **as text**, and text similarity is not truth. Reporting them without saying so
 would let a reader infer a quality ranking the numbers cannot support.

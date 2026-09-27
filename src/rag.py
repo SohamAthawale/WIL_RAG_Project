@@ -111,6 +111,18 @@ def retrieve(query: str, store: list[dict], k: int = TOP_K) -> list[dict]:
     return [{"score": s, **{k: v for k, v in r.items() if k != "embedding"}} for s, r in scored[:k]]
 
 
+# Generation was run at temperature 0.1 with no seed until 2026-09-27, which meant the same
+# question produced different answers on different runs. The practical consequence was that the
+# answers a human graded matched the stored k=3 run on only 6 of 13 rows -- every human judgement
+# in the project was unattached to any result file, and no finding quoting an answer could be
+# reproduced. Pinned here so that a run is a fact rather than a sample.
+#
+# Runs recorded before this date are not reproducible under these settings. They are kept as
+# historical record and labelled in results/OBSERVATIONS.md; do not mix them with runs made after.
+GEN_TEMPERATURE = 0.0
+GEN_SEED = 97
+
+
 def chat(system_prompt: str, user_prompt: str) -> str:
     resp = requests.post(
         OLLAMA_CHAT_URL,
@@ -121,7 +133,7 @@ def chat(system_prompt: str, user_prompt: str) -> str:
                 {"role": "user", "content": user_prompt},
             ],
             "stream": False,
-            "options": {"temperature": 0.1},
+            "options": {"temperature": GEN_TEMPERATURE, "seed": GEN_SEED},
         },
         timeout=120,
     )
