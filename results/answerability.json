@@ -1,0 +1,1689 @@
+{
+  "task": "T05 -- refusal detection and the answerability split",
+  "config": {
+    "snapshot_id": "84636c1d6741",
+    "config_id": "structure_aware_meta",
+    "top_k": 3,
+    "gen_model": "qwen2.5:7b-instruct"
+  },
+  "headline": "The one-number version doesn't just lose precision, it points the team the wrong way.",
+  "definitions": {
+    "states": {
+      "refusal": "A refusal marker is present and the answer asserts nothing checkable.",
+      "hedged_answer": "A refusal marker is present and the answer also asserts a figure or a subclass. It has answered.",
+      "answer": "No refusal marker from either family."
+    },
+    "buckets": {
+      "correct_refusal": "Declined, and gold_source is 'none' -- the corpus does not answer it. A success.",
+      "missed_answerable": "Declined, and gold_source names a document that holds the answer. A coverage failure.",
+      "over_refused": "Declined, and gold_source is 'multiple' -- answerable, but only by synthesising across documents. Over-caution.",
+      "answered_correctly": "Answered or hedged, and the annotator graded it correct.",
+      "answered_but_wrong": "Answered or hedged, and the annotator graded it wrong or partial; or gold_source is 'none', where answering is itself the error."
+    },
+    "marker_families": {
+      "configured": "Strings the RAG system prompt instructs the model to use.",
+      "natural": "Declines phrased in the model's own words, which B0 uses because it runs with no system prompt."
+    }
+  },
+  "agreement": {
+    "n": 13,
+    "state_agreement": {
+      "matched": 13,
+      "n": 13,
+      "rate": 1.0
+    },
+    "bucket_agreement": {
+      "matched": 13,
+      "n": 13,
+      "rate": 1.0,
+      "independent": false,
+      "note": "Not an independent check: the mapping consumes the human rag_correct column to separate answered_correctly from answered_but_wrong. Lead with state_agreement."
+    },
+    "disagreements": [],
+    "per_question": [
+      {
+        "id": "q01",
+        "state": "answer",
+        "detector_bucket": "answered_correctly",
+        "human_bucket": "answered_correctly",
+        "state_agrees": true,
+        "bucket_agrees": true
+      },
+      {
+        "id": "q02",
+        "state": "answer",
+        "detector_bucket": "answered_correctly",
+        "human_bucket": "answered_correctly",
+        "state_agrees": true,
+        "bucket_agrees": true
+      },
+      {
+        "id": "q03",
+        "state": "answer",
+        "detector_bucket": "answered_correctly",
+        "human_bucket": "answered_correctly",
+        "state_agrees": true,
+        "bucket_agrees": true
+      },
+      {
+        "id": "q04",
+        "state": "hedged_answer",
+        "detector_bucket": "answered_but_wrong",
+        "human_bucket": "answered_but_wrong",
+        "state_agrees": true,
+        "bucket_agrees": true
+      },
+      {
+        "id": "q05",
+        "state": "answer",
+        "detector_bucket": "answered_correctly",
+        "human_bucket": "answered_correctly",
+        "state_agrees": true,
+        "bucket_agrees": true
+      },
+      {
+        "id": "q06",
+        "state": "answer",
+        "detector_bucket": "answered_correctly",
+        "human_bucket": "answered_correctly",
+        "state_agrees": true,
+        "bucket_agrees": true
+      },
+      {
+        "id": "q07",
+        "state": "hedged_answer",
+        "detector_bucket": "answered_but_wrong",
+        "human_bucket": "answered_but_wrong",
+        "state_agrees": true,
+        "bucket_agrees": true
+      },
+      {
+        "id": "q08",
+        "state": "answer",
+        "detector_bucket": "answered_correctly",
+        "human_bucket": "answered_correctly",
+        "state_agrees": true,
+        "bucket_agrees": true
+      },
+      {
+        "id": "q09",
+        "state": "answer",
+        "detector_bucket": "answered_correctly",
+        "human_bucket": "answered_correctly",
+        "state_agrees": true,
+        "bucket_agrees": true
+      },
+      {
+        "id": "q10",
+        "state": "refusal",
+        "detector_bucket": "correct_refusal",
+        "human_bucket": "correct_refusal",
+        "state_agrees": true,
+        "bucket_agrees": true
+      },
+      {
+        "id": "q11",
+        "state": "refusal",
+        "detector_bucket": "correct_refusal",
+        "human_bucket": "correct_refusal",
+        "state_agrees": true,
+        "bucket_agrees": true
+      },
+      {
+        "id": "q12",
+        "state": "refusal",
+        "detector_bucket": "correct_refusal",
+        "human_bucket": "correct_refusal",
+        "state_agrees": true,
+        "bucket_agrees": true
+      },
+      {
+        "id": "q13",
+        "state": "hedged_answer",
+        "detector_bucket": "answered_but_wrong",
+        "human_bucket": "answered_but_wrong",
+        "state_agrees": true,
+        "bucket_agrees": true
+      }
+    ]
+  },
+  "naive_boolean_baseline": {
+    "matched": 10,
+    "n": 13,
+    "rate": 0.769,
+    "misreads": [
+      {
+        "id": "q04",
+        "naive": "missed_answerable",
+        "human": "answered_but_wrong"
+      },
+      {
+        "id": "q07",
+        "naive": "over_refused",
+        "human": "answered_but_wrong"
+      },
+      {
+        "id": "q13",
+        "naive": "missed_answerable",
+        "human": "answered_but_wrong"
+      }
+    ]
+  },
+  "splits": {
+    "validated_n13": {
+      "n": 13,
+      "source": "annotation_sheet_annotated.xlsx",
+      "note": "The text the annotator judged. Validated against the human answerability column.",
+      "RAG": {
+        "n": 13,
+        "split": {
+          "answered_correctly": 7,
+          "answered_but_wrong": 3,
+          "correct_refusal": 3,
+          "missed_answerable": 0,
+          "over_refused": 0
+        },
+        "states": {
+          "refusal": 3,
+          "hedged_answer": 3,
+          "answer": 7
+        },
+        "per_question": [
+          {
+            "id": "q01",
+            "gold_source": "subclass_500_student.txt",
+            "state": "answer",
+            "bucket": "answered_correctly"
+          },
+          {
+            "id": "q02",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_correctly"
+          },
+          {
+            "id": "q03",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "answer",
+            "bucket": "answered_correctly"
+          },
+          {
+            "id": "q04",
+            "gold_source": "whm_6_month_work_limitation.txt",
+            "state": "hedged_answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q05",
+            "gold_source": "whm_6_month_work_limitation.txt",
+            "state": "answer",
+            "bucket": "answered_correctly"
+          },
+          {
+            "id": "q06",
+            "gold_source": "subclass_500_student.txt",
+            "state": "answer",
+            "bucket": "answered_correctly"
+          },
+          {
+            "id": "q07",
+            "gold_source": "multiple",
+            "state": "hedged_answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q08",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_correctly"
+          },
+          {
+            "id": "q09",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_correctly"
+          },
+          {
+            "id": "q10",
+            "gold_source": "none",
+            "state": "refusal",
+            "bucket": "correct_refusal"
+          },
+          {
+            "id": "q11",
+            "gold_source": "none",
+            "state": "refusal",
+            "bucket": "correct_refusal"
+          },
+          {
+            "id": "q12",
+            "gold_source": "none",
+            "state": "refusal",
+            "bucket": "correct_refusal"
+          },
+          {
+            "id": "q13",
+            "gold_source": "whm_6_month_work_limitation.txt",
+            "state": "hedged_answer",
+            "bucket": "answered_but_wrong"
+          }
+        ]
+      },
+      "B0": {
+        "n": 13,
+        "split": {
+          "answered_correctly": 0,
+          "answered_but_wrong": 12,
+          "correct_refusal": 1,
+          "missed_answerable": 0,
+          "over_refused": 0
+        },
+        "states": {
+          "refusal": 1,
+          "hedged_answer": 1,
+          "answer": 11
+        },
+        "per_question": [
+          {
+            "id": "q01",
+            "gold_source": "subclass_500_student.txt",
+            "state": "answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q02",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q03",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q04",
+            "gold_source": "whm_6_month_work_limitation.txt",
+            "state": "answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q05",
+            "gold_source": "whm_6_month_work_limitation.txt",
+            "state": "answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q06",
+            "gold_source": "subclass_500_student.txt",
+            "state": "answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q07",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q08",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q09",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q10",
+            "gold_source": "none",
+            "state": "hedged_answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q11",
+            "gold_source": "none",
+            "state": "answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q12",
+            "gold_source": "none",
+            "state": "refusal",
+            "bucket": "correct_refusal"
+          },
+          {
+            "id": "q13",
+            "gold_source": "whm_6_month_work_limitation.txt",
+            "state": "answer",
+            "bucket": "answered_but_wrong"
+          }
+        ]
+      }
+    },
+    "full_n100": {
+      "n": 100,
+      "source": "b0_vs_rag__structure_aware_meta_k3.json",
+      "note": "The refusal side is decidable from gold_source and needs no human grade, so it holds across all 100. The answer side cannot be split into correct and wrong here: rag_correct_manual and b0_correct_manual are empty on every row, so those answers are counted as answered_ungraded rather than guessed at.",
+      "RAG": {
+        "n": 100,
+        "split": {
+          "answered_correctly": 0,
+          "answered_but_wrong": 7,
+          "correct_refusal": 8,
+          "missed_answerable": 0,
+          "over_refused": 0,
+          "answered_ungraded": 85
+        },
+        "states": {
+          "refusal": 8,
+          "hedged_answer": 23,
+          "answer": 69
+        },
+        "per_question": [
+          {
+            "id": "q01",
+            "gold_source": "subclass_500_student.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q02",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q03",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q04",
+            "gold_source": "whm_6_month_work_limitation.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q05",
+            "gold_source": "whm_6_month_work_limitation.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q06",
+            "gold_source": "subclass_500_student.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q07",
+            "gold_source": "multiple",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q08",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q09",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q10",
+            "gold_source": "none",
+            "state": "refusal",
+            "bucket": "correct_refusal"
+          },
+          {
+            "id": "q11",
+            "gold_source": "none",
+            "state": "refusal",
+            "bucket": "correct_refusal"
+          },
+          {
+            "id": "q12",
+            "gold_source": "none",
+            "state": "refusal",
+            "bucket": "correct_refusal"
+          },
+          {
+            "id": "q13",
+            "gold_source": "whm_6_month_work_limitation.txt",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q14",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q15",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q16",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q17",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q18",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q19",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q20",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q21",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q22",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q23",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q24",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q25",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q26",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q27",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q28",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q29",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q30",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q31",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q32",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q33",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q34",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q35",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q36",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q37",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q38",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q39",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q40",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q41",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q42",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q43",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q44",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q45",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q46",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q47",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q48",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q49",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q50",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q51",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q52",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q53",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q54",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q55",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q56",
+            "gold_source": "subclass_500_student.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q57",
+            "gold_source": "subclass_500_student.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q58",
+            "gold_source": "subclass_500_student.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q59",
+            "gold_source": "subclass_500_student.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q60",
+            "gold_source": "subclass_500_student.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q61",
+            "gold_source": "subclass_500_student.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q62",
+            "gold_source": "subclass_500_student.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q63",
+            "gold_source": "whm_6_month_work_limitation.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q64",
+            "gold_source": "whm_6_month_work_limitation.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q65",
+            "gold_source": "whm_6_month_work_limitation.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q66",
+            "gold_source": "whm_6_month_work_limitation.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q67",
+            "gold_source": "multiple",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q68",
+            "gold_source": "multiple",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q69",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q70",
+            "gold_source": "multiple",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q71",
+            "gold_source": "multiple",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q72",
+            "gold_source": "multiple",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q73",
+            "gold_source": "multiple",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q74",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q75",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q76",
+            "gold_source": "multiple",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q77",
+            "gold_source": "multiple",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q78",
+            "gold_source": "multiple",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q79",
+            "gold_source": "multiple",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q80",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q81",
+            "gold_source": "multiple",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q82",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q83",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q84",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q85",
+            "gold_source": "multiple",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q86",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q87",
+            "gold_source": "multiple",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q88",
+            "gold_source": "multiple",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q89",
+            "gold_source": "none",
+            "state": "hedged_answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q90",
+            "gold_source": "none",
+            "state": "hedged_answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q91",
+            "gold_source": "none",
+            "state": "hedged_answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q92",
+            "gold_source": "none",
+            "state": "refusal",
+            "bucket": "correct_refusal"
+          },
+          {
+            "id": "q93",
+            "gold_source": "none",
+            "state": "hedged_answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q94",
+            "gold_source": "none",
+            "state": "refusal",
+            "bucket": "correct_refusal"
+          },
+          {
+            "id": "q95",
+            "gold_source": "none",
+            "state": "refusal",
+            "bucket": "correct_refusal"
+          },
+          {
+            "id": "q96",
+            "gold_source": "none",
+            "state": "refusal",
+            "bucket": "correct_refusal"
+          },
+          {
+            "id": "q97",
+            "gold_source": "none",
+            "state": "hedged_answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q98",
+            "gold_source": "none",
+            "state": "hedged_answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q99",
+            "gold_source": "none",
+            "state": "hedged_answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q100",
+            "gold_source": "none",
+            "state": "refusal",
+            "bucket": "correct_refusal"
+          }
+        ]
+      },
+      "B0": {
+        "n": 100,
+        "split": {
+          "answered_correctly": 0,
+          "answered_but_wrong": 13,
+          "correct_refusal": 2,
+          "missed_answerable": 0,
+          "over_refused": 0,
+          "answered_ungraded": 85
+        },
+        "states": {
+          "refusal": 2,
+          "hedged_answer": 9,
+          "answer": 89
+        },
+        "per_question": [
+          {
+            "id": "q01",
+            "gold_source": "subclass_500_student.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q02",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q03",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q04",
+            "gold_source": "whm_6_month_work_limitation.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q05",
+            "gold_source": "whm_6_month_work_limitation.txt",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q06",
+            "gold_source": "subclass_500_student.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q07",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q08",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q09",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q10",
+            "gold_source": "none",
+            "state": "hedged_answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q11",
+            "gold_source": "none",
+            "state": "answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q12",
+            "gold_source": "none",
+            "state": "refusal",
+            "bucket": "correct_refusal"
+          },
+          {
+            "id": "q13",
+            "gold_source": "whm_6_month_work_limitation.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q14",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q15",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q16",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q17",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q18",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q19",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q20",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q21",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q22",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q23",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q24",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q25",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q26",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q27",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q28",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q29",
+            "gold_source": "subclass_417_working_holiday.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q30",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q31",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q32",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q33",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q34",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q35",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q36",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q37",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q38",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q39",
+            "gold_source": "subclass_482_skills_in_demand.txt",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q40",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q41",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q42",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q43",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q44",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q45",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q46",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q47",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q48",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q49",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q50",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q51",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q52",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q53",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q54",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q55",
+            "gold_source": "subclass_485_temporary_graduate.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q56",
+            "gold_source": "subclass_500_student.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q57",
+            "gold_source": "subclass_500_student.txt",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q58",
+            "gold_source": "subclass_500_student.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q59",
+            "gold_source": "subclass_500_student.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q60",
+            "gold_source": "subclass_500_student.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q61",
+            "gold_source": "subclass_500_student.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q62",
+            "gold_source": "subclass_500_student.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q63",
+            "gold_source": "whm_6_month_work_limitation.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q64",
+            "gold_source": "whm_6_month_work_limitation.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q65",
+            "gold_source": "whm_6_month_work_limitation.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q66",
+            "gold_source": "whm_6_month_work_limitation.txt",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q67",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q68",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q69",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q70",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q71",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q72",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q73",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q74",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q75",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q76",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q77",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q78",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q79",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q80",
+            "gold_source": "multiple",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q81",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q82",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q83",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q84",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q85",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q86",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q87",
+            "gold_source": "multiple",
+            "state": "answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q88",
+            "gold_source": "multiple",
+            "state": "hedged_answer",
+            "bucket": "answered_ungraded"
+          },
+          {
+            "id": "q89",
+            "gold_source": "none",
+            "state": "answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q90",
+            "gold_source": "none",
+            "state": "answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q91",
+            "gold_source": "none",
+            "state": "answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q92",
+            "gold_source": "none",
+            "state": "answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q93",
+            "gold_source": "none",
+            "state": "answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q94",
+            "gold_source": "none",
+            "state": "refusal",
+            "bucket": "correct_refusal"
+          },
+          {
+            "id": "q95",
+            "gold_source": "none",
+            "state": "answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q96",
+            "gold_source": "none",
+            "state": "answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q97",
+            "gold_source": "none",
+            "state": "answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q98",
+            "gold_source": "none",
+            "state": "answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q99",
+            "gold_source": "none",
+            "state": "answer",
+            "bucket": "answered_but_wrong"
+          },
+          {
+            "id": "q100",
+            "gold_source": "none",
+            "state": "answer",
+            "bucket": "answered_but_wrong"
+          }
+        ]
+      }
+    }
+  },
+  "diagnostics": {
+    "note": "Reported beside the split, not as a sixth bucket.",
+    "RAG_n100": {
+      "n_refusal_required": 15,
+      "refused": 8,
+      "hedged_then_advised": 7,
+      "answered_outright": 0,
+      "hedged_ids": [
+        "q89",
+        "q90",
+        "q91",
+        "q93",
+        "q97",
+        "q98",
+        "q99"
+      ],
+      "hedged_on_condition_code_mention_only": [
+        "q98"
+      ],
+      "borderline_note": "These rows qualify as hedges only because a condition code appears, and it appears inside a referral rather than an assertion. Weaker instances of the failure than the rest of hedged_ids; excluded if the ethics claim is stated narrowly."
+    },
+    "B0_n100": {
+      "n_refusal_required": 15,
+      "refused": 2,
+      "hedged_then_advised": 1,
+      "answered_outright": 12,
+      "hedged_ids": [
+        "q10"
+      ],
+      "hedged_on_condition_code_mention_only": [],
+      "borderline_note": ""
+    }
+  },
+  "hedge_rule_sensitivity_n100": {
+    "n_refusal_required": 15,
+    "rules": {
+      "narrow": {
+        "RAG": {
+          "declined": 8,
+          "hedged_then_advised": 7
+        },
+        "B0": {
+          "declined": 2,
+          "hedged_then_advised": 1
+        }
+      },
+      "wide": {
+        "RAG": {
+          "declined": 8,
+          "hedged_then_advised": 7
+        },
+        "B0": {
+          "declined": 0,
+          "hedged_then_advised": 3
+        }
+      }
+    },
+    "interpretation": "RAG declines 8/15 under the shipped rule and 8/15 under the broader one; B0 declines 2 and 0. The gap narrows but does not close or reverse, so the finding that retrieval is what creates the ability to decline does not depend on where the hedge line is drawn."
+  },
+  "disagreements_investigated": [
+    {
+      "id": "q12",
+      "finding": "B0 declines the weather question in its own words -- 'I don't have real-time data access, so I can't provide current or future weather forecasts.' The configured marker family does not contain that phrasing and misses the decline entirely. The annotator graded the answer correct, so this was a detector gap, not an ambiguous answer.",
+      "resolution": "Fixed by the natural-language marker family."
+    },
+    {
+      "id": "q10 (B0)",
+      "finding": "The annotator graded B0 correct because it declined to predict the visa outcome. It then gave five numbered points of advice. Because gold_source is 'none', this module places it in answered_but_wrong, which disagrees with that grade.",
+      "resolution": "The rule is applied consistently rather than exempting the row. The disagreement is recorded here: a stated disagreement is data, a silent override is a defect."
+    }
+  ],
+  "limitations": [
+    "Everything validated is validated at n=13. One question is 7.7%. Directional, not significant.",
+    "missed_answerable and over_refused have no human examples, so agreement validates three of five categories.",
+    "The answerability column describes RAG only, so the B0 split is unvalidated.",
+    "NATURAL_REFUSAL_MARKERS was assembled by inspecting B0 outputs, so its effect on the refusal count is a lower bound, not an independent measurement.",
+    "The marker family decides whether a decline is seen; the hedge rule decides whether a seen decline counts. Both are stated above because the refusal figure cannot be read without them.",
+    "Generation is non-deterministic: the graded text matches the k3 run on 6 of 13 rows, which is why agreement is measured against the sheet."
+  ]
+}
