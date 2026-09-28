@@ -1,7 +1,7 @@
 config_id,strategy,prepend_metadata,params,n_chunks,median_chars,max_chars_actual,cond8547,retriever,recall@1,recall@3,recall@5,mrr,wrong_subclass@1
 fixed_size_chunk_size400_overlap0.0_nometa,fixed_size,False,"{""chunk_size"": 400, ""overlap"": 0.0}",30,394,399,SPLIT,dense,0.607,0.984,0.984,0.79,0.278
 fixed_size_chunk_size400_overlap0.0_nometa,fixed_size,False,"{""chunk_size"": 400, ""overlap"": 0.0}",30,394,399,SPLIT,bm25,0.852,0.967,1.0,0.914,0.056
-fixed_size_chunk_size400_overlap0.0_nometa,fixed_size,False,"{""chunk_size"": 400, ""overlap"": 0.0}",30,394,399,SPLIT,hybrid_rrf,0.82,0.984,0.984,0.902,0.13
+fixed_size_chunk_size400_overlap0.0_nometa,fixed_size,False,"{""chunk_size"": 400, ""overlap"": 0.0}",30,394,399,SPLIT,hybrid_rrf,0.836,0.984,0.984,0.91,0.111
 fixed_size_chunk_size400_overlap0.0_meta,fixed_size,True,"{""chunk_size"": 400, ""overlap"": 0.0}",30,435,467,SPLIT,dense,0.918,0.984,1.0,0.954,0.074
 fixed_size_chunk_size400_overlap0.0_meta,fixed_size,True,"{""chunk_size"": 400, ""overlap"": 0.0}",30,435,467,SPLIT,bm25,0.934,0.984,1.0,0.96,0.037
 fixed_size_chunk_size400_overlap0.0_meta,fixed_size,True,"{""chunk_size"": 400, ""overlap"": 0.0}",30,435,467,SPLIT,hybrid_rrf,0.951,0.984,1.0,0.969,0.019
@@ -19,19 +19,19 @@ fixed_size_chunk_size400_overlap0.2_meta,fixed_size,True,"{""chunk_size"": 400, 
 fixed_size_chunk_size400_overlap0.2_meta,fixed_size,True,"{""chunk_size"": 400, ""overlap"": 0.2}",36,434,469,SPLIT,hybrid_rrf,0.951,0.984,1.0,0.969,0.019
 fixed_size_chunk_size600_overlap0.0_nometa,fixed_size,False,"{""chunk_size"": 600, ""overlap"": 0.0}",20,595,599,SPLIT,dense,0.705,0.984,1.0,0.843,0.259
 fixed_size_chunk_size600_overlap0.0_nometa,fixed_size,False,"{""chunk_size"": 600, ""overlap"": 0.0}",20,595,599,SPLIT,bm25,0.869,0.967,1.0,0.926,0.074
-fixed_size_chunk_size600_overlap0.0_nometa,fixed_size,False,"{""chunk_size"": 600, ""overlap"": 0.0}",20,595,599,SPLIT,hybrid_rrf,0.754,0.984,1.0,0.87,0.167
+fixed_size_chunk_size600_overlap0.0_nometa,fixed_size,False,"{""chunk_size"": 600, ""overlap"": 0.0}",20,595,599,SPLIT,hybrid_rrf,0.82,0.984,1.0,0.903,0.093
 fixed_size_chunk_size600_overlap0.0_meta,fixed_size,True,"{""chunk_size"": 600, ""overlap"": 0.0}",20,636,667,SPLIT,dense,0.836,0.984,1.0,0.911,0.167
 fixed_size_chunk_size600_overlap0.0_meta,fixed_size,True,"{""chunk_size"": 600, ""overlap"": 0.0}",20,636,667,SPLIT,bm25,0.951,1.0,1.0,0.973,0.037
-fixed_size_chunk_size600_overlap0.0_meta,fixed_size,True,"{""chunk_size"": 600, ""overlap"": 0.0}",20,636,667,SPLIT,hybrid_rrf,0.967,0.984,1.0,0.98,0.037
+fixed_size_chunk_size600_overlap0.0_meta,fixed_size,True,"{""chunk_size"": 600, ""overlap"": 0.0}",20,636,667,SPLIT,hybrid_rrf,0.984,0.984,1.0,0.988,0.019
 fixed_size_chunk_size600_overlap0.1_nometa,fixed_size,False,"{""chunk_size"": 600, ""overlap"": 0.1}",23,595,598,SPLIT,dense,0.836,0.984,1.0,0.914,0.148
 fixed_size_chunk_size600_overlap0.1_nometa,fixed_size,False,"{""chunk_size"": 600, ""overlap"": 0.1}",23,595,598,SPLIT,bm25,0.885,0.967,1.0,0.934,0.056
 fixed_size_chunk_size600_overlap0.1_nometa,fixed_size,False,"{""chunk_size"": 600, ""overlap"": 0.1}",23,595,598,SPLIT,hybrid_rrf,0.918,0.984,1.0,0.954,0.074
 fixed_size_chunk_size600_overlap0.1_meta,fixed_size,True,"{""chunk_size"": 600, ""overlap"": 0.1}",23,635,668,SPLIT,dense,0.934,0.967,1.0,0.958,0.056
 fixed_size_chunk_size600_overlap0.1_meta,fixed_size,True,"{""chunk_size"": 600, ""overlap"": 0.1}",23,635,668,SPLIT,bm25,0.951,0.984,1.0,0.969,0.037
-fixed_size_chunk_size600_overlap0.1_meta,fixed_size,True,"{""chunk_size"": 600, ""overlap"": 0.1}",23,635,668,SPLIT,hybrid_rrf,0.967,0.984,1.0,0.979,0.037
+fixed_size_chunk_size600_overlap0.1_meta,fixed_size,True,"{""chunk_size"": 600, ""overlap"": 0.1}",23,635,668,SPLIT,hybrid_rrf,0.984,0.984,1.0,0.987,0.019
 fixed_size_chunk_size600_overlap0.2_nometa,fixed_size,False,"{""chunk_size"": 600, ""overlap"": 0.2}",25,593,599,SPLIT,dense,0.836,1.0,1.0,0.91,0.167
 fixed_size_chunk_size600_overlap0.2_nometa,fixed_size,False,"{""chunk_size"": 600, ""overlap"": 0.2}",25,593,599,SPLIT,bm25,0.82,0.967,1.0,0.895,0.093
-fixed_size_chunk_size600_overlap0.2_nometa,fixed_size,False,"{""chunk_size"": 600, ""overlap"": 0.2}",25,593,599,SPLIT,hybrid_rrf,0.869,0.984,1.0,0.928,0.148
+fixed_size_chunk_size600_overlap0.2_nometa,fixed_size,False,"{""chunk_size"": 600, ""overlap"": 0.2}",25,593,599,SPLIT,hybrid_rrf,0.869,0.984,1.0,0.928,0.13
 fixed_size_chunk_size600_overlap0.2_meta,fixed_size,True,"{""chunk_size"": 600, ""overlap"": 0.2}",25,635,668,SPLIT,dense,0.967,0.984,1.0,0.977,0.019
 fixed_size_chunk_size600_overlap0.2_meta,fixed_size,True,"{""chunk_size"": 600, ""overlap"": 0.2}",25,635,668,SPLIT,bm25,0.918,0.984,1.0,0.952,0.037
 fixed_size_chunk_size600_overlap0.2_meta,fixed_size,True,"{""chunk_size"": 600, ""overlap"": 0.2}",25,635,668,SPLIT,hybrid_rrf,0.951,1.0,1.0,0.973,0.037
@@ -55,16 +55,16 @@ fixed_size_chunk_size1000_overlap0.2_meta,fixed_size,True,"{""chunk_size"": 1000
 fixed_size_chunk_size1000_overlap0.2_meta,fixed_size,True,"{""chunk_size"": 1000, ""overlap"": 0.2}",17,1031,1066,SPLIT,hybrid_rrf,0.967,0.984,1.0,0.979,0.019
 paragraph_min_chars150_nometa,paragraph,False,"{""min_chars"": 150}",22,414,1062,together,dense,0.738,0.967,0.984,0.857,0.259
 paragraph_min_chars150_nometa,paragraph,False,"{""min_chars"": 150}",22,414,1062,together,bm25,0.836,0.967,1.0,0.91,0.074
-paragraph_min_chars150_nometa,paragraph,False,"{""min_chars"": 150}",22,414,1062,together,hybrid_rrf,0.721,0.984,1.0,0.856,0.259
+paragraph_min_chars150_nometa,paragraph,False,"{""min_chars"": 150}",22,414,1062,together,hybrid_rrf,0.77,0.984,1.0,0.88,0.185
 paragraph_min_chars150_meta,paragraph,True,"{""min_chars"": 150}",22,479,1132,together,dense,0.852,0.967,1.0,0.918,0.148
 paragraph_min_chars150_meta,paragraph,True,"{""min_chars"": 150}",22,479,1132,together,bm25,0.934,0.984,1.0,0.963,0.037
-paragraph_min_chars150_meta,paragraph,True,"{""min_chars"": 150}",22,479,1132,together,hybrid_rrf,0.902,0.984,1.0,0.944,0.093
+paragraph_min_chars150_meta,paragraph,True,"{""min_chars"": 150}",22,479,1132,together,hybrid_rrf,0.934,0.984,1.0,0.96,0.056
 paragraph_min_chars200_nometa,paragraph,False,"{""min_chars"": 200}",19,440,1076,together,dense,0.754,0.984,0.984,0.869,0.241
 paragraph_min_chars200_nometa,paragraph,False,"{""min_chars"": 200}",19,440,1076,together,bm25,0.885,0.967,1.0,0.934,0.056
-paragraph_min_chars200_nometa,paragraph,False,"{""min_chars"": 200}",19,440,1076,together,hybrid_rrf,0.82,0.984,1.0,0.905,0.148
+paragraph_min_chars200_nometa,paragraph,False,"{""min_chars"": 200}",19,440,1076,together,hybrid_rrf,0.869,0.984,1.0,0.93,0.093
 paragraph_min_chars200_meta,paragraph,True,"{""min_chars"": 200}",19,484,1132,together,dense,0.869,0.967,1.0,0.926,0.13
 paragraph_min_chars200_meta,paragraph,True,"{""min_chars"": 200}",19,484,1132,together,bm25,0.934,0.984,1.0,0.96,0.037
-paragraph_min_chars200_meta,paragraph,True,"{""min_chars"": 200}",19,484,1132,together,hybrid_rrf,0.902,0.984,1.0,0.947,0.093
+paragraph_min_chars200_meta,paragraph,True,"{""min_chars"": 200}",19,484,1132,together,hybrid_rrf,0.934,0.984,1.0,0.963,0.056
 paragraph_min_chars400_nometa,paragraph,False,"{""min_chars"": 400}",13,800,1445,together,dense,0.803,1.0,1.0,0.896,0.185
 paragraph_min_chars400_nometa,paragraph,False,"{""min_chars"": 400}",13,800,1445,together,bm25,0.869,0.967,0.984,0.919,0.074
 paragraph_min_chars400_nometa,paragraph,False,"{""min_chars"": 400}",13,800,1445,together,hybrid_rrf,0.82,1.0,1.0,0.904,0.185
@@ -73,19 +73,19 @@ paragraph_min_chars400_meta,paragraph,True,"{""min_chars"": 400}",13,838,1486,to
 paragraph_min_chars400_meta,paragraph,True,"{""min_chars"": 400}",13,838,1486,together,hybrid_rrf,0.951,1.0,1.0,0.973,0.037
 structure_aware_max_chars600_nometa,structure_aware,False,"{""max_chars"": 600}",26,340,1062,together,dense,0.77,1.0,1.0,0.883,0.241
 structure_aware_max_chars600_nometa,structure_aware,False,"{""max_chars"": 600}",26,340,1062,together,bm25,0.82,0.967,1.0,0.898,0.056
-structure_aware_max_chars600_nometa,structure_aware,False,"{""max_chars"": 600}",26,340,1062,together,hybrid_rrf,0.885,0.984,1.0,0.939,0.093
+structure_aware_max_chars600_nometa,structure_aware,False,"{""max_chars"": 600}",26,340,1062,together,hybrid_rrf,0.918,0.984,1.0,0.955,0.037
 structure_aware_max_chars600_meta,structure_aware,True,"{""max_chars"": 600}",26,379,1132,together,dense,0.902,0.984,1.0,0.946,0.093
 structure_aware_max_chars600_meta,structure_aware,True,"{""max_chars"": 600}",26,379,1132,together,bm25,0.934,1.0,1.0,0.967,0.037
-structure_aware_max_chars600_meta,structure_aware,True,"{""max_chars"": 600}",26,379,1132,together,hybrid_rrf,0.967,1.0,1.0,0.984,0.019
+structure_aware_max_chars600_meta,structure_aware,True,"{""max_chars"": 600}",26,379,1132,together,hybrid_rrf,0.984,1.0,1.0,0.992,0.0
 structure_aware_max_chars900_nometa,structure_aware,False,"{""max_chars"": 900}",24,352,1062,together,dense,0.885,1.0,1.0,0.943,0.111
 structure_aware_max_chars900_nometa,structure_aware,False,"{""max_chars"": 900}",24,352,1062,together,bm25,0.852,0.951,1.0,0.913,0.093
-structure_aware_max_chars900_nometa,structure_aware,False,"{""max_chars"": 900}",24,352,1062,together,hybrid_rrf,0.869,1.0,1.0,0.932,0.111
+structure_aware_max_chars900_nometa,structure_aware,False,"{""max_chars"": 900}",24,352,1062,together,hybrid_rrf,0.902,1.0,1.0,0.948,0.056
 structure_aware_max_chars900_meta,structure_aware,True,"{""max_chars"": 900}",24,393,1132,together,dense,0.967,0.984,1.0,0.979,0.019
 structure_aware_max_chars900_meta,structure_aware,True,"{""max_chars"": 900}",24,393,1132,together,bm25,0.934,1.0,1.0,0.967,0.037
 structure_aware_max_chars900_meta,structure_aware,True,"{""max_chars"": 900}",24,393,1132,together,hybrid_rrf,0.984,1.0,1.0,0.992,0.0
 structure_aware_max_chars1400_nometa,structure_aware,False,"{""max_chars"": 1400}",24,352,1192,together,dense,0.885,1.0,1.0,0.943,0.111
 structure_aware_max_chars1400_nometa,structure_aware,False,"{""max_chars"": 1400}",24,352,1192,together,bm25,0.803,0.951,1.0,0.886,0.093
-structure_aware_max_chars1400_nometa,structure_aware,False,"{""max_chars"": 1400}",24,352,1192,together,hybrid_rrf,0.852,1.0,1.0,0.923,0.13
+structure_aware_max_chars1400_nometa,structure_aware,False,"{""max_chars"": 1400}",24,352,1192,together,hybrid_rrf,0.885,1.0,1.0,0.94,0.074
 structure_aware_max_chars1400_meta,structure_aware,True,"{""max_chars"": 1400}",24,393,1262,together,dense,0.967,0.984,1.0,0.979,0.019
 structure_aware_max_chars1400_meta,structure_aware,True,"{""max_chars"": 1400}",24,393,1262,together,bm25,0.934,1.0,1.0,0.967,0.037
 structure_aware_max_chars1400_meta,structure_aware,True,"{""max_chars"": 1400}",24,393,1262,together,hybrid_rrf,0.984,1.0,1.0,0.989,0.0

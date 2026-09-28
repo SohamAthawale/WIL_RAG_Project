@@ -50,7 +50,7 @@ failure.
 | B0 | no retrieval | n/a |
 | B1 | BM25 | NDCG@5 0.835, MRR 0.963, R@1 0.911 of ceiling (n=95) [chunk level] |
 | B2 | dense | NDCG@5 0.833, MRR 0.98, R@1 0.948 of ceiling (n=95) [chunk level] |
-| B3 | hybrid RRF | NDCG@5 0.881, MRR 0.982, R@1 0.953 of ceiling (n=95) [chunk level] |
+| B3 | hybrid RRF | NDCG@5 0.879, MRR 0.982, R@1 0.953 of ceiling (n=95) [chunk level] |
 
 ## Cross Subclass
 

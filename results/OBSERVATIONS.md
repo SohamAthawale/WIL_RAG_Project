@@ -719,12 +719,40 @@ wide. It was noise presented as a ranking.
 This is the second finding in this project to fail on more data, after the top-k result. Both
 failed in the direction the caveats predicted, which is the only reassuring thing about it.
 
+## Ranking determinism — 29 September
+
+Every `argsort` producing a ranking now uses `kind="stable"` (10 call sites). Reciprocal rank
+fusion sums `1/(k + rank)` over full rankings, so two chunks tie whenever they swap ranks between
+dense and BM25 — 19 of 40 sampled questions carry at least one such tie. NumPy's default sort is
+not stable, so those ties were being settled by the local build: the same code produced different
+fused rankings on `darwin/arm64` and `linux/amd64`. Dense and BM25 were never affected, ranking as
+they do on continuous scores.
+
+`retrieval_metrics.json` and `config_comparison.json` were re-scored from the stored rankings.
+**No answer was regenerated**, so every human grade remains attached to the exact text it was
+made against. The superseded files are kept as `*__pre_stable_sort.*`.
+
+What moved, chunk-level at n=95: RRF NDCG@5 0.881 → **0.879**, RRF Recall@5 0.808 → **0.803**,
+RRF MRR unchanged at 0.982. At n=61 the `structure_aware_meta` figures are **identical**; only
+`paragraph_nometa` and `structure_aware_nometa` moved, and neither is quoted in the report.
+
+One claim changed. At chunk-level Recall@5, dense (0.805) now edges RRF (0.803) — a gap of 0.002
+against a resolution limit of 0.016. By this project's own standard that is not a difference, so
+both are reported as indistinguishable at that cutoff rather than ranked. Verified identical
+across `darwin/arm64` and `linux/amd64` after the change.
+
 ## What held, and strengthened
 
-**Hybrid RRF fusion leads on every measure** — R@1 0.984, MRR 0.992, and 0.000 wrong-subclass@1,
-the only configuration with no rank-1 subclass errors at any sample size tested. At n=8 it merely
-tied the better of its two inputs; at n=61 it beats both. Fusion earning its place is a stronger
-claim now than it was.
+**Hybrid RRF fusion leads in the best configuration** — within `structure_aware_meta`,
+R@1 0.984, MRR 0.992, and 0.000 wrong-subclass@1, one of only two configurations with no
+rank-1 subclass errors at any sample size tested (`max_chars` 900 and 1400, both with the
+prefix). At n=8 it merely tied the better of its two inputs; at n=61 it
+beats both. Fusion earning its place is a stronger claim now than it was.
+
+Scoped deliberately: "every measure" was too broad. Fusion does **not** lead everywhere. In
+`paragraph_nometa` BM25 is ahead on MRR, R@1 and wrong-subclass@1; at R@3 and R@5 the three
+systems tie in several configurations because the relevant chunks are all inside the cutoff. The
+defensible claim is about the configuration we actually ship, not about fusion in general.
 
 **The subclass prefix still matters.** Within `structure_aware`, metadata on versus off:
 wrong-subclass@1 0.019 against 0.111 for dense, 0.037 against 0.093 for BM25. The effect is

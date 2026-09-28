@@ -61,14 +61,14 @@
           "hybrid_rrf": {
             "chunk_recall@1": 0.183,
             "chunk_recall@3": 0.526,
-            "chunk_recall@5": 0.803,
+            "chunk_recall@5": 0.808,
             "chunk_mrr": 0.982,
             "chunk_ndcg@1": 0.791,
-            "chunk_ndcg@3": 0.858,
-            "chunk_ndcg@5": 0.879,
+            "chunk_ndcg@3": 0.86,
+            "chunk_ndcg@5": 0.881,
             "chunk_recall@1_share_of_ceiling": 0.953,
             "chunk_recall@3_share_of_ceiling": 0.915,
-            "chunk_recall@5_share_of_ceiling": 0.9
+            "chunk_recall@5_share_of_ceiling": 0.906
           }
         }
       },
@@ -109,14 +109,14 @@
           "hybrid_rrf": {
             "chunk_recall@1": 0.148,
             "chunk_recall@3": 0.411,
-            "chunk_recall@5": 0.624,
+            "chunk_recall@5": 0.641,
             "chunk_mrr": 1.0,
-            "chunk_ndcg@1": 0.73,
-            "chunk_ndcg@3": 0.843,
-            "chunk_ndcg@5": 0.815,
+            "chunk_ndcg@1": 0.683,
+            "chunk_ndcg@3": 0.832,
+            "chunk_ndcg@5": 0.808,
             "chunk_recall@1_share_of_ceiling": 1.0,
             "chunk_recall@3_share_of_ceiling": 0.926,
-            "chunk_recall@5_share_of_ceiling": 0.842
+            "chunk_recall@5_share_of_ceiling": 0.865
           }
         }
       },
@@ -157,14 +157,14 @@
           "hybrid_rrf": {
             "chunk_recall@1": 0.188,
             "chunk_recall@3": 0.543,
-            "chunk_recall@5": 0.829,
+            "chunk_recall@5": 0.832,
             "chunk_mrr": 0.98,
-            "chunk_ndcg@1": 0.8,
-            "chunk_ndcg@3": 0.86,
-            "chunk_ndcg@5": 0.888,
+            "chunk_ndcg@1": 0.807,
+            "chunk_ndcg@3": 0.864,
+            "chunk_ndcg@5": 0.891,
             "chunk_recall@1_share_of_ceiling": 0.949,
             "chunk_recall@3_share_of_ceiling": 0.914,
-            "chunk_recall@5_share_of_ceiling": 0.907
+            "chunk_recall@5_share_of_ceiling": 0.91
           }
         }
       },
@@ -226,11 +226,11 @@
           "hybrid_rrf": {
             "chunk_recall@1": 0.2,
             "chunk_recall@3": 0.6,
-            "chunk_recall@5": 0.8,
+            "chunk_recall@5": 1.0,
             "chunk_mrr": 1.0,
             "chunk_ndcg@1": 0.14285714285714285,
             "chunk_ndcg@3": 0.7276545800191442,
-            "chunk_ndcg@5": 0.7093047807172023
+            "chunk_ndcg@5": 0.7525360009859927
           }
         },
         "q03": {
@@ -315,9 +315,9 @@
             "chunk_recall@3": 0.375,
             "chunk_recall@5": 0.5,
             "chunk_mrr": 1.0,
-            "chunk_ndcg@1": 1.0,
-            "chunk_ndcg@3": 0.9037794402528602,
-            "chunk_ndcg@5": 0.9413958723635834
+            "chunk_ndcg@1": 0.42857142857142855,
+            "chunk_ndcg@3": 0.7617308574633834,
+            "chunk_ndcg@5": 0.8097063963582087
           }
         },
         "q06": {
@@ -1444,11 +1444,11 @@
           "hybrid_rrf": {
             "chunk_recall@1": 0.2,
             "chunk_recall@3": 0.6,
-            "chunk_recall@5": 0.8,
+            "chunk_recall@5": 1.0,
             "chunk_mrr": 1.0,
             "chunk_ndcg@1": 1.0,
             "chunk_ndcg@3": 1.0,
-            "chunk_ndcg@5": 0.9654913637925913
+            "chunk_ndcg@5": 1.0
           }
         },
         "q46": {
@@ -1563,8 +1563,8 @@
             "chunk_recall@5": 1.0,
             "chunk_mrr": 1.0,
             "chunk_ndcg@1": 0.42857142857142855,
-            "chunk_ndcg@3": 0.8075588805057204,
-            "chunk_ndcg@5": 0.8215929389056403
+            "chunk_ndcg@3": 0.8579514172105233,
+            "chunk_ndcg@5": 0.8683105239946254
           }
         },
         "q50": {
@@ -1794,9 +1794,9 @@
             "chunk_recall@3": 0.6,
             "chunk_recall@5": 1.0,
             "chunk_mrr": 1.0,
-            "chunk_ndcg@1": 0.42857142857142855,
-            "chunk_ndcg@3": 0.8579514172105233,
-            "chunk_ndcg@5": 0.8683105239946254
+            "chunk_ndcg@1": 1.0,
+            "chunk_ndcg@3": 1.0,
+            "chunk_ndcg@5": 1.0
           }
         },
         "q58": {
@@ -1882,8 +1882,8 @@
             "chunk_recall@5": 0.75,
             "chunk_mrr": 1.0,
             "chunk_ndcg@1": 1.0,
-            "chunk_ndcg@3": 0.9721212198129313,
-            "chunk_ndcg@5": 0.929501860342222
+            "chunk_ndcg@3": 1.0,
+            "chunk_ndcg@5": 0.9561583899187895
           }
         },
         "q61": {
@@ -2114,8 +2114,8 @@
             "chunk_recall@5": 0.8333333333333334,
             "chunk_mrr": 1.0,
             "chunk_ndcg@1": 1.0,
-            "chunk_ndcg@3": 0.8046129061698147,
-            "chunk_ndcg@5": 0.9478815954653227
+            "chunk_ndcg@3": 0.9594535145926796,
+            "chunk_ndcg@5": 0.9659238902765535
           }
         },
         "q69": {
@@ -2970,14 +2970,14 @@
           },
           "hybrid_rrf": {
             "chunk_recall@1": 0.171,
-            "chunk_recall@3": 0.454,
+            "chunk_recall@3": 0.45,
             "chunk_recall@5": 0.64,
             "chunk_mrr": 0.95,
-            "chunk_ndcg@1": 0.617,
-            "chunk_ndcg@3": 0.69,
-            "chunk_ndcg@5": 0.714,
+            "chunk_ndcg@1": 0.614,
+            "chunk_ndcg@3": 0.688,
+            "chunk_ndcg@5": 0.716,
             "chunk_recall@1_share_of_ceiling": 0.891,
-            "chunk_recall@3_share_of_ceiling": 0.79,
+            "chunk_recall@3_share_of_ceiling": 0.783,
             "chunk_recall@5_share_of_ceiling": 0.717
           }
         }
@@ -3021,9 +3021,9 @@
             "chunk_recall@3": 0.336,
             "chunk_recall@5": 0.477,
             "chunk_mrr": 0.944,
-            "chunk_ndcg@1": 0.575,
-            "chunk_ndcg@3": 0.608,
-            "chunk_ndcg@5": 0.645,
+            "chunk_ndcg@1": 0.528,
+            "chunk_ndcg@3": 0.596,
+            "chunk_ndcg@5": 0.633,
             "chunk_recall@1_share_of_ceiling": 0.885,
             "chunk_recall@3_share_of_ceiling": 0.757,
             "chunk_recall@5_share_of_ceiling": 0.644
@@ -3066,14 +3066,14 @@
           },
           "hybrid_rrf": {
             "chunk_recall@1": 0.176,
-            "chunk_recall@3": 0.471,
+            "chunk_recall@3": 0.466,
             "chunk_recall@5": 0.663,
             "chunk_mrr": 0.951,
-            "chunk_ndcg@1": 0.623,
-            "chunk_ndcg@3": 0.701,
-            "chunk_ndcg@5": 0.724,
+            "chunk_ndcg@1": 0.627,
+            "chunk_ndcg@3": 0.702,
+            "chunk_ndcg@5": 0.728,
             "chunk_recall@1_share_of_ceiling": 0.889,
-            "chunk_recall@3_share_of_ceiling": 0.793,
+            "chunk_recall@3_share_of_ceiling": 0.785,
             "chunk_recall@5_share_of_ceiling": 0.725
           }
         }
@@ -3225,9 +3225,9 @@
             "chunk_recall@3": 0.375,
             "chunk_recall@5": 0.5,
             "chunk_mrr": 1.0,
-            "chunk_ndcg@1": 1.0,
-            "chunk_ndcg@3": 0.9037794402528602,
-            "chunk_ndcg@5": 0.9413958723635834
+            "chunk_ndcg@1": 0.42857142857142855,
+            "chunk_ndcg@3": 0.7617308574633834,
+            "chunk_ndcg@5": 0.8097063963582087
           }
         },
         "q06": {
@@ -3401,7 +3401,7 @@
             "chunk_mrr": 1.0,
             "chunk_ndcg@1": 1.0,
             "chunk_ndcg@3": 1.0,
-            "chunk_ndcg@5": 0.9218235822624828
+            "chunk_ndcg@5": 0.9129675424759451
           }
         },
         "q13": {
@@ -3950,9 +3950,9 @@
             "chunk_recall@3": 0.5,
             "chunk_recall@5": 0.5,
             "chunk_mrr": 1.0,
-            "chunk_ndcg@1": 1.0,
-            "chunk_ndcg@3": 0.8785831719004588,
-            "chunk_ndcg@5": 0.8145111711968648
+            "chunk_ndcg@1": 0.14285714285714285,
+            "chunk_ndcg@3": 0.6655102977162437,
+            "chunk_ndcg@5": 0.6169769571888027
           }
         },
         "q32": {
@@ -3976,12 +3976,12 @@
           },
           "hybrid_rrf": {
             "chunk_recall@1": 0.16666666666666666,
-            "chunk_recall@3": 0.5,
+            "chunk_recall@3": 0.3333333333333333,
             "chunk_recall@5": 0.6666666666666666,
             "chunk_mrr": 1.0,
             "chunk_ndcg@1": 1.0,
-            "chunk_ndcg@3": 0.8785831719004588,
-            "chunk_ndcg@5": 0.8525321426132368
+            "chunk_ndcg@3": 0.7342523322797491,
+            "chunk_ndcg@5": 0.8353041786475391
           }
         },
         "q33": {
@@ -4092,12 +4092,12 @@
           },
           "hybrid_rrf": {
             "chunk_recall@1": 0.16666666666666666,
-            "chunk_recall@3": 0.5,
+            "chunk_recall@3": 0.3333333333333333,
             "chunk_recall@5": 0.5,
             "chunk_mrr": 1.0,
             "chunk_ndcg@1": 1.0,
-            "chunk_ndcg@3": 0.9721212198129313,
-            "chunk_ndcg@5": 0.8942845064893579
+            "chunk_ndcg@3": 0.8124242481930318,
+            "chunk_ndcg@5": 0.8739158643933335
           }
         },
         "q37": {
@@ -4298,9 +4298,9 @@
             "chunk_recall@3": 0.75,
             "chunk_recall@5": 0.75,
             "chunk_mrr": 1.0,
-            "chunk_ndcg@1": 0.14285714285714285,
-            "chunk_ndcg@3": 0.7276545800191442,
-            "chunk_ndcg@5": 0.6910511952591204
+            "chunk_ndcg@1": 1.0,
+            "chunk_ndcg@3": 1.0,
+            "chunk_ndcg@5": 0.9496967575479828
           }
         },
         "q44": {
@@ -4356,9 +4356,9 @@
             "chunk_recall@3": 0.6,
             "chunk_recall@5": 0.8,
             "chunk_mrr": 1.0,
-            "chunk_ndcg@1": 1.0,
-            "chunk_ndcg@3": 0.9037794402528602,
-            "chunk_ndcg@5": 0.9531235722535198
+            "chunk_ndcg@1": 0.42857142857142855,
+            "chunk_ndcg@3": 0.7617308574633834,
+            "chunk_ndcg@5": 0.8214340962481451
           }
         },
         "q46": {
@@ -4443,9 +4443,9 @@
             "chunk_recall@3": 0.5,
             "chunk_recall@5": 0.6666666666666666,
             "chunk_mrr": 1.0,
-            "chunk_ndcg@1": 0.14285714285714285,
-            "chunk_ndcg@3": 0.6151177610114408,
-            "chunk_ndcg@5": 0.6855129806119804
+            "chunk_ndcg@1": 0.42857142857142855,
+            "chunk_ndcg@3": 0.6861420524061792,
+            "chunk_ndcg@5": 0.7513577186146677
           }
         },
         "q49": {
@@ -4502,8 +4502,8 @@
             "chunk_recall@5": 1.0,
             "chunk_mrr": 1.0,
             "chunk_ndcg@1": 0.42857142857142855,
-            "chunk_ndcg@3": 0.6861420524061792,
-            "chunk_ndcg@5": 0.7780478882287853
+            "chunk_ndcg@3": 0.7617308574633834,
+            "chunk_ndcg@5": 0.848124265862263
           }
         },
         "q51": {
@@ -4559,9 +4559,9 @@
             "chunk_recall@3": 0.6,
             "chunk_recall@5": 1.0,
             "chunk_mrr": 1.0,
-            "chunk_ndcg@1": 0.14285714285714285,
-            "chunk_ndcg@3": 0.6151177610114408,
-            "chunk_ndcg@5": 0.720021616819389
+            "chunk_ndcg@1": 0.42857142857142855,
+            "chunk_ndcg@3": 0.6861420524061792,
+            "chunk_ndcg@5": 0.7858663548220765
           }
         },
         "q53": {
@@ -4675,9 +4675,9 @@
             "chunk_recall@3": 0.3333333333333333,
             "chunk_recall@5": 0.5,
             "chunk_mrr": 1.0,
-            "chunk_ndcg@1": 0.14285714285714285,
-            "chunk_ndcg@3": 0.5766666455144387,
-            "chunk_ndcg@5": 0.5726740807256783
+            "chunk_ndcg@1": 1.0,
+            "chunk_ndcg@3": 0.8124242481930318,
+            "chunk_ndcg@5": 0.7895548226182494
           }
         },
         "q57": {
@@ -4705,8 +4705,8 @@
             "chunk_recall@5": 0.6,
             "chunk_mrr": 1.0,
             "chunk_ndcg@1": 0.42857142857142855,
-            "chunk_ndcg@3": 0.6861420524061792,
-            "chunk_ndcg@5": 0.6361041101025051
+            "chunk_ndcg@3": 0.7617308574633834,
+            "chunk_ndcg@5": 0.7061804877359825
           }
         },
         "q58": {
@@ -5255,9 +5255,9 @@
             "chunk_recall@3": 0.6,
             "chunk_recall@5": 0.6,
             "chunk_mrr": 1.0,
-            "chunk_ndcg@1": 1.0,
-            "chunk_ndcg@3": 0.9594535145926796,
-            "chunk_ndcg@5": 0.8490892410834268
+            "chunk_ndcg@1": 0.42857142857142855,
+            "chunk_ndcg@3": 0.8451593915771352,
+            "chunk_ndcg@5": 0.7479421727830269
           }
         },
         "q77": {

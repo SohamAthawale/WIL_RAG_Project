@@ -24,11 +24,11 @@
           "wrong_subclass@1": 0.056
         },
         "hybrid_rrf": {
-          "recall@1": 0.82,
+          "recall@1": 0.869,
           "recall@3": 0.984,
           "recall@5": 1.0,
-          "mrr": 0.905,
-          "wrong_subclass@1": 0.148
+          "mrr": 0.93,
+          "wrong_subclass@1": 0.093
         }
       }
     },
@@ -86,11 +86,11 @@
           "wrong_subclass@1": 0.093
         },
         "hybrid_rrf": {
-          "recall@1": 0.869,
+          "recall@1": 0.902,
           "recall@3": 1.0,
           "recall@5": 1.0,
-          "mrr": 0.932,
-          "wrong_subclass@1": 0.111
+          "mrr": 0.948,
+          "wrong_subclass@1": 0.056
         }
       }
     }
