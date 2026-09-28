@@ -1,0 +1,54 @@
+# Two services, because they have different needs.
+#
+#   ollama   holds the models and owns the GPU.
+#   harness  is the evaluation code. It is CPU-only and mostly offline: scoring
+#            reads stored embeddings and stored answers, so it never calls out.
+#
+# Keeping them apart means the scoring tier runs on any machine, and the GPU is
+# only involved when something is actually being generated.
+
+services:
+  ollama:
+    # A 5060 Ti is Blackwell (sm_120) and needs a CUDA 12.8+ runtime. Pin this to a
+    # known-good tag once you have one that works on the box: OLLAMA_IMAGE=ollama/ollama:x.y.z
+    image: ${OLLAMA_IMAGE:-ollama/ollama:latest}
+    container_name: wil-ollama
+    ports:
+      - "127.0.0.1:11434:11434"      # loopback only; nothing here should be reachable off-box
+    volumes:
+      - ollama-models:/root/.ollama  # models survive `compose down`; pull once
+    environment:
+      OLLAMA_KEEP_ALIVE: "30m"       # 7B at ~5 GB sits comfortably in 16 GB; keep it resident
+      OLLAMA_NUM_PARALLEL: "1"       # serial requests: a seeded run must not interleave
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    healthcheck:
+      test: ["CMD-SHELL", "ollama list >/dev/null 2>&1 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+    restart: unless-stopped
+
+  harness:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: wil-rag-harness:latest
+    container_name: wil-harness
+    depends_on:
+      ollama:
+        condition: service_healthy
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    volumes:
+      - ./out:/out                   # anything worth keeping is written here
+    # No GPU on this service by design: it does not need one.
+
+volumes:
+  ollama-models:

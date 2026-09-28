@@ -1,0 +1,19 @@
+.git
+.gitignore
+.DS_Store
+**/.DS_Store
+**/__pycache__
+**/*.pyc
+.venv
+venv
+node_modules
+
+# Coordination packets: superseded, large, and not part of the pipeline.
+STALE-PACKETS-DO-NOT-USE-see-wil-team-coordination
+
+# iCloud produces "name 2.ext" duplicates for files under ~/Documents. They are
+# byte-stale copies that test collectors and glob-driven scripts pick up silently,
+# so they must never enter the build context.
+**/* 2.*
+**/* 3.*
+**/*\ 2
