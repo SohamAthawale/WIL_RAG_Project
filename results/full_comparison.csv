@@ -1,0 +1,5 @@
+baseline,retrieval,1_answerability,2_faithfulness,3_attribution,4_retrieval,5_cross_subclass,6_refusal,7_vocabulary_fairness,8_temporal
+B0,no retrieval,"correct_refusal 2, answered_but_wrong 13 (n=100)",n/a,cites 0/100 (n=100) [never cites],n/a,n/a,"declines 2/15, hedged-then-advised 1 (n=15)",not yet measured,not yet measured
+B1,BM25,no run,no run,no run,"NDCG@5 0.835, MRR 0.963, R@1 0.911 of ceiling (n=95) [chunk level]",no run,no run,not yet measured,not yet measured
+B2,dense,"correct_refusal 8, answered_but_wrong 7 (n=100)",0.987 (n=100) [numeric facts only],"cites 49/100, instructed form 24/100, fabricated 0/100, wrong-subclass 0/54","NDCG@5 0.833, MRR 0.98, R@1 0.948 of ceiling (n=95) [chunk level]","(a) 0, (b) 0, (c) 1, (d) 0, (e) 0 (n=13) [5 counters]","declines 8/15, hedged-then-advised 7 (n=15)",not yet measured,not yet measured
+B3,hybrid RRF,no run,no run,no run,"NDCG@5 0.881, MRR 0.982, R@1 0.953 of ceiling (n=95) [chunk level]",no run,no run,not yet measured,not yet measured
