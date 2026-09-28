@@ -1,0 +1,2710 @@
+{
+  "task": "T07 -- faithfulness and attribution correctness",
+  "config": {
+    "snapshot_id": "84636c1d6741",
+    "config_id": "structure_aware_meta",
+    "top_k": 3,
+    "gen_model": "qwen2.5:7b-instruct",
+    "run_file": "b0_vs_rag__structure_aware_meta_k3.json"
+  },
+  "headline": "Zero fabricated citations across 100 answers, and zero invented figures -- but only 49 of 100 answers cite anything at all, on a system instructed to cite every fact.",
+  "attribution": {
+    "n": 100,
+    "citation_rate": {
+      "answers_naming_a_corpus_document": 49,
+      "n": 100,
+      "rate": 0.49,
+      "note": "Just over half cite nothing, on a system whose prompt instructs it to cite every fact."
+    },
+    "format_compliance": {
+      "styles": {
+        "bracketed_source": 24,
+        "source_bracketed": 8,
+        "freeform_or_absent": 68
+      },
+      "instructed_form": 24,
+      "of_n": 100,
+      "rate_of_all": 0.24,
+      "rate_of_citing": 0.49,
+      "note": "The prompt asks for [Source: filename]. A parser built on that format alone would score the rest of the set as uncited."
+    },
+    "fabricated_citations": {
+      "answers_with_a_fabricated_citation": 0,
+      "n": 100,
+      "rate": 0.0,
+      "ids": []
+    },
+    "wrong_subclass_citations": {
+      "answers_citing_another_subclass": 0,
+      "n": 54,
+      "rate": 0.0,
+      "ids": [],
+      "denominator_note": "Scoreable only where the gold document names a subclass. 61 questions have a single gold document; 7 of those point at whm_6_month_work_limitation.txt, which is a condition rather than a subclass and yields no gold subclass to compare against, leaving 54. 'multiple' spans documents and 'none' has no corpus answer, so neither defines one either. This n is therefore smaller than the attribution n and smaller again than the 61 used by the document-level retrieval metrics in config_comparison.json."
+    }
+  },
+  "faithfulness": {
+    "n_questions_resolvable": 100,
+    "n_questions": 100,
+    "n_answer_facts": 76,
+    "n_unsupported_facts": 1,
+    "supported_rate": 0.987,
+    "one_in": 76.0,
+    "unsupported_detail": [
+      {
+        "id": "q78",
+        "facts": [
+          "36 month"
+        ],
+        "review": "Correct derivation, not a fabrication. The answer states 36 months; the three retrieved chunks (subclass_417_working_holiday::1, ::2, ::3) are the first, second and third Working Holiday visa and each states 'Stay: 12 months'. The model multiplied. Exact-match fact checking cannot recognise a derived aggregate, so this stays in the unsupported count with the arithmetic recorded."
+      }
+    ],
+    "context_definition": "Retrieved chunks at top-k, plus the question. A figure the user supplied and the model repeated is grounded in the prompt rather than invented.",
+    "measures_only": "Numeric facts. A fabricated qualitative claim carrying no figure is invisible to this measure."
+  },
+  "b0_contrast": {
+    "b0_answers_naming_a_corpus_document": 0,
+    "n": 100,
+    "ids": [],
+    "note": "B0 has no retrieved context, so any citation would be fabricated by construction. It cites nothing at all: the baseline does not invent citations, it simply never cites."
+  },
+  "fabrication_before_after": {
+    "before": {
+      "run_file": "b0_vs_rag_comparison.json",
+      "n": 13,
+      "answers_with_a_fabricated_citation": 1,
+      "detail": [
+        {
+          "id": "q01",
+          "cited": [
+            "subclass_500_student.txt"
+          ],
+          "retrieved": [
+            "subclass_417_working_holiday.txt",
+            "subclass_485_temporary_graduate.txt",
+            "subclass_482_skills_in_demand.txt"
+          ]
+        }
+      ],
+      "run_meta": null
+    },
+    "after": {
+      "run_file": "b0_vs_rag__structure_aware_meta_k3.json",
+      "n": 100,
+      "answers_with_a_fabricated_citation": 0
+    },
+    "not_a_controlled_comparison": "The before run carries no run_meta, so its snapshot, config and top_k are unrecorded; it predates both the August corpus correction and the 27 Sep temperature pin; and it is 13 questions against 100 on a different corpus. The change is real and worth reporting, but it is a before-and-after across two different setups, not a controlled experiment. k was assumed to be the current run's top_k when parsing it, because the file does not say."
+  },
+  "limitations": [
+    "Numeric faithfulness only. A fabricated qualitative claim carrying no figure is not detected.",
+    "Exact-match fact checking cannot distinguish a derivation from a fabrication: q78's '36 months' is correct arithmetic over three chunks each stating 'Stay: 12 months', and is still counted as unsupported.",
+    "Context for faithfulness is the retrieved chunks plus the question. A chunks-only definition would report three times as many unsupported facts, two of them the model repeating a figure the user supplied.",
+    "cited_sources matches a filename stem anywhere in the answer, so a document named in passing counts as cited. It measures 'names the document', not 'cites it in the instructed form'.",
+    "Wrong-subclass citations are scored only on rows with a single gold document, so that figure carries a smaller n than the others.",
+    "The fabrication before/after spans two corpora, two sample sizes and an unrecorded config. See not_a_controlled_comparison.",
+    "Human rag_correct exists for q01-q13 only; rag_correct_manual is empty on all 100 rows, so none of these measures are validated against human judgement."
+  ],
+  "per_question": {
+    "q01": {
+      "cited": [
+        "subclass_500_student.txt"
+      ],
+      "retrieved": [
+        "subclass_500_student.txt",
+        "subclass_500_student.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_500_student::2",
+          "subclass_500_student::0",
+          "subclass_417_working_holiday::3"
+        ],
+        "n_answer_facts": 1,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_500_student.txt"
+    },
+    "q02": {
+      "cited": [
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "citation_style": "source_bracketed",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::0",
+          "subclass_485_temporary_graduate::4",
+          "subclass_485_temporary_graduate::3"
+        ],
+        "n_answer_facts": 3,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_485_temporary_graduate.txt"
+    },
+    "q03": {
+      "cited": [
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "retrieved": [
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_482_skills_in_demand::0",
+          "subclass_482_skills_in_demand::1",
+          "subclass_482_skills_in_demand::5"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_482_skills_in_demand.txt"
+    },
+    "q04": {
+      "cited": [],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::3",
+          "subclass_417_working_holiday::1",
+          "subclass_417_working_holiday::0"
+        ],
+        "n_answer_facts": 1,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "whm_6_month_work_limitation.txt"
+    },
+    "q05": {
+      "cited": [
+        "whm_6_month_work_limitation.txt"
+      ],
+      "retrieved": [
+        "whm_6_month_work_limitation.txt",
+        "whm_6_month_work_limitation.txt",
+        "whm_6_month_work_limitation.txt"
+      ],
+      "citation_style": "source_bracketed",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "whm_6_month_work_limitation::0",
+          "whm_6_month_work_limitation::3",
+          "whm_6_month_work_limitation::1"
+        ],
+        "n_answer_facts": 1,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "whm_6_month_work_limitation.txt"
+    },
+    "q06": {
+      "cited": [
+        "subclass_500_student.txt"
+      ],
+      "retrieved": [
+        "subclass_500_student.txt",
+        "subclass_500_student.txt",
+        "subclass_500_student.txt"
+      ],
+      "citation_style": "source_bracketed",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_500_student::1",
+          "subclass_500_student::0",
+          "subclass_500_student::2"
+        ],
+        "n_answer_facts": 1,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_500_student.txt"
+    },
+    "q07": {
+      "cited": [],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "whm_6_month_work_limitation.txt",
+        "whm_6_month_work_limitation.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::3",
+          "whm_6_month_work_limitation::3",
+          "whm_6_month_work_limitation::0"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "multiple"
+    },
+    "q08": {
+      "cited": [],
+      "retrieved": [
+        "whm_6_month_work_limitation.txt",
+        "whm_6_month_work_limitation.txt",
+        "whm_6_month_work_limitation.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "whm_6_month_work_limitation::2",
+          "whm_6_month_work_limitation::1",
+          "whm_6_month_work_limitation::3"
+        ],
+        "n_answer_facts": 1,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "multiple"
+    },
+    "q09": {
+      "cited": [],
+      "retrieved": [
+        "subclass_500_student.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_500_student::2",
+          "subclass_485_temporary_graduate::3",
+          "subclass_485_temporary_graduate::4"
+        ],
+        "n_answer_facts": 2,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_485_temporary_graduate.txt"
+    },
+    "q10": {
+      "cited": [],
+      "retrieved": [
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_482_skills_in_demand::5",
+          "subclass_482_skills_in_demand::1",
+          "subclass_482_skills_in_demand::0"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "none"
+    },
+    "q11": {
+      "cited": [],
+      "retrieved": [
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_482_skills_in_demand::3",
+          "subclass_482_skills_in_demand::0",
+          "subclass_482_skills_in_demand::2"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "none"
+    },
+    "q12": {
+      "cited": [],
+      "retrieved": [
+        "whm_6_month_work_limitation.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "whm_6_month_work_limitation::0",
+          "subclass_417_working_holiday::2",
+          "subclass_417_working_holiday::3"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "none"
+    },
+    "q13": {
+      "cited": [],
+      "retrieved": [
+        "whm_6_month_work_limitation.txt",
+        "whm_6_month_work_limitation.txt",
+        "whm_6_month_work_limitation.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "whm_6_month_work_limitation::1",
+          "whm_6_month_work_limitation::2",
+          "whm_6_month_work_limitation::0"
+        ],
+        "n_answer_facts": 2,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "whm_6_month_work_limitation.txt"
+    },
+    "q14": {
+      "cited": [
+        "subclass_417_working_holiday.txt"
+      ],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::0",
+          "subclass_417_working_holiday::3",
+          "subclass_417_working_holiday::1"
+        ],
+        "n_answer_facts": 3,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_417_working_holiday.txt"
+    },
+    "q15": {
+      "cited": [
+        "subclass_417_working_holiday.txt"
+      ],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::0",
+          "subclass_417_working_holiday::3",
+          "subclass_417_working_holiday::1"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_417_working_holiday.txt"
+    },
+    "q16": {
+      "cited": [
+        "subclass_417_working_holiday.txt"
+      ],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::0",
+          "subclass_417_working_holiday::1",
+          "subclass_417_working_holiday::3"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_417_working_holiday.txt"
+    },
+    "q17": {
+      "cited": [
+        "subclass_417_working_holiday.txt"
+      ],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "source_bracketed",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::3",
+          "subclass_417_working_holiday::2",
+          "subclass_417_working_holiday::1"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_417_working_holiday.txt"
+    },
+    "q18": {
+      "cited": [],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::1",
+          "subclass_417_working_holiday::2",
+          "subclass_417_working_holiday::3"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_417_working_holiday.txt"
+    },
+    "q19": {
+      "cited": [
+        "subclass_417_working_holiday.txt"
+      ],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::1",
+          "subclass_417_working_holiday::3",
+          "subclass_417_working_holiday::2"
+        ],
+        "n_answer_facts": 2,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_417_working_holiday.txt"
+    },
+    "q20": {
+      "cited": [
+        "subclass_417_working_holiday.txt"
+      ],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::1",
+          "subclass_417_working_holiday::2",
+          "subclass_417_working_holiday::0"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_417_working_holiday.txt"
+    },
+    "q21": {
+      "cited": [],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::1",
+          "subclass_417_working_holiday::2",
+          "subclass_417_working_holiday::3"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_417_working_holiday.txt"
+    },
+    "q22": {
+      "cited": [],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::1",
+          "subclass_417_working_holiday::3",
+          "subclass_417_working_holiday::2"
+        ],
+        "n_answer_facts": 1,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_417_working_holiday.txt"
+    },
+    "q23": {
+      "cited": [],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::2",
+          "subclass_417_working_holiday::1",
+          "subclass_417_working_holiday::3"
+        ],
+        "n_answer_facts": 1,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_417_working_holiday.txt"
+    },
+    "q24": {
+      "cited": [],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::2",
+          "subclass_417_working_holiday::1",
+          "subclass_417_working_holiday::3"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_417_working_holiday.txt"
+    },
+    "q25": {
+      "cited": [],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::1",
+          "subclass_417_working_holiday::2",
+          "subclass_417_working_holiday::3"
+        ],
+        "n_answer_facts": 2,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_417_working_holiday.txt"
+    },
+    "q26": {
+      "cited": [
+        "subclass_417_working_holiday.txt"
+      ],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::0",
+          "subclass_417_working_holiday::2",
+          "subclass_417_working_holiday::3"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_417_working_holiday.txt"
+    },
+    "q27": {
+      "cited": [],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::2",
+          "subclass_417_working_holiday::3",
+          "subclass_417_working_holiday::1"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_417_working_holiday.txt"
+    },
+    "q28": {
+      "cited": [],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::2",
+          "subclass_417_working_holiday::3",
+          "subclass_417_working_holiday::1"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_417_working_holiday.txt"
+    },
+    "q29": {
+      "cited": [
+        "subclass_417_working_holiday.txt"
+      ],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::2",
+          "subclass_417_working_holiday::3",
+          "subclass_417_working_holiday::1"
+        ],
+        "n_answer_facts": 2,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_417_working_holiday.txt"
+    },
+    "q30": {
+      "cited": [
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "retrieved": [
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_482_skills_in_demand::0",
+          "subclass_482_skills_in_demand::1",
+          "subclass_482_skills_in_demand::5"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_482_skills_in_demand.txt"
+    },
+    "q31": {
+      "cited": [
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "retrieved": [
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_482_skills_in_demand::1",
+          "subclass_482_skills_in_demand::0",
+          "subclass_482_skills_in_demand::5"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_482_skills_in_demand.txt"
+    },
+    "q32": {
+      "cited": [
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "retrieved": [
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_482_skills_in_demand::1",
+          "subclass_482_skills_in_demand::0",
+          "subclass_482_skills_in_demand::5"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_482_skills_in_demand.txt"
+    },
+    "q33": {
+      "cited": [
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "retrieved": [
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_482_skills_in_demand::1",
+          "subclass_482_skills_in_demand::5",
+          "subclass_482_skills_in_demand::0"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_482_skills_in_demand.txt"
+    },
+    "q34": {
+      "cited": [
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "retrieved": [
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_482_skills_in_demand::1",
+          "subclass_482_skills_in_demand::2",
+          "subclass_482_skills_in_demand::0"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_482_skills_in_demand.txt"
+    },
+    "q35": {
+      "cited": [],
+      "retrieved": [
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "citation_style": "source_bracketed",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_482_skills_in_demand::5",
+          "subclass_482_skills_in_demand::2",
+          "subclass_482_skills_in_demand::3"
+        ],
+        "n_answer_facts": 3,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_482_skills_in_demand.txt"
+    },
+    "q36": {
+      "cited": [
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "retrieved": [
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_482_skills_in_demand::3",
+          "subclass_482_skills_in_demand::1",
+          "subclass_482_skills_in_demand::0"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_482_skills_in_demand.txt"
+    },
+    "q37": {
+      "cited": [
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "retrieved": [
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "citation_style": "source_bracketed",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_482_skills_in_demand::3",
+          "subclass_482_skills_in_demand::5",
+          "subclass_482_skills_in_demand::2"
+        ],
+        "n_answer_facts": 3,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_482_skills_in_demand.txt"
+    },
+    "q38": {
+      "cited": [
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "retrieved": [
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_482_skills_in_demand::4",
+          "subclass_482_skills_in_demand::5",
+          "subclass_482_skills_in_demand::2"
+        ],
+        "n_answer_facts": 3,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_482_skills_in_demand.txt"
+    },
+    "q39": {
+      "cited": [
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "retrieved": [
+        "subclass_482_skills_in_demand.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_500_student.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_482_skills_in_demand::5",
+          "subclass_417_working_holiday::3",
+          "subclass_500_student::0"
+        ],
+        "n_answer_facts": 1,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_482_skills_in_demand.txt"
+    },
+    "q40": {
+      "cited": [
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::1",
+          "subclass_485_temporary_graduate::0",
+          "subclass_417_working_holiday::0"
+        ],
+        "n_answer_facts": 1,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_485_temporary_graduate.txt"
+    },
+    "q41": {
+      "cited": [
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::1",
+          "subclass_485_temporary_graduate::0",
+          "subclass_485_temporary_graduate::4"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_485_temporary_graduate.txt"
+    },
+    "q42": {
+      "cited": [
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_482_skills_in_demand.txt",
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::1",
+          "subclass_482_skills_in_demand::1",
+          "subclass_485_temporary_graduate::0"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_485_temporary_graduate.txt"
+    },
+    "q43": {
+      "cited": [
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::1",
+          "subclass_485_temporary_graduate::0",
+          "subclass_485_temporary_graduate::4"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_485_temporary_graduate.txt"
+    },
+    "q44": {
+      "cited": [
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::1",
+          "subclass_485_temporary_graduate::0",
+          "subclass_482_skills_in_demand::1"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_485_temporary_graduate.txt"
+    },
+    "q45": {
+      "cited": [
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::2",
+          "subclass_485_temporary_graduate::4",
+          "subclass_485_temporary_graduate::3"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_485_temporary_graduate.txt"
+    },
+    "q46": {
+      "cited": [
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::2",
+          "subclass_485_temporary_graduate::4",
+          "subclass_485_temporary_graduate::0"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_485_temporary_graduate.txt"
+    },
+    "q47": {
+      "cited": [
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::2",
+          "subclass_485_temporary_graduate::1",
+          "subclass_482_skills_in_demand::1"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_485_temporary_graduate.txt"
+    },
+    "q48": {
+      "cited": [
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_482_skills_in_demand.txt",
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::4",
+          "subclass_482_skills_in_demand::5",
+          "subclass_485_temporary_graduate::2"
+        ],
+        "n_answer_facts": 3,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_485_temporary_graduate.txt"
+    },
+    "q49": {
+      "cited": [
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::4",
+          "subclass_485_temporary_graduate::2",
+          "subclass_485_temporary_graduate::3"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_485_temporary_graduate.txt"
+    },
+    "q50": {
+      "cited": [
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::4",
+          "subclass_485_temporary_graduate::0",
+          "subclass_485_temporary_graduate::3"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_485_temporary_graduate.txt"
+    },
+    "q51": {
+      "cited": [],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::0",
+          "subclass_485_temporary_graduate::1",
+          "subclass_485_temporary_graduate::4"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_485_temporary_graduate.txt"
+    },
+    "q52": {
+      "cited": [
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::4",
+          "subclass_485_temporary_graduate::0",
+          "subclass_485_temporary_graduate::3"
+        ],
+        "n_answer_facts": 3,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_485_temporary_graduate.txt"
+    },
+    "q53": {
+      "cited": [
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::4",
+          "subclass_485_temporary_graduate::2",
+          "subclass_485_temporary_graduate::3"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_485_temporary_graduate.txt"
+    },
+    "q54": {
+      "cited": [
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::4",
+          "subclass_485_temporary_graduate::0",
+          "subclass_482_skills_in_demand::5"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_485_temporary_graduate.txt"
+    },
+    "q55": {
+      "cited": [
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_482_skills_in_demand.txt",
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::4",
+          "subclass_482_skills_in_demand::5",
+          "subclass_485_temporary_graduate::3"
+        ],
+        "n_answer_facts": 1,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_485_temporary_graduate.txt"
+    },
+    "q56": {
+      "cited": [
+        "subclass_500_student.txt"
+      ],
+      "retrieved": [
+        "subclass_500_student.txt",
+        "subclass_500_student.txt",
+        "subclass_500_student.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_500_student::0",
+          "subclass_500_student::2",
+          "subclass_500_student::3"
+        ],
+        "n_answer_facts": 1,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_500_student.txt"
+    },
+    "q57": {
+      "cited": [
+        "subclass_500_student.txt"
+      ],
+      "retrieved": [
+        "subclass_500_student.txt",
+        "subclass_500_student.txt",
+        "subclass_500_student.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_500_student::0",
+          "subclass_500_student::2",
+          "subclass_500_student::3"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_500_student.txt"
+    },
+    "q58": {
+      "cited": [
+        "subclass_500_student.txt"
+      ],
+      "retrieved": [
+        "subclass_500_student.txt",
+        "subclass_500_student.txt",
+        "subclass_500_student.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_500_student::0",
+          "subclass_500_student::2",
+          "subclass_500_student::3"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_500_student.txt"
+    },
+    "q59": {
+      "cited": [
+        "subclass_500_student.txt"
+      ],
+      "retrieved": [
+        "subclass_500_student.txt",
+        "subclass_500_student.txt",
+        "subclass_500_student.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_500_student::0",
+          "subclass_500_student::2",
+          "subclass_500_student::3"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_500_student.txt"
+    },
+    "q60": {
+      "cited": [
+        "subclass_500_student.txt"
+      ],
+      "retrieved": [
+        "subclass_500_student.txt",
+        "subclass_500_student.txt",
+        "subclass_500_student.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_500_student::3",
+          "subclass_500_student::0",
+          "subclass_500_student::4"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_500_student.txt"
+    },
+    "q61": {
+      "cited": [
+        "subclass_500_student.txt"
+      ],
+      "retrieved": [
+        "subclass_500_student.txt",
+        "subclass_500_student.txt",
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_500_student::3",
+          "subclass_500_student::0",
+          "subclass_485_temporary_graduate::1"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_500_student.txt"
+    },
+    "q62": {
+      "cited": [
+        "subclass_500_student.txt"
+      ],
+      "retrieved": [
+        "subclass_500_student.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_500_student.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": [],
+      "wrong_subclass_scoreable": true,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_500_student::3",
+          "subclass_485_temporary_graduate::1",
+          "subclass_500_student::0"
+        ],
+        "n_answer_facts": 1,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "subclass_500_student.txt"
+    },
+    "q63": {
+      "cited": [],
+      "retrieved": [
+        "whm_6_month_work_limitation.txt",
+        "whm_6_month_work_limitation.txt",
+        "whm_6_month_work_limitation.txt"
+      ],
+      "citation_style": "source_bracketed",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "whm_6_month_work_limitation::1",
+          "whm_6_month_work_limitation::0",
+          "whm_6_month_work_limitation::2"
+        ],
+        "n_answer_facts": 1,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "whm_6_month_work_limitation.txt"
+    },
+    "q64": {
+      "cited": [],
+      "retrieved": [
+        "whm_6_month_work_limitation.txt",
+        "whm_6_month_work_limitation.txt",
+        "whm_6_month_work_limitation.txt"
+      ],
+      "citation_style": "source_bracketed",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "whm_6_month_work_limitation::2",
+          "whm_6_month_work_limitation::1",
+          "whm_6_month_work_limitation::0"
+        ],
+        "n_answer_facts": 1,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "whm_6_month_work_limitation.txt"
+    },
+    "q65": {
+      "cited": [
+        "whm_6_month_work_limitation.txt"
+      ],
+      "retrieved": [
+        "whm_6_month_work_limitation.txt",
+        "whm_6_month_work_limitation.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "whm_6_month_work_limitation::1",
+          "whm_6_month_work_limitation::0",
+          "subclass_417_working_holiday::3"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "whm_6_month_work_limitation.txt"
+    },
+    "q66": {
+      "cited": [],
+      "retrieved": [
+        "whm_6_month_work_limitation.txt",
+        "whm_6_month_work_limitation.txt",
+        "whm_6_month_work_limitation.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "whm_6_month_work_limitation::2",
+          "whm_6_month_work_limitation::1",
+          "whm_6_month_work_limitation::3"
+        ],
+        "n_answer_facts": 1,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "whm_6_month_work_limitation.txt"
+    },
+    "q67": {
+      "cited": [],
+      "retrieved": [
+        "subclass_500_student.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_500_student::2",
+          "subclass_485_temporary_graduate::4",
+          "subclass_417_working_holiday::3"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "multiple"
+    },
+    "q68": {
+      "cited": [],
+      "retrieved": [
+        "subclass_500_student.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_500_student::1",
+          "subclass_485_temporary_graduate::4",
+          "subclass_485_temporary_graduate::3"
+        ],
+        "n_answer_facts": 1,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "multiple"
+    },
+    "q69": {
+      "cited": [
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::3",
+          "subclass_485_temporary_graduate::2",
+          "subclass_485_temporary_graduate::4"
+        ],
+        "n_answer_facts": 5,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "multiple"
+    },
+    "q70": {
+      "cited": [],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::0",
+          "subclass_482_skills_in_demand::5",
+          "subclass_482_skills_in_demand::0"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "multiple"
+    },
+    "q71": {
+      "cited": [],
+      "retrieved": [
+        "subclass_482_skills_in_demand.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_482_skills_in_demand::0",
+          "subclass_485_temporary_graduate::2",
+          "subclass_485_temporary_graduate::3"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "multiple"
+    },
+    "q72": {
+      "cited": [],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt",
+        "whm_6_month_work_limitation.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::4",
+          "subclass_485_temporary_graduate::1",
+          "whm_6_month_work_limitation::3"
+        ],
+        "n_answer_facts": 1,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "multiple"
+    },
+    "q73": {
+      "cited": [],
+      "retrieved": [
+        "whm_6_month_work_limitation.txt",
+        "whm_6_month_work_limitation.txt",
+        "whm_6_month_work_limitation.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "whm_6_month_work_limitation::2",
+          "whm_6_month_work_limitation::3",
+          "whm_6_month_work_limitation::1"
+        ],
+        "n_answer_facts": 2,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "multiple"
+    },
+    "q74": {
+      "cited": [],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::3",
+          "subclass_417_working_holiday::1",
+          "subclass_417_working_holiday::2"
+        ],
+        "n_answer_facts": 2,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "multiple"
+    },
+    "q75": {
+      "cited": [],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_500_student.txt",
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::4",
+          "subclass_500_student::0",
+          "subclass_485_temporary_graduate::3"
+        ],
+        "n_answer_facts": 2,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "multiple"
+    },
+    "q76": {
+      "cited": [],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::4",
+          "subclass_485_temporary_graduate::3",
+          "subclass_485_temporary_graduate::2"
+        ],
+        "n_answer_facts": 3,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "multiple"
+    },
+    "q77": {
+      "cited": [],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "whm_6_month_work_limitation.txt",
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::2",
+          "whm_6_month_work_limitation::1",
+          "subclass_482_skills_in_demand::4"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "multiple"
+    },
+    "q78": {
+      "cited": [],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::1",
+          "subclass_417_working_holiday::2",
+          "subclass_417_working_holiday::3"
+        ],
+        "n_answer_facts": 2,
+        "n_unsupported": 1,
+        "unsupported": [
+          "36 month"
+        ]
+      },
+      "gold_source": "multiple"
+    },
+    "q79": {
+      "cited": [],
+      "retrieved": [
+        "whm_6_month_work_limitation.txt",
+        "whm_6_month_work_limitation.txt",
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "whm_6_month_work_limitation::2",
+          "whm_6_month_work_limitation::3",
+          "subclass_482_skills_in_demand::1"
+        ],
+        "n_answer_facts": 1,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "multiple"
+    },
+    "q80": {
+      "cited": [],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::4",
+          "subclass_485_temporary_graduate::3",
+          "subclass_485_temporary_graduate::2"
+        ],
+        "n_answer_facts": 2,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "multiple"
+    },
+    "q81": {
+      "cited": [],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::4",
+          "subclass_417_working_holiday::2",
+          "subclass_485_temporary_graduate::2"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "multiple"
+    },
+    "q82": {
+      "cited": [
+        "subclass_500_student.txt",
+        "whm_6_month_work_limitation.txt"
+      ],
+      "retrieved": [
+        "subclass_500_student.txt",
+        "whm_6_month_work_limitation.txt",
+        "whm_6_month_work_limitation.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_500_student::2",
+          "whm_6_month_work_limitation::1",
+          "whm_6_month_work_limitation::0"
+        ],
+        "n_answer_facts": 2,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "multiple"
+    },
+    "q83": {
+      "cited": [],
+      "retrieved": [
+        "subclass_500_student.txt",
+        "subclass_482_skills_in_demand.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_500_student::1",
+          "subclass_482_skills_in_demand::5",
+          "subclass_417_working_holiday::1"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "multiple"
+    },
+    "q84": {
+      "cited": [],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::0",
+          "subclass_485_temporary_graduate::1",
+          "subclass_417_working_holiday::3"
+        ],
+        "n_answer_facts": 2,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "multiple"
+    },
+    "q85": {
+      "cited": [
+        "subclass_482_skills_in_demand.txt",
+        "subclass_500_student.txt"
+      ],
+      "retrieved": [
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt",
+        "subclass_500_student.txt"
+      ],
+      "citation_style": "bracketed_source",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_482_skills_in_demand::1",
+          "subclass_482_skills_in_demand::0",
+          "subclass_500_student::3"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "multiple"
+    },
+    "q86": {
+      "cited": [],
+      "retrieved": [
+        "whm_6_month_work_limitation.txt",
+        "whm_6_month_work_limitation.txt",
+        "whm_6_month_work_limitation.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "whm_6_month_work_limitation::3",
+          "whm_6_month_work_limitation::2",
+          "whm_6_month_work_limitation::0"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "multiple"
+    },
+    "q87": {
+      "cited": [],
+      "retrieved": [
+        "whm_6_month_work_limitation.txt",
+        "whm_6_month_work_limitation.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "whm_6_month_work_limitation::3",
+          "whm_6_month_work_limitation::2",
+          "subclass_417_working_holiday::3"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "multiple"
+    },
+    "q88": {
+      "cited": [],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::0",
+          "subclass_485_temporary_graduate::1",
+          "subclass_485_temporary_graduate::4"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "multiple"
+    },
+    "q89": {
+      "cited": [],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::3",
+          "subclass_417_working_holiday::1",
+          "subclass_417_working_holiday::2"
+        ],
+        "n_answer_facts": 1,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "none"
+    },
+    "q90": {
+      "cited": [],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::0",
+          "subclass_485_temporary_graduate::1",
+          "subclass_482_skills_in_demand::5"
+        ],
+        "n_answer_facts": 1,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "none"
+    },
+    "q91": {
+      "cited": [],
+      "retrieved": [
+        "subclass_482_skills_in_demand.txt",
+        "subclass_500_student.txt",
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_482_skills_in_demand::5",
+          "subclass_500_student::2",
+          "subclass_482_skills_in_demand::4"
+        ],
+        "n_answer_facts": 2,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "none"
+    },
+    "q92": {
+      "cited": [],
+      "retrieved": [
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt",
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_482_skills_in_demand::0",
+          "subclass_482_skills_in_demand::5",
+          "subclass_482_skills_in_demand::1"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "none"
+    },
+    "q93": {
+      "cited": [],
+      "retrieved": [
+        "subclass_500_student.txt",
+        "subclass_500_student.txt",
+        "subclass_500_student.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_500_student::4",
+          "subclass_500_student::2",
+          "subclass_500_student::0"
+        ],
+        "n_answer_facts": 1,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "none"
+    },
+    "q94": {
+      "cited": [],
+      "retrieved": [
+        "whm_6_month_work_limitation.txt",
+        "whm_6_month_work_limitation.txt",
+        "whm_6_month_work_limitation.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "whm_6_month_work_limitation::2",
+          "whm_6_month_work_limitation::3",
+          "whm_6_month_work_limitation::1"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "none"
+    },
+    "q95": {
+      "cited": [
+        "subclass_485_temporary_graduate.txt"
+      ],
+      "retrieved": [
+        "subclass_485_temporary_graduate.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_500_student.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": true,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_485_temporary_graduate::1",
+          "subclass_485_temporary_graduate::0",
+          "subclass_500_student::3"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "none"
+    },
+    "q96": {
+      "cited": [],
+      "retrieved": [
+        "whm_6_month_work_limitation.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "whm_6_month_work_limitation::2",
+          "subclass_417_working_holiday::1",
+          "subclass_417_working_holiday::3"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "none"
+    },
+    "q97": {
+      "cited": [],
+      "retrieved": [
+        "subclass_500_student.txt",
+        "whm_6_month_work_limitation.txt",
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_500_student::4",
+          "whm_6_month_work_limitation::2",
+          "subclass_482_skills_in_demand::0"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "none"
+    },
+    "q98": {
+      "cited": [],
+      "retrieved": [
+        "whm_6_month_work_limitation.txt",
+        "subclass_482_skills_in_demand.txt",
+        "whm_6_month_work_limitation.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "whm_6_month_work_limitation::0",
+          "subclass_482_skills_in_demand::1",
+          "whm_6_month_work_limitation::3"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "none"
+    },
+    "q99": {
+      "cited": [],
+      "retrieved": [
+        "subclass_482_skills_in_demand.txt",
+        "subclass_485_temporary_graduate.txt",
+        "subclass_482_skills_in_demand.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_482_skills_in_demand::5",
+          "subclass_485_temporary_graduate::4",
+          "subclass_482_skills_in_demand::4"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "none"
+    },
+    "q100": {
+      "cited": [],
+      "retrieved": [
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt",
+        "subclass_417_working_holiday.txt"
+      ],
+      "citation_style": "freeform_or_absent",
+      "cites_anything": false,
+      "fabricated": [],
+      "wrong_subclass": null,
+      "wrong_subclass_scoreable": false,
+      "faithfulness": {
+        "resolvable": true,
+        "retrieved_chunk_ids": [
+          "subclass_417_working_holiday::2",
+          "subclass_417_working_holiday::1",
+          "subclass_417_working_holiday::3"
+        ],
+        "n_answer_facts": 0,
+        "n_unsupported": 0,
+        "unsupported": []
+      },
+      "gold_source": "none"
+    }
+  }
+}
