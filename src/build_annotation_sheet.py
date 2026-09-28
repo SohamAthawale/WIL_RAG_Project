@@ -8,6 +8,7 @@ Every judgement column is empty and every dropdown is a choice for the annotator
 This script only assembles and orders the evidence; it makes no judgements.
 """
 
+import os
 import json
 from pathlib import Path
 
@@ -31,7 +32,10 @@ from rag import DEFAULT_CONFIG, TOP_K
 RESULTS_GLOB = f"b0_vs_rag__{DEFAULT_CONFIG}_k{TOP_K}.json"
 OUT = ROOT / "results" / "annotation_sheet.xlsx"
 
-OLLAMA = "http://localhost:11434/api/embeddings"
+# Host is read from the environment so the pipeline can reach an Ollama running in
+# another container without editing source. Unset, it is the local default this
+# project has always used, so existing invocations behave identically.
+OLLAMA = os.environ.get("OLLAMA_HOST", "http://localhost:11434").rstrip("/") + "/api/embeddings"
 EMBED_MODEL = "nomic-embed-text"
 
 HDR_FILL = PatternFill("solid", fgColor="1F5C8B")
@@ -192,7 +196,7 @@ def main() -> None:
         qv = embed(item["question"])
         qv = qv / np.linalg.norm(qv)
         sims = mat_norm @ qv
-        order = np.argsort(-sims)
+        order = np.argsort(-sims, kind="stable")
         top3_ids = {store[i]["id"] for i in order[:3]}
         for rank, i in enumerate(order, start=1):
             rec = store[i]

@@ -188,8 +188,8 @@ def rank_all(store: dict, testset: list[dict]) -> dict:
     for t in testset:
         qv = eval_configs.embed(t["question"])
         qv = qv / np.linalg.norm(qv)
-        o_dense = np.argsort(-(mat @ qv))
-        o_bm25 = np.argsort(-bm.scores(t["question"]))
+        o_dense = np.argsort(-(mat @ qv), kind="stable")
+        o_bm25 = np.argsort(-bm.scores(t["question"]), kind="stable")
         o_rrf = eval_configs.rrf([o_dense, o_bm25], len(chunks))
         out[t["id"]] = {
             "dense": [ids[i] for i in o_dense],

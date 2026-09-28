@@ -14,6 +14,7 @@ Usage:
 
 import argparse
 import hashlib
+import os
 import json
 from pathlib import Path
 
@@ -25,7 +26,10 @@ ROOT = Path(__file__).resolve().parent.parent
 DOCS_DIR = ROOT / "data" / "documents"
 SNAPSHOTS = ROOT / "data" / "snapshots"
 
-OLLAMA_URL = "http://localhost:11434/api/embeddings"
+# Host is read from the environment so the pipeline can reach an Ollama running in
+# another container without editing source. Unset, it is the local default this
+# project has always used, so existing invocations behave identically.
+OLLAMA_URL = os.environ.get("OLLAMA_HOST", "http://localhost:11434").rstrip("/") + "/api/embeddings"
 EMBED_MODEL = "nomic-embed-text"
 
 

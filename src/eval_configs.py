@@ -12,6 +12,7 @@ qrels and is not computed here.
 """
 
 import argparse
+import os
 import json
 import re
 import sys
@@ -27,7 +28,10 @@ SNAPSHOTS = ROOT / "data" / "snapshots"
 TESTSET = ROOT / "data" / "testset" / "test_set.json"
 OUT = ROOT / "results" / "config_comparison.json"
 
-OLLAMA = "http://localhost:11434/api/embeddings"
+# Host is read from the environment so the pipeline can reach an Ollama running in
+# another container without editing source. Unset, it is the local default this
+# project has always used, so existing invocations behave identically.
+OLLAMA = os.environ.get("OLLAMA_HOST", "http://localhost:11434").rstrip("/") + "/api/embeddings"
 EMBED_MODEL = "nomic-embed-text"
 KS = [1, 3, 5]
 RRF_K = 60
@@ -49,11 +53,16 @@ def subclass_of(source: str) -> str | None:
 
 
 def rrf(orders, n):
+    # Fused scores tie often: summing 1/(k+rank) over full rankings of a 24-chunk
+    # store puts two chunks on the same total whenever they swap ranks between the
+    # two retrievers. A stable sort settles those on store order, which is defined
+    # and identical everywhere; the default quicksort settles them on whatever the
+    # local NumPy build does, which differs across architectures.
     score = np.zeros(n)
     for o in orders:
         for pos, idx in enumerate(o, start=1):
             score[idx] += 1.0 / (RRF_K + pos)
-    return np.argsort(-score)
+    return np.argsort(-score, kind="stable")
 
 
 def evaluate(store_path: Path, testset: list[dict]) -> dict:
@@ -75,8 +84,8 @@ def evaluate(store_path: Path, testset: list[dict]) -> dict:
     for t in scored:
         qv = embed(t["question"])
         qv = qv / np.linalg.norm(qv)
-        o_dense = np.argsort(-(mat @ qv))
-        o_bm25 = np.argsort(-bm.scores(t["question"]))
+        o_dense = np.argsort(-(mat @ qv), kind="stable")
+        o_bm25 = np.argsort(-bm.scores(t["question"]), kind="stable")
         gold_sc = subclass_of(t["gold_source"])
 
         for name, order in (("dense", o_dense), ("bm25", o_bm25),

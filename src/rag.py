@@ -1,6 +1,7 @@
 """Retrieval + generation over the local vector store, plus a bare-LLM (B0)
 baseline with no retrieval, for the RAG-vs-no-RAG comparison."""
 
+import os
 import json
 from pathlib import Path
 
@@ -14,8 +15,12 @@ SNAPSHOTS = ROOT / "data" / "snapshots"
 # Anything else silently compares systems built on different chunkings.
 DEFAULT_CONFIG = "structure_aware_meta"
 
-OLLAMA_EMBED_URL = "http://localhost:11434/api/embeddings"
-OLLAMA_CHAT_URL = "http://localhost:11434/api/chat"
+# Host is read from the environment so the pipeline can reach an Ollama running in
+# another container without editing source. Unset, it is the local default this
+# project has always used, so existing invocations behave identically.
+OLLAMA_BASE = os.environ.get("OLLAMA_HOST", "http://localhost:11434").rstrip("/")
+OLLAMA_EMBED_URL = f"{OLLAMA_BASE}/api/embeddings"
+OLLAMA_CHAT_URL = f"{OLLAMA_BASE}/api/chat"
 EMBED_MODEL = "nomic-embed-text"
 GEN_MODEL = "qwen2.5:7b-instruct"
 

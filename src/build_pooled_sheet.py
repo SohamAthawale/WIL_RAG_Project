@@ -47,7 +47,7 @@ def rrf(orders: list[np.ndarray], n: int, k: int = 60) -> np.ndarray:
     for order in orders:
         for rank, idx in enumerate(order, start=1):
             score[idx] += 1.0 / (k + rank)
-    return np.argsort(-score)
+    return np.argsort(-score, kind="stable")
 
 
 def main() -> None:
@@ -65,8 +65,8 @@ def main() -> None:
     for t in todo:
         qv = rag.embed(t["question"])
         qv = qv / np.linalg.norm(qv)
-        o_dense = np.argsort(-(mat @ qv))
-        o_bm25 = np.argsort(-bm.scores(t["question"]))
+        o_dense = np.argsort(-(mat @ qv), kind="stable")
+        o_bm25 = np.argsort(-bm.scores(t["question"]), kind="stable")
         o_rrf = rrf([o_dense, o_bm25], len(chunks))
 
         pool: dict[int, list[str]] = {}

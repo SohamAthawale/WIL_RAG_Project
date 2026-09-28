@@ -14,6 +14,7 @@ can be regenerated with one ingest command.
 """
 
 import csv
+import os
 import json
 from pathlib import Path
 
@@ -28,7 +29,10 @@ SWEEPS = ROOT / "data" / "sweeps"
 TESTSET = ROOT / "data" / "testset" / "test_set.json"
 OUT = ROOT / "results" / "chunking_sweep.csv"
 
-OLLAMA = "http://localhost:11434/api/embeddings"
+# Host is read from the environment so the pipeline can reach an Ollama running in
+# another container without editing source. Unset, it is the local default this
+# project has always used, so existing invocations behave identically.
+OLLAMA = os.environ.get("OLLAMA_HOST", "http://localhost:11434").rstrip("/") + "/api/embeddings"
 EMBED_MODEL = "nomic-embed-text"
 
 # The hazard: this rule and this exemption list must stay in the same chunk.

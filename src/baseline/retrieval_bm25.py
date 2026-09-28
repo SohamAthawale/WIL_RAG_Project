@@ -79,7 +79,7 @@ def retrieve(query: str, store: list[dict], k: int = 3) -> list[dict]:
     if _cached is None or _cached.store is not store:
         _cached = BM25(store)
     s = _cached.scores(query)
-    order = np.argsort(-s)[:k]
+    order = np.argsort(-s, kind="stable")[:k]
     return [
         {"score": float(s[i]), **{kk: vv for kk, vv in store[i].items() if kk != "embedding"}}
         for i in order
