@@ -719,6 +719,55 @@ wide. It was noise presented as a ranking.
 This is the second finding in this project to fail on more data, after the top-k result. Both
 failed in the direction the caveats predicted, which is the only reassuring thing about it.
 
+## Embedding reproducibility is backend-dependent — 29 September
+
+Running the harness on a second machine established that our results reproduce exactly on the
+backend that produced them, and only approximately elsewhere. Identical weights, identical code,
+identical corpus; only the floating-point backend differs.
+
+| Backend | Rows resolving | `retrieval_metrics.json` | `answerability.json` | `grounding.json` | Suites |
+|---|---|---|---|---|---|
+| macOS / Metal (original) | 100/100 | matches | matches | matches | 4 of 4 |
+| Linux / CPU | 90/100 | matches | matches | differs, 64 fields | 3 of 4 |
+| Linux / CUDA | 61/100 | differs, 27 fields | matches | differs | 2 of 4 |
+
+**Mechanism.** Document vectors are frozen in `vector_store__*.json`; query vectors are not
+stored, and `rag.retrieve()` computes them live on every replay. A replay therefore embeds the
+query on whatever backend is present and compares against document vectors embedded on the
+original one. Cosine scores shift by roughly 3e-5 between Metal and Linux CPU, and by more under
+CUDA. That is far below anything a reported figure would show, and it is enough to reorder
+retrieval on 2 of 100 questions.
+
+**Why it surfaces as a resolution failure.** `confusion.retrieved_chunk_ids()` recovers which
+chunks a stored run saw by replaying retrieval and accepting the result only when the source and
+score sequence reproduces exactly. Run files store scores to three decimals, so the comparison is
+exact equality on a rounded value: a 3e-5 shift changes that value only when a true score sits
+within about 1e-4 of a `.xxx5` boundary, which happens on 10 of 300 score cells. The guard then
+refuses those rows rather than attributing facts to chunks the run may not have seen. It behaved
+correctly — the count of unresolvable rows is the signal, not a fault.
+
+**Ruled out** rather than assumed, by testing each: the embedding model (`nomic-embed-text` blobs
+are content-addressed and byte-identical across both machines, digest `0a109f422b47`); the Ollama
+version (0.32.9, 0.34.3 and 0.34.4 agree to nine decimals on the same backend); corpus drift
+(`manifest --verify` reports no drift); and floating-point noise, which would be ~1e-15 rather
+than ~1e-5. Setting `CUDA_VISIBLE_DEVICES=""` and changing nothing else moved
+`retrieval_metrics.json` from 27 differing fields to an exact match.
+
+**What this does and does not affect.** No published figure changes. The numbers in this file
+were computed correctly on the backend recorded against them. What is qualified is the
+reproducibility claim: `retrieval_metrics.json` and `answerability.json` reproduce on CPU as well
+as Metal, and `grounding.json` reproduces exactly only on the original backend.
+
+**The fix, deferred deliberately.** Storing the 100 query vectors (~600 KB) alongside the
+document vectors removes the backend from the replay path entirely and would make reproduction
+exact anywhere, moving the affected suites to the offline tier. It changes `confusion.py`, which
+`grounding.py` imports and which two control suites pin, so it is recorded here and scheduled
+after marking rather than applied two days before submission.
+
+**What should have been recorded and was not.** `store_meta()` writes `embed_model:
+"nomic-embed-text"` with no digest and no backend. Either field would have made this visible
+immediately instead of appearing as an unexplained resolution failure on a second machine.
+
 ## Ranking determinism — 29 September
 
 Every `argsort` producing a ranking now uses `kind="stable"` (10 call sites). Reciprocal rank

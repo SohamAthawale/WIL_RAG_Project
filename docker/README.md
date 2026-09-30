@@ -94,8 +94,21 @@ the copies baked into the image at build time. Every field is expected to match:
 are stable and generation is pinned to temperature 0 with a fixed seed, so the pipeline is
 deterministic end to end and a difference means a real change rather than machine noise.
 
-Verified across architectures — `retrieval_metrics.json` rebuilt on `linux/amd64` is identical
-field for field to the same file rebuilt on `darwin/arm64`.
+**One qualification, measured rather than assumed.** Ranking and scoring are deterministic, but
+embedding is not portable across floating-point backends. Document vectors are stored; query
+vectors are computed live on replay, so a replay embeds on whatever backend is present and
+compares against vectors embedded on the original one. Cosine scores shift by roughly 3e-5
+between Metal and Linux CPU, and by more under CUDA — invisible in any reported figure, and
+enough to reorder retrieval on 2 of 100 questions.
+
+In practice: `retrieval_metrics.json` and `answerability.json` reproduce on Metal and on Linux
+CPU. `grounding.json` reproduces exactly only on the backend that produced the run, because it
+replays retrieval to recover chunk ids and matches scores at three decimals. Under CUDA,
+`retrieval_metrics.json` differs on 27 fields; `CUDA_VISIBLE_DEVICES=""` restores an exact match.
+
+If you need exact reproduction on this machine, run the embed tier on CPU. Do not run `eval` or
+`ask` that way — those generate, and CPU generation is the minutes-to-hours problem.
+`results/OBSERVATIONS.md` records the full measurement.
 
 ## A note on ranking determinism
 
